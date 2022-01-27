@@ -1,0 +1,25 @@
+--- 
+title: "Notes on 'Statistics' by Freeman, Pisani & Purves"
+author: "Jake Lawler"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+output: bookdown::gitbook
+documentclass: book
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+github-repo: jake-lawler/ProjectName
+description: "Description of Project."
+---
+
+# Preface {-}
+
+```{r echo = FALSE, eval = FALSE}
+
+# Create a live view of the book.
+
+library(bookdown)
+serve_book(dir = ".", output_dir = "_book", preview = TRUE, in_session = TRUE, quiet = FALSE)
+
+```
+

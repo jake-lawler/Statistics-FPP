@@ -1,0 +1,24 @@
+# A Closer Look at Tests of Significance {#closer_look}
+
+## Chapter Notes
+
+This chapter discusses some caveats and problems with significance testing.
+
+* It is not true that a statistically significant result cannot be caused by chance variation.
+* Deciding which hypothesis to test after looking at the data makes p-values hard to interpret.
+* One form of this data snooping is to look at whether your sample average is too big or two small, and then deciding to use a one-tailed test in the direction observed.
+* As long as they say what they have done, this can be corrected. If you think a two-tailed test should have been performed instead, just double the p-value.
+* Statistical significance and practical significance are two distinct ideas. With a large enough sample, even a difference too small to ever matter practically can lead to a very small p-value.
+* A box model is always needed to make sense out of a test of significance.
+* Take care to distinguish between samples drawn by probability methods and a sample of convenience.
+* Rejection of $H_0$ should not be confused with strong evidence for your substantive theory $T$ by itself. If too many sixes come up in a die-rolling test of telekinesis, we may have simply found evidence that the die used is biased. Multiple competing theories can predict the same statistical model.
+* Tests of significance only ever answer one question:
+
+> How easy is it to explain the difference between the data and what is expected on the null hypothesis, on the basis of chance variation alone?
+
+* Sometimes this is not the right question to ask, and techniques of estimation are needed instead of hypothesis testing.
+
+
+# Further Reading {-}
+
+

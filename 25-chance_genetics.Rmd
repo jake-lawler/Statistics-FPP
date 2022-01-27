@@ -1,0 +1,53 @@
+# Chance Models in Genetics {#chance_genetics}
+
+## Chapter Notes
+
+This chapter applies our box models (or *chance models* or *stochastic models*) to the study of genetics.
+
+The chapter opens with a description of Mendel's experiments on pea seed colour. Then it outlines Fisher's discussion of Mendel's data. Here's a quote from Fisher:
+
+> ...the general level of agreement between Mendel’s expectations and his reported results shows that it is closer than would be expected in the best of several thousand repetitions. The data have evidently been sophisticated systematically, and after examining various possibilities, I have no doubt that Mendel was deceived by a gardening assistant, who knew only too well what his principal expected from each trial made.
+
+The chapter outlines the mathematics underlying Fisher's quote: in one experiment, Mendel obtained 2,001 green seeds from a sample of 8,023 second-generation hybrid seeds. The expected value is $8,023/4 \approx 2,006$. We can construct a box model to esimate the probability of an error of 5 or less. 
+
+We draw 8,023 times from a box containing four tickets, three marked with zero and one marked with one. What is the probability that the sum will be within 2,001 - 2,011? The mean is 2,006 and the standard error is $\sqrt{8,023} \times \sqrt{\frac{1}{4} \times \frac{3}{4}} \approx 38.8$. Our observed error of 5.5 (the .5 is a continuity correction) is 0.15 standard errors. How much of the area under a normal curve is within 0.15 standard deviations of the mean? By consulting a normal table we can see that the answer is 12%. We should expect to see experimental results that agree this closely (or more closely) with theoretical expectations 12% of the time. That is not so unlikely, however almost every one of Mendel's experiments shows this pattern. Fisher used the $\chi^2$-test to pool the results and showed that the chance of agreement as close as Mendel reported is about four in a hundred thousand.
+
+There is also a fun example from Fisher in the chapter where Mendel's experimental results agree very closely with the theoretical expectation of somebody who got the mathematics a little wrong, but not particularly closely with the expectation of somebody who did not overlook one subtlety of Mendel's classification system.
+
+> There is one difference between seed color and pod shape. Pod shape is a characteristic of the parent plant, and is utterly unaffected by the fertilizing pollen. Thus, if a plant of a pure strain showing the recessive constricted form of seed pods is fertilized with pollen from a plant of pure strain showing the dominant inflated form, all the resulting seed pods will have the recessive constricted form . . . You can’t tell the i/i ’s from the i/c’s or c/i ’s just by looking, the appearances are identical. So how did Mendel classify them?Well, if undisturbed by naturalists, a pea plant will pollinate itself. So Mendel took his second-generation hybrid plants showing the dominant inflated form, and selected 600 at random. He then raised 10 offsprings from each of his selected plants. If the plant bred true and all 10 offsprings showed the dominant inflated form, he classified it as i/i.If the plant produced any offspring showing the recessive constricted form, he classified it as i/c or c/i.
+>
+> There is one difficulty with this scheme, which Mendel seems to have overlooked. As Figure 1 shows, the chance that the offspring of a self-fertilized i/c will contain at least one dominant gene i,andhence show the dominant inflated form, is 3/4. So the chance that 10 offsprings of an i/c crossed with itself will all show the dominant form is $(3/4)^{10} \approx 6\%$. Similarly for c/i ’s. The expected frequency of plants classified as i/i is therefore a bit higher than 200, because about 6% of the 400 i/c’s and c/i ’s will be incorrectly classified as i/i . . . Mendel’s observed frequency (201 classified as i/i) is rather too far from expectation: the chance of such a large discrepancy is only about 5%. As Fisher concludes, “There is no easy way out of the difficulty.”
+
+I read a longer discussion of Mendel's experimental data in chapter 11 of Jan Sapp's 'Genesis - The Evolution of Biology'.
+
+The next section of the chapter deals with Fisher's model of height heredity - to explain Galton's observations of 'regression to mediocrity'. We start with a simplified version with the following assumptions:
+
+> 1. height is controlled by one gene-pair.
+> 2. the genes controlling height act in a purely additive way.
+
+Here's the model:
+
+> The symbols h\*, h\*\*, h′,h′′ will be used to denote four typical variants of the height-gene. (Variants of a gene are called “alleles.”) Assumption (2) means, for instance, that h\* always contributes a fixed amount to an individual’s height, whether it is combined with another h\*,or with an h′,or with any other variant of the height gene . . . This contribution (say in inches) will be denoted by the same letter as used to denote the gene, but in capitals. Thus, an individual with the gene-pair h\*/h′ will have height equal to the sum H\* + H′ . . . 
+>
+> Fisher assumed with Mendel that a child gets one gene of the pair controlling height at random from each parent (figure 3). To be more precise, the father has agene-pair controlling height, and so does themother. Then onegeneis drawn at random from the father’s pair and one from the mother’s pair to make up the child’s pair.
+>
+> For the sake of argument, suppose the father has the gene-pair h\*/h\*\*, and the mother has the gene-pair h′/h′′.The child has chance 1/2 to get h\* and chance 1/2 to get h\*\* from the father. Therefore, the father’s expected contribution to the child’s height is 1/2H\*+ 1/2 H\*\* = 1/2(H*+H**),namely one-half the father’s height. Similarly, the mother’s expected contribution equals one-half her height. If you take a large number of children of parents whose father’s height is fixed at one level, and mother’s height is fixed at another level, the average height of these children must be about equal to
+>
+> 1/2(father’s height + mother’s height).
+>
+> Th[is] expression is called the mid-parent height.For instance, with many families where the father is 72 inches tall and the mother is 68 inches tall, the mid-parent height is 1/2(72 + 68) = 70, and on the average the children will be about 70 inches tall at maturity, give or take a small chance error. This is the biological explanation for Galton’s law of regression to mediocrity (pp. 169–173).
+
+Here's the regression from the Person-Lee Study:
+
+$$
+\text{estimated son's height} - 15'' + 0.8 \times \frac{\text{father's height} + 1.08 \times \text{mother's height} }{2}
+$$
+
+> The regression coefficient of 0.8 is noticeably lower than the 1.0 predicted by a purely additive genetic model. Some of the discrepancy may be due to environmental effects, and some to nonadditive genetic effects. Furthermore, the sons averaged 1 inch taller than the fathers. This too cannot be explained by a purely additive genetic model.
+
+The chapter ends on a general point about building chance models to model physical processes:
+
+> When thinking about any other chance model, it is good to ask two questions:
+> * What are the physical entities which are supposed to act like the tickets and the box?
+> * Do they really act like that?
+

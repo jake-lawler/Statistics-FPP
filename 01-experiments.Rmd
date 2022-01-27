@@ -1,0 +1,25 @@
+# Controlled Experiments {#experiments}
+
+## Chapter Notes
+
+The chapter begins with the example of the polio vaccine developed by Jonas Salk. It uses this example to introduce the concepts of:
+
+* method of comparison
+* treatment
+* response
+* control groups
+* double-blind studies
+* randomised controls
+* placebo
+
+Two studies were performed. One with randomised controls performed double blind, and one where Grade 2 children were vaccinated with Grades 1 and 3 as controls. In the first study, the treatment and control groups were selected randomly from the population of children whose parents would consent to vaccination. In the second study, the treatment group contained only children whose parents consented, but the control group contains children whose parents would have consented, and children whose parents would not have. 
+
+This last feature biased the second study against the vaccine. Wealthier parents are more likely to consent to the vaccine, and their children are more likely to be diagnosed with polio. This is because children of wealthier parents are less likely to have contracted a mild case of polio early in childhood, while still protected by their mothers' antibodies. Catching polio like this has a protective effect against more severe infection later on.
+
+There is then a similar case study about a particular surgical intervention to treat cirrhosis of the liver, and whether the benefits of the treatment outweigh the risks of the surgery. Not randomising the controls led to a bias in favour of the treatment, since on average sicker patients were excluded from receiving the surgery.
+
+There is then some discussion of the use of historical controls - comparing data on a new treatment against data on the current treatments collected in the past.
+
+
+
+## Further Reading {-}

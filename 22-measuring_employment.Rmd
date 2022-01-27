@@ -1,0 +1,37 @@
+# Measuring Employment and Unemployment {#measuring_employment}
+
+## Chapter Notes
+
+This chapter uses the Current Population Survey as a case study to illustrate the ideas introduced over the previous few chapters. The conclusions are described as follows:
+
+> * In practice, fairly complicated probability methods must be used to draw samples. Simple random sampling is only a building-block in these designs.
+> * The standard-error formulas for simple random samples do not apply to these complicated designs, and other methods must be used for estimating the standard errors.
+
+Here's the description of the survey following the 2000 redesign:
+
+> There were 3,142 counties and independent cities in the U.S. As the first step in the redesign process, the Bureau put these together into groups to form 2,025 Primary Sampling Units (or PSUs, for short). Each PSU consisted either of a city, or acounty, or a group of contiguous counties. These PSUs were sorted into 824 strata,chosen so the PSUs in each stratum would resemble each other on certain demographic and economic characteristics . . . The sample was chosen in two stages. To begin with, one PSU was chosen from each stratum, using a probability method which ensured that within the stratum, the chance of a PSU getting into the sample was proportional to its population . . . Each PSU was divided up into Ultimate Sampling Units (or USUs), consisting of about 4 housing units each. At the second stage, some USUs were picked at random for the sample . . . For the U.S. as a whole, the sampling rate is about 1 in 2,000. But the rate varies from about 1 in 300 for D.C. or Wyoming to 1 in 3,000 for large states like California, New York, and Texas.
+
+The aim is to estimate unemployment rates for all 50 states plus D.C. with about the same precision, which requires (roughly) equalising the absolute sample sizes for all 51 regions, which explains the differing sample rates.
+
+> The Survey design for 2005 produces 72,000 housing units to be canvassed each month. Of these, about 12,000 are ineligible for the sample (being vacant, or even demolished since the sample was designed). Another 4,500 or so are unavailable, because no one is at home, or because those at home will not cooperate. That leaves about 55,500 housing units in the Survey. All persons age 16 or over in these housing units are asked about their work experience in the previous week.
+
+People are then classed as employed, unemployed, or outside of the labour force according to their answers to survey questions. To estimate the number of people in the population who are unemployed, the Census Bureau divides the sample by age, sex, race, and area of residence and assigns each group a weighting separately.
+
+> There is a good reason for all the complexity. The sampling rate is different from one stratum to another, and the weights have to compensate; otherwise, the estimates could be quite biased. Moreover, the weights are used to control the impact of chance variation. For example, suppose there are too many white males age 16–19 in the sample, relative to their share in the total population. Unemployment is high in this group, which would make the overall unemployment rate in the sample too high. The Bureau has a fix: any group which is over-represented in the sample gets proportionately smaller weights, bringing the sample back into line with the population. On the other hand, if a group is under-represented, the weights are increased. Adjusting the weights this way helps to correct imbalances caused by chance variation. That reduces sampling error.
+
+How does the Bureau assign standard errors?
+
+> Procedures we have discussed in previous chapters do not apply, because the Bureau is not using a
+simple random sample. In particular, at the second stage of its sampling procedure the Bureau chooses some ultimate sampling units (USUs). A USU is a cluster of about four adjacent housing units. Every person age 16 and over living in one of these USUs gets into the sample . . . As it turns out, with a cluster sample the standard errors can themselves be estimated very closely from the data, using the half-sample method.Althoughthe details are complicated and take a lot of computer power, the idea is simple. If the Bureau wanted to see how accurate the Current Population Survey was, one thing to do would be make another independent survey following exactly the same procedures. The difference between the two surveys would give some idea of how reliable each set of results was.
+>
+> Nobody would seriously propose to replicate the Current Population Survey, at a cost of another $60 million a year, just to see how reliable it is. But the Bureau can get almost the same effect by splitting the Survey into two independent pieces which have the same chance behavior (hence the name, “half-sample method”) . . . Of course, an estimated standard error based on only one split may not be too reliable. But there are many different ways to split the sample. The Bureau looks at a number of them and combines the standard errors by taking the root-mean-square. This completes the outline of the half-sample method.
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,30 @@
+# What Are the Chances {#chances}
+
+## Chapter Notes
+
+This chapter is a basic introduction to probability theory, with a frequentist philosophical approach. We have:
+
+* A definition of probablity: 
+  
+> The chance of something gives the percentage of time it is expected to happen, when the basic process is done over and over again, independently and under the same conditions.
+
+* An introduction to conditional probability
+* The multiplication rule:
+
+> The chance that two things will both happen equals the chance that the first will happen, multiplied by the chance that the second will happen given the first has happened.
+
+* Independence
+
+> Two things are *independent* if the chances for the second given the first are the same, no matter how the first one turns out. Otherwise, the two things are *dependent*.
+
+> If two things are independent, the chance that both will happen equals the product of their unconditional probabilities. This is a special case of the multiplication rule.
+
+Then the chapter introduces a case study. In People v. Collins a couple were convicted for robbery on the basis of a fairly absurd application of basic probability theory. Probabilities assigned to traits that the couple possessed (race, hair style, car colour) were multiplied together to get some very low probability that the couple were arrested due to mistaken identity. Among other issues, probabilities were multiplied in a way that assumed independence, when there were clear dependencies (e.g. between the probability of the man being a black man with a beard, and of there being an interracial couple in a car). The chapter also criticises the assigning of probabilities to characteristics during a unique event, where a frequentist definition of chance cannot apply. The convictions were later overturned.
+
+
+
+
+
+
+
+

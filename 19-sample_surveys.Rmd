@@ -1,0 +1,104 @@
+# Sample Surveys {#sample_surveys}
+
+## Chapter Notes
+
+The chapter opens by introducing some terminology:
+
+> * An investigator usually wants to generalize about a class of individuals. This class is called the *population.*
+> * Studying the whole population is usually impractical. Only part of it can be examined, and this part is called the *sample.*
+> * Usually, there are some numerical facts about the population which the investigators want to know. Such numerical facts are called *parameters.*
+> * Parameters are estimated by *statistics*,or numbers which can be computed from a sample.
+
+Say we wanted to know the average age of the population of eligible voters. This is a parameter that we could estimate from a sample of eligible voters by calculating the statistic 'average age of elegible voters in the sample'.
+
+> Statistics are what investigators know; parameters are what they want to know.
+
+We can draw conclusions about the population from a sample if it is a representative sample. But how can we know whether a sample is representative without knowing facts about the population that we're trying to estimate? Instead we can look at how the sample was chosen.
+
+The chapter introduces an example. In 1936 the Literary Digest predicted an overwhelming win for Alfred Landon over sitting president Franklin Delano Roosevelt in that year's election. The Digest has called the winner in every presidential election since 1916, and the poll that formed the basis of the prediction was the largest one ever - with 2.4 million people replying. They predicted that Roosevelt would get only 43% of the vote. His real vote share was 62% - a huge landslide win. The chapter calls this "the largest [error] ever made by a major poll".
+
+What went wrong? At the time, George Gallup was just setting up his survey organisation. He took a sample of 3,000 individuals and predicted to the percentage point what the Digest poll results were going to be, before they were published. He also took a sample of about 50,000 people, and used this to correctly forecast Roosevelt's win - though he predicted Roosevelt would get only 56% of the vote.
+
+How did the Digest get their sample?
+
+> The Digest’s procedure was to mail questionnaires to 10 million people. The names and addresses of these 10 million people came from sources like telephone books and club membership lists. That tended to screen out the poor, who were unlikely to belong to clubs or have telephones. (At the time, for example, only one household in four had a telephone.) So there was a very strong bias against the poor in the Digest’s sampling procedure. Prior to 1936, this bias may not have affected the predictions very much, because rich and poor voted along similar lines. But in 1936, the political split followed economic lines more closely. The poor voted overwhelmingly for Roosevelt, the rich were for Landon. One reason for the magnitude of the Digest’s error was selection bias.
+
+When your selection procedure is biased, taking a larger sample does not help.
+
+In addition to the bias described above, the Digest also experienced *non-response bias*. This happens when the people who don't respond to a survey differ in important, systemic ways from the people who do respond.
+
+> Special surveys have been carried out to measure the difference between respondents and non-respondents. It turns out that lower-income and upper-income people tend not to respond to questionnaires, so the middle class is over-represented among respondents. For these reasons, modern survey organizations prefer to use personal interviews rather than mailed questionnaires. A typical response rate for personal interviews is 65%, compared to 25% for mailed questionnaires.
+
+How did Gallup predict the results of the Digest poll?
+
+> He just chose 3,000 people at random from the same lists the Digest was going to use, and mailed them all a postcard asking how they planned to vote. He knew that a random sample was likely to be quite representative, as will be explained in the next two chapters.
+
+It's interesting that here Gallup didn't have to worry about selection or non-response bias, because his target of inference was a poll that suffered these biases. As long as his own survey experienced the same bias in the sample, he could be confident of predicting the Digest's results.
+
+The chapter introduces another example, this time the election of Truman over Dewey in 1948.
+
+> Three major polls covered the election campaign: Crossley, for the Hearst newspapers; Gallup, syndicated in about 100 independent newspapers across the country; and Roper, for Fortune magazine. By fall, all three had declared Dewey the winner, with a lead of around 5 percentage points. Gallup’s prediction was based on 50,000 interviews; and Roper’s on 15,000.
+
+The Scranton Tribune had a headline "Dewey As Good As Elected".
+
+> On Election Day, Truman scored an upset victory with just under 50% of the popular vote. Dewey got just over 45%.
+
+How did these polls choose their sample? They all used *quote sampling*. 
+
+> With this procedure, each interviewer was assigned a fixed quota of subjects to interview. The numbers falling into certain categories (like residence, sex, age, race, and economic status) were also fixed. In other respects, the interviewers were free to select anybody they liked . . . From a common-sense point of view, quota sampling looks good. It seems to guarantee that the sample will be like the voting population with respect to all the important characteristics that affect voting behavior. (Distributions of residence, sex, age, race, and rent can be estimated quite closely from Census data.) But the 1948 experience shows this procedure worked very badly.
+
+There area couple problems with quoate sampling. One is that there are a lot of factors that influence voting besides the ones the polling were controlling for. It's perfectly possible to choose a sample that reflects the nation in terms of age, gender, race, and income, but does not reflect the nation when it comes to voting preferences. The second problem is that the interviewer is restricted by the quota system, but within those restrictions there is a lot of room for human choice, and this is often biased. On average Republicans were likely to be marginally easier to interview in 1948.
+
+An endnote in the quote takes care to draw a distinction between quota sampling and stratified sampling. 
+> A quota sampler could in principle hire two interviewers, one to interview 100 men, the other to interview 100 women. In other respects, the two interviewers would pick whomever they wanted. This is not such a good design. By contrast, a stratified sample would be drawn as follows:
+>
+> * Take a simple random sample of 100 men.
+> * Independently, take a simple random sample of 100 women.
+>
+> This is a better design, because human bias is ruled out.
+
+Interesting. I wonder how well stratified sampling gets around the first problem with quote sampling mentioned in the chapter - that it is not feasible to control for *all* variables that affect voting preference. Is there a benefit to stratified sampling over simple probability samples? I need to read Sharon Lohr's book on this I think.
+
+So what is the alternative to quote sampling? How should we choose a sample? The chapter introduces *probability methods* for sampling:
+
+> What is a probability method for drawing a sample? To get started, imagine carrying out a survey of 100 voters in asmall town with apopulation of 1,000 eligible voters. Then, it is feasibleto list all the eligible voters, write the name of each one on a ticket, put all 1,000 tickets in a box, and draw 100 tickets at random. Since there is no point interviewing the same person twice, the draws are made without replacement. In other words, the box is shaken to mix up the tickets. One is drawn out at random and set aside. That leaves 999 in the box. The box is shaken again, a second ticket is drawn out and set aside. The process is repeated until 100 tickets have been drawn. The people whose tickets have been drawn form the sample.
+>
+> This process is called simple random sampling: tickets have simplybeen drawn at random without replacement. At each draw, every ticket in the box has an equal chance to be chosen. The interviewers have no discretion at all in whom they interview, and the procedure is impartial—everybody has the same chance to get into the sample. Consequently, the law of averages guarantees that the percentage of Democrats in the sample is likely to be close to the percentage in the population.
+>
+> What happens in a more realistic setting, when the Gallup Poll tries to predict apresidential election?A natural ideais to takeanationwidesimplerandom sample of a few thousand eligible voters. However, this isn’t as easy to do as it sounds. Drawing names at random, in the statistical sense, is hard work. It is not at all the same as choosing people haphazardly.
+
+What are the problems with simple random sampling in political polling?
+
+* There is no list of eligible voters
+* Not easy to draw a few thousand names at random from such a list if it existed (Surely this is not still true in 2021. Seems like it would be reasonably straightforward.)
+* The people chosen would be scattered geographically in such a way that it is cost-prohibitive to send interviewers to them.
+
+Instead most polling organisations use something called *multi-stage cluster sampling*. The chapter uses the example of Gallup polls between 1952 and 1984:
+
+> The Gallup Poll makes a separate study in each of the four geographical regions of the United States — Northeast, South, Midwest, and West. Within each region, they group together all the population centers of similar sizes. One such grouping might be all towns in the Northeast with a population between 50 and 250 thousand. Then, a random sample of these towns is selected. Interviewers are stationed in the selected towns, and no interviews are conducted in the other towns of that group. Other groupings are handled the same way. This completes the first stage of sampling.
+>
+> For election purposes, each town is divided up into wards,and the wards are subdivided into precincts. At the second stage of sampling, some wards are selected — at random — from each town chosen in the stage before. At the third stage, some precincts are drawn at random from each of the previously selected wards. At the fourth stage, households are drawn at random from each selected precinct. Finally, some members of the selected households are interviewed. Even here, no discretion is allowed. For instance, Gallup Poll interviewers are instructed to “speak to the youngest man 18 or older at home, or if no man is at home, the oldest woman 18 or older.”
+
+Here are the important features of probability methods of sampling:
+
+> * the interviewers have no discretion at all as to whom they interview
+> * there is a definite procedure for selecting the sample, and it involves the planned use of chance.
+
+These features mean that it is possible to compute the chance that any particular individuals in the population will get into the sample.
+
+However there are still many practical difficulties for polling via probability methods.
+
+* How can non-voters be screened out of the sample? There is a stigma attached to non-voting and so people may say that they will vote even if they won't.
+* Some people will be undecided - how can the percentage undecided be minimised?
+* Response bias - answers may be influences by phrasing of question, or even the tone or attitude of the interviewer.
+* Non-response bias
+* Check data - Gallup polls often include proportionately too many people with higher education. There may be weighting done after collecting the sample.
+* Interviewer control - interviewers not following instructions. Redundancy is often built into the questions as a way of checking for this.
+* Talk is cheap - perhaps what someone says they will do on election day does not line up with what they do.
+* Chance error - the next two chapters will dig into this more.
+
+
+
+
+
+

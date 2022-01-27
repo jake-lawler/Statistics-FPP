@@ -1,0 +1,80 @@
+# The Expected Value and Standard Error {#expected_value}
+
+## Chapter Notes
+
+Starting of with the box model introduced in the previous chapter, this chapter introduces the concept of *expected value* as follows:
+
+> The expected value for the sum of draws made at random with replacement from a box equals
+>
+> (number of draws) × (average of box).
+
+However the sum drawn from the box will differ from the expected value:
+
+> sum = expected value + chance error.
+
+How big is the chance error likely to be? Here the chapter introduces the *standard error*.
+
+> A sum is likely to be around its expected value, but to be off by a chance error similar in size to the standard error.
+
+And the *square root law*:
+
+> The square root law.Whendrawing at random with replacement from a box of numbered tickets, the standard error for the sum of the draws is
+
+$$
+\sqrt{\text{number of draws}} \times \text{(SD of box)}
+$$
+
+> The formula has two ingredients: the square root of the number of draws, and the SD of the list of numbers in the box (abbreviated to “SD of the box”) . . . As the number of draws goes up, the sum gets harder to predict, the chance errors get bigger, and so does the standard error. However, the standard error goes up slowly, by a factor equal to the square root of the number of draws.
+
+If $X_i$ ar independent and identically distributed with mean $\mu$ and variance $\sigma^2$ then
+
+$$
+E\left(X_1 + \dots + X_n\right) = n\mu
+$$
+
+and
+
+$$
+\text{var}\left(X_1 + \dots + X_n\right) = \text{var}X_1 + \dots + \text{var}X_n = n\sigma^2
+$$
+
+and the standard error is the square root of the variance or $\sqrt{n}\sigma$.
+
+> A large number of draws will be made at random with replacement from a box. What is the chance that the sum of the draws will be in a given range?
+
+Here the chapter reintroduces the normal curve.
+
+> Now for an example. Suppose the computer is programmed to take the sum of 25 draws made at random with replacement from the magic box [that contains]
+>
+> 0 2 3 4 6
+>
+> It prints out the result, repeating the process over and over again. About what percentage of the observed values should be between between 50 and 100? Each sum will be somewhere on the horizontal axis between 0 and 25 × 6 = 150.
+
+The expected value is $25 \times \frac{0+2+3+4+6}{5} = 75$ and the standard deviation of thelist of numbers in the box is $\sqrt{\frac{(0-3)^2 + (2-3)^2 + (3-3)^2 + (4-3)^2 + (6-3)^2}{5}} = \sqrt{\frac{20}{5}} = 2$. So the standard error of 25 draws is $\sqrt{25} \times 2 = 10$.
+
+The observed values of a sum of 25 draws should fit a normal distribution with mean 75 and standard deviation 10. E.g. 68% of observed values should be within within one standard error, 95% should be within two, and 99% should be within two and a half.
+
+The chapter includes a short-cut for calculating the standard deviation for lists with only two different numbers.
+
+> When a list has only two different numbers (“big” and “small”), the SD equals
+
+$$
+\left( \text{big number} - \text{small number} \right) \times \sqrt{\text{fraction with big number} \times \text{fraction with small number}}
+$$
+
+> For example, take the list 5, 1, 1, 1. The short-cut can be used because there are only two different numbers, 5 and 1. The SD is
+
+$$
+\left( 5 - 1 \right) \times \sqrt{\frac{1}{4} \times \frac{3}{4}} \approx 1.73
+$$
+
+The chapter ends by relating the root square law to the law of averages:
+
+> Suppose a coin is tossed a large number of times. Then heads will come up on about half the
+tosses:
+>
+> number of heads = half the number of tosses + chance error.
+> 
+> How big is the chance error likely to be? At first, Kerrich’s assistant thought it would be very small. The record showed him to be wrong. As Kerrich kept tossing the coin, the chance error grew in absolute terms but shrank relative to the number of tosses, just as the mathematics predicts.
+>
+>According to the square root law, the likely size of the chance error is $\sqrt{\text{number of tosses}} \times 1/2$. For instance, with 10,000 tosses the standard error is $\sqrt{10,000} \times 1/2 = 50$. When the number of tosses goes up to 1,000,000, the standard error goes up too, but only to 500 — because of the square root. As the number of tosses goes up, the SE for the number of heads gets bigger and bigger in absolute terms, but smaller and smaller relative to the number of tosses. That is why the percentage of heads gets closer and closer to 50%. The square root law is the mathematical explanation for the law of averages.

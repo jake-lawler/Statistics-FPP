@@ -1,0 +1,49 @@
+# The Regression Line {#regression_line}
+
+## Chapter Notes
+
+The chapter starts of with some examples of using the slope and intercept that describe the regression line to answer questions about two related variables. Then there is a short section about being careful when deciding whether to use causal language about regression lines.
+
+The chapter then introduces the method of least squares. Another definition of the regression line is the line that makes the smallest r.m.s. error in predicting $y$ from $x$ in your data. Choosing the line that minimises r.m.s. error is called the method of least squares.
+
+In the third chapter section, we get some advice about when a regression line may not be appropriate. As mentioned in previous chapters there may be a non-linear association between the variables, but then the chapter introduces an interesting example.
+
+> To make up an example, suppose an investigator does not know the formula for the area of a rectangle. He thinks area ought to depend on perimeter. Taking an empirical approach, he draws 20 typical rectangles, measuring the area and the perimeter for each one. The correlation coefficient turns out to be 0.98 — almost as good as Hooke’s law. The investigator concludes that he is really on to something.
+His regression equation is
+
+$$
+\text{area} = (1.60 \text{ inches}) \times (\text{perimeter}) - 10.51 \text{ square inches}
+$$
+
+The chapter says that although the mathematics works out fine, doing a regression here is silly since if the investigator looked at the variables length and width, they would find that they perfectly explain both perimeter and area in a mechanical way. No statistics necessary. The chapter contrasts this example with Hooke's law - where a linear relationship is theorised and regression is used to find out the details of this linear relationship for some particular spring, given a set of observations.
+
+> When looking at a regression study, ask yourself whether it is more like Hooke’s law, or more like area and perimeter. Of course, the area-perimeter example is hypothetical. But many investigators do fit lines to data without facing the issues. That can make a lot of trouble.
+
+Obviously the rectangle example is contrived, but it seems like statistical analysis is quite often used as a substitute for theory-driven analysis in contemporary science. For any particular investigation, what are the signs that we're acting more like the rectangle investigator than the Hooke's law example? I.e. how do we know that a statistical approach is the most salient one?
+
+There is an endnote here with a number of references, the first is to the Summer 1987 issue of the Journal of Educational Statistics, where David Freedman has an article about path analysis. The gist is that sometimes path analysis is used in social science to draw causal conclusions when the assumptions that would permit these conclusions are not met. Is this what the example of the rectangle meant to demonstrate? The rectangle investigator might use the strong relationship between perimeter and area (demonstrated through regression) to claim that perimeter causes area, when we know that actually two unmeasured variables, length and width, cause both perimeter and area. But is that really where the rectangle investigator went wrong? It seems like the more fundamental error is using a statistical approach at all, and that error seems harder to guard against (at least in any real-life example that will be more complicated than making inferences about the areas of rectangles). In any case I really like the rectangle example, I think it's useful for thinking about the limits of statistics.
+
+The chapter extends the example - maybe the rectangle investigator can fix up the issues with their model by adding more variables to their regression:
+
+> Take the hypothetical investigator who was working on the area of rectangles. He could decide to control for the shape of the rectangles by multiple regression, using the length of the diagonal to measure shape. (Of course, this isn’t a good measure of shape, but nobody knows how to measure status very well either.) The investigator would fit a multiple regression equation of the form
+
+$$
+\text{predicted area} = a + b \times \text{perimeter} + c \times \text{diagonal}.
+$$
+
+> He might tell himself that b measures the effect of perimeter, controlling for the effect of shape. As a result, he would be even more confused than before. The perimeter and the diagonal do determine the area, but only by a non-linear formula. Multiple regression is a powerful technique, but it is not a substitute for understanding.
+
+The comparison being made is to social scientists aiming to draw causal conclusions from data on income and education by also controlling for parental socio-economic status.
+
+
+
+
+
+
+
+
+
+
+
+
+

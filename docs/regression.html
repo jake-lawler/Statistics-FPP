@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 10 Regression | Notes on ‘Statistics’ by Freeman, Pisani &amp; Purves</title>
+  <meta name="description" content="Description of Project." />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 10 Regression | Notes on ‘Statistics’ by Freeman, Pisani &amp; Purves" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Description of Project." />
+  <meta name="github-repo" content="jake-lawler/ProjectName" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 10 Regression | Notes on ‘Statistics’ by Freeman, Pisani &amp; Purves" />
+  
+  <meta name="twitter:description" content="Description of Project." />
+  
+
+<meta name="author" content="Jake Lawler" />
+
+
+<meta name="date" content="2022-01-20" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="more_correlation.html"/>
+<link rel="next" href="rms_error.html"/>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="1" data-path="experiments.html"><a href="experiments.html"><i class="fa fa-check"></i><b>1</b> Controlled Experiments</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="experiments.html"><a href="experiments.html#chapter-notes"><i class="fa fa-check"></i><b>1.1</b> Chapter Notes</a></li>
+<li class="chapter" data-level="" data-path="experiments.html"><a href="experiments.html#further-reading"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="observational.html"><a href="observational.html"><i class="fa fa-check"></i><b>2</b> Observational Studies</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="observational.html"><a href="observational.html#chapter-notes-1"><i class="fa fa-check"></i><b>2.1</b> Chapter Notes</a></li>
+<li class="chapter" data-level="2.2" data-path="observational.html"><a href="observational.html#exercise-sets"><i class="fa fa-check"></i><b>2.2</b> Exercise Sets</a>
+<ul>
+<li class="chapter" data-level="" data-path="observational.html"><a href="observational.html#set-a"><i class="fa fa-check"></i>Set A</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="observational.html"><a href="observational.html#review-exercises"><i class="fa fa-check"></i><b>2.3</b> Review Exercises</a></li>
+<li class="chapter" data-level="" data-path="observational.html"><a href="observational.html#further-reading-1"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="histogram.html"><a href="histogram.html"><i class="fa fa-check"></i><b>3</b> The Histogram</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="histogram.html"><a href="histogram.html#chapter-notes-2"><i class="fa fa-check"></i><b>3.1</b> Chapter Notes</a></li>
+<li class="chapter" data-level="3.2" data-path="histogram.html"><a href="histogram.html#exercise-sets-1"><i class="fa fa-check"></i><b>3.2</b> Exercise Sets</a>
+<ul>
+<li class="chapter" data-level="" data-path="histogram.html"><a href="histogram.html#set-a-1"><i class="fa fa-check"></i>Set A</a></li>
+<li class="chapter" data-level="" data-path="histogram.html"><a href="histogram.html#set-b"><i class="fa fa-check"></i>Set B</a></li>
+<li class="chapter" data-level="" data-path="histogram.html"><a href="histogram.html#set-c"><i class="fa fa-check"></i>Set C</a></li>
+<li class="chapter" data-level="" data-path="histogram.html"><a href="histogram.html#set-d"><i class="fa fa-check"></i>Set D</a></li>
+<li class="chapter" data-level="" data-path="histogram.html"><a href="histogram.html#set-e"><i class="fa fa-check"></i>Set E</a></li>
+<li class="chapter" data-level="" data-path="histogram.html"><a href="histogram.html#set-f"><i class="fa fa-check"></i>Set F</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="histogram.html"><a href="histogram.html#review-exercises-1"><i class="fa fa-check"></i><b>3.3</b> Review Exercises</a></li>
+<li class="chapter" data-level="" data-path="histogram.html"><a href="histogram.html#further-reading-2"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="average.html"><a href="average.html"><i class="fa fa-check"></i><b>4</b> The Average and the Standard Deviation</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="average.html"><a href="average.html#chapter-notes-3"><i class="fa fa-check"></i><b>4.1</b> Chapter Notes</a></li>
+<li class="chapter" data-level="4.2" data-path="average.html"><a href="average.html#review-exercises-2"><i class="fa fa-check"></i><b>4.2</b> Review Exercises</a></li>
+<li class="chapter" data-level="" data-path="average.html"><a href="average.html#further-reading-3"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="normal_approx.html"><a href="normal_approx.html"><i class="fa fa-check"></i><b>5</b> The Normal Approximation for Data</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="normal_approx.html"><a href="normal_approx.html#chapter-notes-4"><i class="fa fa-check"></i><b>5.1</b> Chapter Notes</a></li>
+<li class="chapter" data-level="5.2" data-path="normal_approx.html"><a href="normal_approx.html#review-exercises-3"><i class="fa fa-check"></i><b>5.2</b> Review Exercises</a></li>
+<li class="chapter" data-level="" data-path="normal_approx.html"><a href="normal_approx.html#further-reading-4"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="measurement_error.html"><a href="measurement_error.html"><i class="fa fa-check"></i><b>6</b> Measurement Error</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="measurement_error.html"><a href="measurement_error.html#chapter-notes-5"><i class="fa fa-check"></i><b>6.1</b> Chapter Notes</a></li>
+<li class="chapter" data-level="6.2" data-path="measurement_error.html"><a href="measurement_error.html#review-exercises-4"><i class="fa fa-check"></i><b>6.2</b> Review Exercises</a></li>
+<li class="chapter" data-level="" data-path="measurement_error.html"><a href="measurement_error.html#further-reading-5"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="plotting.html"><a href="plotting.html"><i class="fa fa-check"></i><b>7</b> Plotting Points and Lines</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="plotting.html"><a href="plotting.html#chapter-notes-6"><i class="fa fa-check"></i><b>7.1</b> Chapter Notes</a></li>
+<li class="chapter" data-level="7.2" data-path="plotting.html"><a href="plotting.html#review-exercises-5"><i class="fa fa-check"></i><b>7.2</b> Review Exercises</a></li>
+<li class="chapter" data-level="" data-path="plotting.html"><a href="plotting.html#further-reading-6"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="correlation.html"><a href="correlation.html"><i class="fa fa-check"></i><b>8</b> Correlation</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="correlation.html"><a href="correlation.html#chapter-notes-7"><i class="fa fa-check"></i><b>8.1</b> Chapter Notes</a></li>
+<li class="chapter" data-level="8.2" data-path="correlation.html"><a href="correlation.html#review-exercises-6"><i class="fa fa-check"></i><b>8.2</b> Review Exercises</a></li>
+<li class="chapter" data-level="" data-path="correlation.html"><a href="correlation.html#further-reading-7"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="more_correlation.html"><a href="more_correlation.html"><i class="fa fa-check"></i><b>9</b> More About Correlation</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="more_correlation.html"><a href="more_correlation.html#chapter-notes-8"><i class="fa fa-check"></i><b>9.1</b> Chapter Notes</a></li>
+<li class="chapter" data-level="9.2" data-path="more_correlation.html"><a href="more_correlation.html#review-exercises-7"><i class="fa fa-check"></i><b>9.2</b> Review Exercises</a></li>
+<li class="chapter" data-level="" data-path="more_correlation.html"><a href="more_correlation.html#further-reading-8"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="regression.html"><a href="regression.html"><i class="fa fa-check"></i><b>10</b> Regression</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="regression.html"><a href="regression.html#chapter-notes-9"><i class="fa fa-check"></i><b>10.1</b> Chapter Notes</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="rms_error.html"><a href="rms_error.html"><i class="fa fa-check"></i><b>11</b> The R.M.S. Error for Regression</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="rms_error.html"><a href="rms_error.html#chapter-notes-10"><i class="fa fa-check"></i><b>11.1</b> Chapter Notes</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="regression_line.html"><a href="regression_line.html"><i class="fa fa-check"></i><b>12</b> The Regression Line</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="regression_line.html"><a href="regression_line.html#chapter-notes-11"><i class="fa fa-check"></i><b>12.1</b> Chapter Notes</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="chances.html"><a href="chances.html"><i class="fa fa-check"></i><b>13</b> What Are the Chances</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="chances.html"><a href="chances.html#chapter-notes-12"><i class="fa fa-check"></i><b>13.1</b> Chapter Notes</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="more_chance.html"><a href="more_chance.html"><i class="fa fa-check"></i><b>14</b> More About Chance</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="more_chance.html"><a href="more_chance.html#chapter-notes-13"><i class="fa fa-check"></i><b>14.1</b> Chapter Notes</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="binomial_formula.html"><a href="binomial_formula.html"><i class="fa fa-check"></i><b>15</b> The Binomial Formula</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="binomial_formula.html"><a href="binomial_formula.html#chapter-notes-14"><i class="fa fa-check"></i><b>15.1</b> Chapter Notes</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="law_averages.html"><a href="law_averages.html"><i class="fa fa-check"></i><b>16</b> The Law of Averages</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="law_averages.html"><a href="law_averages.html#chapter-notes-15"><i class="fa fa-check"></i><b>16.1</b> Chapter Notes</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="expected_value.html"><a href="expected_value.html"><i class="fa fa-check"></i><b>17</b> The Expected Value and Standard Error</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="expected_value.html"><a href="expected_value.html#chapter-notes-16"><i class="fa fa-check"></i><b>17.1</b> Chapter Notes</a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="normal_approx_prob.html"><a href="normal_approx_prob.html"><i class="fa fa-check"></i><b>18</b> The Normal Approximation for Probability Histograms</a>
+<ul>
+<li class="chapter" data-level="18.1" data-path="normal_approx_prob.html"><a href="normal_approx_prob.html#chapter-notes-17"><i class="fa fa-check"></i><b>18.1</b> Chapter Notes</a></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="sample_surveys.html"><a href="sample_surveys.html"><i class="fa fa-check"></i><b>19</b> Sample Surveys</a>
+<ul>
+<li class="chapter" data-level="19.1" data-path="sample_surveys.html"><a href="sample_surveys.html#chapter-notes-18"><i class="fa fa-check"></i><b>19.1</b> Chapter Notes</a></li>
+</ul></li>
+<li class="chapter" data-level="20" data-path="chance_errors.html"><a href="chance_errors.html"><i class="fa fa-check"></i><b>20</b> Chance Errors in Sampling</a>
+<ul>
+<li class="chapter" data-level="20.1" data-path="chance_errors.html"><a href="chance_errors.html#chapter-notes-19"><i class="fa fa-check"></i><b>20.1</b> Chapter Notes</a></li>
+</ul></li>
+<li class="chapter" data-level="21" data-path="accuracy_percentages.html"><a href="accuracy_percentages.html"><i class="fa fa-check"></i><b>21</b> The Accuracy of Percentages</a>
+<ul>
+<li class="chapter" data-level="21.1" data-path="accuracy_percentages.html"><a href="accuracy_percentages.html#chapter-notes-20"><i class="fa fa-check"></i><b>21.1</b> Chapter Notes</a></li>
+</ul></li>
+<li class="chapter" data-level="22" data-path="measuring_employment.html"><a href="measuring_employment.html"><i class="fa fa-check"></i><b>22</b> Measuring Employment and Unemployment</a>
+<ul>
+<li class="chapter" data-level="22.1" data-path="measuring_employment.html"><a href="measuring_employment.html#chapter-notes-21"><i class="fa fa-check"></i><b>22.1</b> Chapter Notes</a></li>
+</ul></li>
+<li class="chapter" data-level="23" data-path="accuracy_averages.html"><a href="accuracy_averages.html"><i class="fa fa-check"></i><b>23</b> The Accuracy of Averages</a>
+<ul>
+<li class="chapter" data-level="23.1" data-path="accuracy_averages.html"><a href="accuracy_averages.html#chapter-notes-22"><i class="fa fa-check"></i><b>23.1</b> Chapter Notes</a></li>
+</ul></li>
+<li class="chapter" data-level="24" data-path="model_measurement.html"><a href="model_measurement.html"><i class="fa fa-check"></i><b>24</b> A Model for Measurement Error</a>
+<ul>
+<li class="chapter" data-level="24.1" data-path="model_measurement.html"><a href="model_measurement.html#chapter-notes-23"><i class="fa fa-check"></i><b>24.1</b> Chapter Notes</a></li>
+</ul></li>
+<li class="chapter" data-level="25" data-path="chance_genetics.html"><a href="chance_genetics.html"><i class="fa fa-check"></i><b>25</b> Chance Models in Genetics</a>
+<ul>
+<li class="chapter" data-level="25.1" data-path="chance_genetics.html"><a href="chance_genetics.html#chapter-notes-24"><i class="fa fa-check"></i><b>25.1</b> Chapter Notes</a></li>
+</ul></li>
+<li class="chapter" data-level="26" data-path="tests_significance.html"><a href="tests_significance.html"><i class="fa fa-check"></i><b>26</b> Tests of Significance</a>
+<ul>
+<li class="chapter" data-level="26.1" data-path="tests_significance.html"><a href="tests_significance.html#chapter-notes-25"><i class="fa fa-check"></i><b>26.1</b> Chapter Notes</a></li>
+<li class="chapter" data-level="" data-path="tests_significance.html"><a href="tests_significance.html#further-reading-9"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="27" data-path="more_tests_averages.html"><a href="more_tests_averages.html"><i class="fa fa-check"></i><b>27</b> More Tests for Averages</a>
+<ul>
+<li class="chapter" data-level="27.1" data-path="more_tests_averages.html"><a href="more_tests_averages.html#chapter-notes-26"><i class="fa fa-check"></i><b>27.1</b> Chapter Notes</a></li>
+<li class="chapter" data-level="" data-path="more_tests_averages.html"><a href="more_tests_averages.html#further-reading-10"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="28" data-path="chi_square.html"><a href="chi_square.html"><i class="fa fa-check"></i><b>28</b> The Chi-Square Test</a>
+<ul>
+<li class="chapter" data-level="28.1" data-path="chi_square.html"><a href="chi_square.html#chapter-notes-27"><i class="fa fa-check"></i><b>28.1</b> Chapter Notes</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="further-reading-11.html"><a href="further-reading-11.html"><i class="fa fa-check"></i>Further Reading</a></li>
+<li class="chapter" data-level="29" data-path="closer_look.html"><a href="closer_look.html"><i class="fa fa-check"></i><b>29</b> A Closer Look at Tests of Significance</a>
+<ul>
+<li class="chapter" data-level="29.1" data-path="closer_look.html"><a href="closer_look.html#chapter-notes-28"><i class="fa fa-check"></i><b>29.1</b> Chapter Notes</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="further-reading-12.html"><a href="further-reading-12.html"><i class="fa fa-check"></i>Further Reading</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Notes on ‘Statistics’ by Freeman, Pisani &amp; Purves</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="regression" class="section level1" number="10">
+<h1><span class="header-section-number">Chapter 10</span> Regression</h1>
+<div id="chapter-notes-9" class="section level2" number="10.1">
+<h2><span class="header-section-number">10.1</span> Chapter Notes</h2>
+<p>Regression gives us a measure of how much one variable changes when we change another. In the plot below we have a collection of heights and weights of 471 men aged 18-24. A dashed line is plotted for the SD line. By looking at the points inside the vertical strip at 73 inches tall, we can see that most men who are one SD about average height are less than one SD above average weight - they lie below the SD line:</p>
+<p><img src="images/Ch10Img01.png" /></p>
+<p>The solid line is the regression line - it estimates the average weight corresponding to each height. For every increase of <span class="math inline">\(SD_x\)</span> in height, the regression line here predicts an average increase of <span class="math inline">\(r\times SD_y\)</span> in weight, where <span class="math inline">\(r\)</span> is the correlation coefficient. Here is a plot of the averages at each height, along with the regression line:</p>
+<p><img src="images/Ch10Img02.png" /></p>
+<p>The regression line is a smoothed version of this graph of averages. It can perform better or worse at this. If there is a non-linear relationship between the variables, the regression line will not reflect it.</p>
+<p>There are some examples in the chapter of predicting a y variable for a subject, given a value for their x variable and information about the regression line.</p>
+<p>I’ve been exposed to linear regression from a few different sources now (actuarial exams, Statistical Rethinking etc.) but for some reason I really got stuck this time on the relationship between the correlation coefficient and the regression line. In particular, it was not at all intuitive for me that the slope of the regression line should be <span class="math inline">\(r \times SD_y / SD_x\)</span> when regressing <span class="math inline">\(y\)</span> onto <span class="math inline">\(x\)</span>, <em>but also</em> <span class="math inline">\(r \times SD_x / SD_y\)</span> when regressing <span class="math inline">\(x\)</span> on to <span class="math inline">\(y\)</span>. It really seemed that when you flip the axes, the slope should be <span class="math inline">\(1/r \times SD_x / SD_y\)</span>.
+In the height and weight example, it’s easy to believe that when you increase height by one <span class="math inline">\(SD_{ht}\)</span> you would predict an average weight increase of <span class="math inline">\(r \times SD_{wt}\)</span>. However it is <em>also true</em> that when you increase weight by one <span class="math inline">\(SD_{wt}\)</span>, you predict an average height increase of <span class="math inline">\(r \times SD_{ht}\)</span>. You predict an increase of less than one <span class="math inline">\(SD\)</span> in your dependant variable for an increase of one <span class="math inline">\(SD\)</span> in your independent variable, no matter which one you assign to which. And this is not a quirk of the height and weight data in the chapter, but is true of any pair of variables where we would want to calculate Pearson’s correlation coefficient. Confusing!</p>
+<p>I think this paragraph from section 12.3 of Gelman, Hill &amp; Vehtari’s “Regression and Other Stories,” helps with the intuition here. They relate it to the phenomenon of ‘regression to the mean’:</p>
+<blockquote>
+<p>This all connects to our earlier discussion of “regression to the mean” in Section 6.5. When x and y are standardized (that is, placed on a common scale, as in Figure 12.2), the regression line always has slope less than 1. Thus, when x is 1 standard deviation above the mean, the predicted value of y is somewhere between 0 and 1 standard deviations above the mean. This phenomenon in linear models — that y is predicted to be closer to the mean (in standard-deviation units) than x — is called regression to the mean and occurs in many vivid contexts.
+For example, if a woman is 10 inches taller than the average for her sex, and the correlation of mothers’ and adult daughters’ heights is 0.5, then her daughter’s predicted height is 5 inches taller than the average. She is expected to be taller than average, but not so much taller — thus a “regression” (in the nonstatistical sense) to the average.</p>
+</blockquote>
+<p>Also <a href="https://statmodeling.stat.columbia.edu/2020/12/03/how-to-think-about-correlation-its-the-slope-of-the-regression-when-x-and-y-have-been-standardized/">this blog post</a> on Gelman’s site was helpful.</p>
+<p>Here are some plots of the <em>mtcars</em> data I made when trying to convince myself this made sense. They show the horsepower and weight of various cars.The black line is the <span class="math inline">\(SD\)</span> line, the blue line is my hand calculated regression line, and the red line is the regression line from the in-built lm() function in R.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="regression.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="regression.html#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="regression.html#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(mtcars)</span>
+<span id="cb1-4"><a href="regression.html#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="regression.html#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="regression.html#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># we calculate the averages and standard deviations of our two variables</span></span>
+<span id="cb1-7"><a href="regression.html#cb1-7" aria-hidden="true" tabindex="-1"></a>mean_hp <span class="ot">&lt;-</span> <span class="fu">mean</span>(mtcars<span class="sc">$</span>hp)</span>
+<span id="cb1-8"><a href="regression.html#cb1-8" aria-hidden="true" tabindex="-1"></a>sd_hp <span class="ot">&lt;-</span> <span class="fu">sd</span>(mtcars<span class="sc">$</span>hp)</span>
+<span id="cb1-9"><a href="regression.html#cb1-9" aria-hidden="true" tabindex="-1"></a>mean_wt <span class="ot">&lt;-</span> <span class="fu">mean</span>(mtcars<span class="sc">$</span>wt)</span>
+<span id="cb1-10"><a href="regression.html#cb1-10" aria-hidden="true" tabindex="-1"></a>sd_wt <span class="ot">&lt;-</span> <span class="fu">sd</span>(mtcars<span class="sc">$</span>wt)</span>
+<span id="cb1-11"><a href="regression.html#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="regression.html#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="regression.html#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># we standardise the two variables and multiply them together to get...</span></span>
+<span id="cb1-14"><a href="regression.html#cb1-14" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">hp =</span> mtcars<span class="sc">$</span>hp, <span class="at">wt=</span>mtcars<span class="sc">$</span>wt) <span class="sc">%&gt;%</span></span>
+<span id="cb1-15"><a href="regression.html#cb1-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">hp_cent =</span> hp<span class="sc">-</span>mean_hp,</span>
+<span id="cb1-16"><a href="regression.html#cb1-16" aria-hidden="true" tabindex="-1"></a>         <span class="at">hp_stand =</span> hp_cent<span class="sc">/</span>sd_hp,</span>
+<span id="cb1-17"><a href="regression.html#cb1-17" aria-hidden="true" tabindex="-1"></a>         <span class="at">wt_cent =</span> wt<span class="sc">-</span>mean_wt,</span>
+<span id="cb1-18"><a href="regression.html#cb1-18" aria-hidden="true" tabindex="-1"></a>         <span class="at">wt_stand =</span> wt_cent<span class="sc">/</span>sd_wt,</span>
+<span id="cb1-19"><a href="regression.html#cb1-19" aria-hidden="true" tabindex="-1"></a>         <span class="at">prod =</span> hp_stand <span class="sc">*</span> wt_stand)</span>
+<span id="cb1-20"><a href="regression.html#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="regression.html#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="co"># the correlation coefficient</span></span>
+<span id="cb1-22"><a href="regression.html#cb1-22" aria-hidden="true" tabindex="-1"></a>corr <span class="ot">&lt;-</span> <span class="fu">mean</span>(data<span class="sc">$</span>prod)</span>
+<span id="cb1-23"><a href="regression.html#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="regression.html#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="co"># we plot the SD line in black and the regression line in blue</span></span>
+<span id="cb1-25"><a href="regression.html#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>data)<span class="sc">+</span></span>
+<span id="cb1-26"><a href="regression.html#cb1-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x=</span>hp,<span class="at">y=</span>wt))<span class="sc">+</span></span>
+<span id="cb1-27"><a href="regression.html#cb1-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="fu">aes</span>(<span class="at">intercept =</span> mean_wt <span class="sc">-</span> sd_wt <span class="sc">*</span> mean_hp<span class="sc">/</span>sd_hp, <span class="at">slope =</span> sd_wt<span class="sc">/</span>sd_hp))<span class="sc">+</span></span>
+<span id="cb1-28"><a href="regression.html#cb1-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="fu">aes</span>(<span class="at">x=</span>hp, <span class="at">y=</span>wt), <span class="at">method =</span> lm, <span class="at">se=</span><span class="cn">FALSE</span>, <span class="at">colour =</span> <span class="st">&quot;red&quot;</span>)<span class="sc">+</span></span>
+<span id="cb1-29"><a href="regression.html#cb1-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="fu">aes</span>(<span class="at">intercept =</span> mean_wt <span class="sc">-</span> corr<span class="sc">*</span>sd_wt <span class="sc">*</span> mean_hp<span class="sc">/</span>sd_hp, <span class="at">slope =</span> corr<span class="sc">*</span>sd_wt<span class="sc">/</span>sd_hp),<span class="at">colour =</span><span class="st">&quot;blue&quot;</span>)</span></code></pre></div>
+<p><img src="10-regression_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="regression.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># now we flip the axes</span></span>
+<span id="cb2-2"><a href="regression.html#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>data)<span class="sc">+</span></span>
+<span id="cb2-3"><a href="regression.html#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x=</span>wt,<span class="at">y=</span>hp))<span class="sc">+</span></span>
+<span id="cb2-4"><a href="regression.html#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="fu">aes</span>(<span class="at">intercept =</span> mean_hp <span class="sc">-</span> sd_hp <span class="sc">*</span> mean_wt<span class="sc">/</span>sd_wt, <span class="at">slope =</span> sd_hp<span class="sc">/</span>sd_wt))<span class="sc">+</span></span>
+<span id="cb2-5"><a href="regression.html#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="fu">aes</span>(<span class="at">x=</span>wt, <span class="at">y=</span>hp), <span class="at">method =</span> lm, <span class="at">se=</span><span class="cn">FALSE</span>, <span class="at">colour =</span> <span class="st">&quot;red&quot;</span>)<span class="sc">+</span></span>
+<span id="cb2-6"><a href="regression.html#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="fu">aes</span>(<span class="at">intercept =</span> mean_hp <span class="sc">-</span> corr<span class="sc">*</span>sd_hp <span class="sc">*</span> mean_wt<span class="sc">/</span>sd_wt, <span class="at">slope =</span> corr <span class="sc">*</span> sd_hp<span class="sc">/</span>sd_wt),<span class="at">colour =</span> <span class="st">&quot;blue&quot;</span>)</span></code></pre></div>
+<p><img src="10-regression_files/figure-html/unnamed-chunk-1-2.png" width="672" /></p>
+<p>In both plots, the regression line is shallower than the SD line. Useful to imagine slicing the chart into vertical strips and drawing a line through the average of each strip.</p>
+<p>Back to the FPP chapter, it also introduces the concept of regression to the mean here, describing test-retest situations and the phenomenon where those who scored low on the initial test will likely see their scores improve and vice versa for those who scored highly.</p>
+<blockquote>
+<p>Thinking that the regression effect must be due to something important, not just the spread around the line, is the <em>regression fallacy</em>.</p>
+</blockquote>
+<p>The FPP chapter also addresses flipping the regression (although it keeps weight and height on the same axes) in a section called ‘There are Two Regression Lines’:</p>
+<p><img src="images/Ch10Img03.png" /></p>
+<p>Here’s an example from the chapter that helps clear up some of my confusion from earlier:</p>
+<blockquote>
+<p><em>Example 3.</em> IQ scores are scaled to have an average of about 100, and an SD of about 15, both for men and for women. The correlation between the IQs of husbands and wives is about 0.50. A large study of families found that the men whose IQ was 140 had wives whose IQ averaged 120. Look at the wives in the study whose IQ was 120. Should the average IQ of their husbands be greater than 120? Answer yes or no, and explain briefly.</p>
+</blockquote>
+<blockquote>
+<p><em>Solution.</em> No, the average IQ of their husbands will be around 110. See figure 9. The families where the husband has an IQ of 140 are shown in the vertical strip. The average y-coordinate in this strip is 120. The families where the wife has an IQ of 120 are shown in the horizontal strip. This is a completely different set of families. The average x-coordinate for points in the horizontal strip is about 110. Remember, there are two regression lines. One line is for predicting the wife’s IQ from her husband’s IQ. The other line is for predicting the husband’s IQ from his wife’s.</p>
+</blockquote>
+<p><img src="images/Ch10Img04.png" /></p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="more_correlation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="rms_error.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/10-regression.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

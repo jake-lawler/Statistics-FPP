@@ -1,0 +1,32 @@
+# The Binomial Formula {#binomial_formula}
+
+## Chapter Notes
+
+The chapter introduces the binomial formula:
+
+> The chance that an event will occur exactly k times out of n is given by the binomial formula
+
+$$
+\frac{n!}{k!(n-k)!} p^k (1-p)^{n-k}
+$$
+
+> In this formula, n is the number of trials, k is the number of times the event is to occur, and p is the probability that the event will occur on any particular trial. The assumptions:
+>
+> * The value of n must be fixed in advance.
+> * p must be the same from trial to trial.
+> * The trials must be independent.
+
+The binomial coefficient $\frac{n!}{k!(n-k)!}$ is the number of ways to choose $k$ objects from a set of $n$ if you don't care about order. 
+
+The formula $p^k(1-p)^{1-k}$ is the probability of any particular choice of $k$ objects. 
+
+To get the total probability that $k$ objects are chosen, you use the addition rule to add up the probabilities of all of the possible choices. I.e. you add $p^k(1-p)^{1-k}$ to itself $\frac{n!}{k!(n-k)!}$ times, which is where the formula comes from.
+
+Alternative notation for the binomial coefficient includes $n \choose k$ and $^nC_k$. Read "n choose k".
+
+
+
+
+
+
+

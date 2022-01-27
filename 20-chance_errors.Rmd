@@ -1,0 +1,61 @@
+# Chance Errors in Sampling {#chance_errors}
+
+## Chapter Notes
+
+The chapter introduces the standard error for a percentage:
+
+$$
+\text{SE for percentage} = \frac{\text{SE for number}}{\text{size of sample}} \times 100\%
+$$
+
+This allows for sentences like: "The percentage of men in the sample is likely to be around 46%, give or take 5% or so." Where the 5% is the SE for the percentage of men in the sample. In contrast to the absolute SE, the SE for a percentage decreases with increasing sample size. This is because when the sample size is increased by some factor, the SE increases by the square root of that factor.
+
+Again, the normal curve can be used to estimate probabilities given an expected value and standard error, if the assumption of normality is justified.
+
+Here's a fun example:
+
+> It is just after Labor Day, 2004. The presidential campaign (Bush versus Kerry) is in full swing, and the focus is on the Southwest. Pollsters are trying to predict the results. There are about 1.5 million eligible voters in NewMexico, and about 15 million in the state of Texas. Suppose one polling organization takes a simple random sample of 2,500 voters in New Mexico, in order to estimate the percentage of voters in that state who are Democratic. Another polling organization takes a simple random sample of 2,500 voters from Texas. Both polls use exactly the same techniques. Both estimates are likely to be a bit off, by chance error. For which poll is the chance error likely to be smaller? 
+> 
+> The New Mexico poll is sampling one voter out of 600, while the Texas poll is sampling one voter out of 6,000. It does seem that the NewMexico poll should be more accurate than the Texas poll. However, this is one of the places where intuition comes into head-on conflict with statistical theory, and it is intuition which has to give way. In fact, the accuracy expected from the New Mexico poll is just about the same as the accuracy to be expected from the Texas poll.
+>
+> When estimating percentages, it is the absolute size of the sample which determines accuracy, not the size relative to the population. This is true if the sample is only a small part of the population,
+which is the usual case.
+
+Endnote 5 contains a caveat:
+
+> The issues may be different in other contexts. For instance, suppose you are sampling from two different strata, and want to allocate a fixed number of sampling units between the two. If the object is to equalize accuracy of the two estimated percentages, a reasonable first cut is to use equal sample sizes. If the object is to equalize accuracy of estimated numbers, or to estimate a percentage that is pooled across the strata, a larger sample should generally be drawn from the larger stratum. Gains in accuracy from stratification—as opposed to simple random sampling - should not be overestimated (note 12 to chapter 19).
+
+Why should we expect the chance error to be about the same for both polls? First, the chapter sets up a box model to represent the situation (assuming for simplicity that 50% of voters in each state vote Democratic, and 50% Republican), and asks us to first imagine that the sample is taken with replacement. Then it is clear that which box is chosen makes no difference: for each draw out of each box there is a 50% chance of drawing a Democratic voter.
+
+In reality the draws are made without replacement. However because the number of draws is so low compared to the total population, the draws barely change the composition of the box. This is why we expect the standard errors to be similar. However drawing without replacement does make some difference:
+
+$$
+\text{SE when drawing without replacement} = \text{correction factor} \times \text{SE when drawing with replacement}
+$$
+
+where the correction factor is:
+
+$$
+\sqrt{\frac{\text{number of tickets in the box} - \text{number of draws}}{\text{number of tickets in the box} - 1}}
+$$
+
+The correction factor is nearly when when the number of tickets in the box is large relative to the number of draws.
+
+The box model assumed the percentage of Democrats in each state was equal. If they are not then the SDs and therefore the SE will be different. But even reasonably large differences may not make much difference. In the 2004 election, 50% of New Mexico voters went for Bush, compared to 61% of Texans. But the SDs for very close (using the short-cut for SD introduced in chapter 17):
+
+$$
+\begin{aligned}
+SD_\text{NM} &= \sqrt{0.5 \times 0.5} = 0.50 \\
+SD_\text{TX} &= \sqrt{0.61 \times 0.39} \approx 0.49.
+\end{aligned}
+$$
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,33 @@
+# The Average and the Standard Deviation {#average}
+
+## Chapter Notes
+
+Nice quote from Galton heads the chapter. I first read this quote in "The Empire of Chance", and there it seemed to be a pointed criticism of Adolphe Quetelet and his obsession with "l'homme moyen". 
+
+![](images\\Ch04Img01.png)
+
+The chapter introduces the mean, the median, and the impact on these of long-right tailed distributions (like income).
+
+The chapter then introduces the root mean square:
+
+The R.M.S of a list of $n$ $x_i$'s is 
+
+$$
+\sqrt{\frac{\sum(x_i^2)}{n}}
+$$
+
+We then get the standard deviation, a measure of the size of deviations from the mean.
+
+The (population) standard deviation is the root mean square of the deviations from the mean.
+
+$$
+s.d. = \sqrt{\frac{\sum(x_i - \overline{x})^2}{n}}
+$$
+
+There is some mention of the sample standard deviation (where we use n-1 instead), denoted in the book as $SD^+$, with a promise to explain the difference in more in chapter 26. 
+
+## Review Exercises
+
+Do these first. Revisit.
+
+## Further Reading {-}

@@ -1,0 +1,62 @@
+# The Accuracy of Averages {#accuracy_averages}
+
+## Chapter Notes
+
+> The object of this chapter is to estimate the accuracy of an average computed from a simple random sample. This section deals with a preliminary question: How much chance variability is there in the average of numbers drawn from a box?
+
+E.g. a box with tickets in labeled 1 through 7, draws are performed with replacement.
+
+Pretty straightforward. The expected value for the sum is:
+
+$$
+\text{number of draws} \times \text{average of box}
+$$
+and the standard error is:
+
+$$
+\sqrt{\text{number of draws}} \times \text{SD of box}
+$$
+
+The expected value for the average is the expected value of the sum divided by the number of draws. Likewise the SD of the average is the SD of the sum divided by the number of draws.
+
+Questions like "Estimate the chance that the average of the draws will be more than 4.2" can be answered if the normal approximation applies.
+
+The next section in the chapter concerns the inverse problem: reasoning from a sample to the (unknown) average of the box.
+
+> Suppose that a city manager wants to know the average income of the 25,000 families living in his town. He hires a survey organization to take a simple random sample of 1,000 families. The total income of the 1,000 sample families turns out to be $62,396,714. Their average income is $62,396,714/1,000 ≈ $62,400. The average income for all 25,000 families is estimated as $62,400. Of course, this estimate is off by a chance error. The problem is to put a give-or-take number on the estimate.
+
+A box model is constructed. One ticket in the box for each family in town. We take 1,000 draws from the box - there shouldn't be much difference between drawing with replacement and drawing without replacement at this ratio of draws to tickets. The standard error is 
+
+$$
+\sqrt{1,000} \times \text{SD of box}.
+$$
+
+However we do not know the SD of the box. As in chapter 21, we estimate it by calculating the SD of the sample.In this case the SD of the sample is $53,000, and so we estimate the SD of the sum as follows:
+
+$$
+\sqrt{1,000} \times \$53,000 \approx \$1,700,000.
+$$
+
+To get the SD of the average, we divide by the number of families in the sample $\$1,77,00 / 1,000$ = \$1,700$. The average of the incomes of 25,000 families can be estimated as:
+
+$$
+\$62,000 \pm \$1,700.
+$$
+
+A note on interpretation:
+
+> People who confuse the SD with the SE might think that somehow, 95% of the families in the town had incomes in the range $62,400 ± $3,400. That would be ridiculous. The range $62,400 ± $3,400 covers only a tiny part of the income distribution: the SD is about $53,000. The confidence interval is for something else. In about 95% of all samples, if you go 2 SEs either way from the sample average, your confidence interval will cover the average for the whole town; in the other 5%, your interval will miss. The word “confidence” is to remind you that the chances are in the sampling procedure; the average of the box is not moving around.
+
+
+
+
+
+
+
+
+
+
+
+
+
+

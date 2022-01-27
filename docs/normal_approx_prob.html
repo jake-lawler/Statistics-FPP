@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 18 The Normal Approximation for Probability Histograms | Notes on ‘Statistics’ by Freeman, Pisani &amp; Purves</title>
+  <meta name="description" content="Description of Project." />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 18 The Normal Approximation for Probability Histograms | Notes on ‘Statistics’ by Freeman, Pisani &amp; Purves" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Description of Project." />
+  <meta name="github-repo" content="jake-lawler/ProjectName" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 18 The Normal Approximation for Probability Histograms | Notes on ‘Statistics’ by Freeman, Pisani &amp; Purves" />
+  
+  <meta name="twitter:description" content="Description of Project." />
+  
+
+<meta name="author" content="Jake Lawler" />
+
+
+<meta name="date" content="2022-01-20" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="expected_value.html"/>
+<link rel="next" href="sample_surveys.html"/>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="1" data-path="experiments.html"><a href="experiments.html"><i class="fa fa-check"></i><b>1</b> Controlled Experiments</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="experiments.html"><a href="experiments.html#chapter-notes"><i class="fa fa-check"></i><b>1.1</b> Chapter Notes</a></li>
+<li class="chapter" data-level="" data-path="experiments.html"><a href="experiments.html#further-reading"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="observational.html"><a href="observational.html"><i class="fa fa-check"></i><b>2</b> Observational Studies</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="observational.html"><a href="observational.html#chapter-notes-1"><i class="fa fa-check"></i><b>2.1</b> Chapter Notes</a></li>
+<li class="chapter" data-level="2.2" data-path="observational.html"><a href="observational.html#exercise-sets"><i class="fa fa-check"></i><b>2.2</b> Exercise Sets</a>
+<ul>
+<li class="chapter" data-level="" data-path="observational.html"><a href="observational.html#set-a"><i class="fa fa-check"></i>Set A</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="observational.html"><a href="observational.html#review-exercises"><i class="fa fa-check"></i><b>2.3</b> Review Exercises</a></li>
+<li class="chapter" data-level="" data-path="observational.html"><a href="observational.html#further-reading-1"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="histogram.html"><a href="histogram.html"><i class="fa fa-check"></i><b>3</b> The Histogram</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="histogram.html"><a href="histogram.html#chapter-notes-2"><i class="fa fa-check"></i><b>3.1</b> Chapter Notes</a></li>
+<li class="chapter" data-level="3.2" data-path="histogram.html"><a href="histogram.html#exercise-sets-1"><i class="fa fa-check"></i><b>3.2</b> Exercise Sets</a>
+<ul>
+<li class="chapter" data-level="" data-path="histogram.html"><a href="histogram.html#set-a-1"><i class="fa fa-check"></i>Set A</a></li>
+<li class="chapter" data-level="" data-path="histogram.html"><a href="histogram.html#set-b"><i class="fa fa-check"></i>Set B</a></li>
+<li class="chapter" data-level="" data-path="histogram.html"><a href="histogram.html#set-c"><i class="fa fa-check"></i>Set C</a></li>
+<li class="chapter" data-level="" data-path="histogram.html"><a href="histogram.html#set-d"><i class="fa fa-check"></i>Set D</a></li>
+<li class="chapter" data-level="" data-path="histogram.html"><a href="histogram.html#set-e"><i class="fa fa-check"></i>Set E</a></li>
+<li class="chapter" data-level="" data-path="histogram.html"><a href="histogram.html#set-f"><i class="fa fa-check"></i>Set F</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="histogram.html"><a href="histogram.html#review-exercises-1"><i class="fa fa-check"></i><b>3.3</b> Review Exercises</a></li>
+<li class="chapter" data-level="" data-path="histogram.html"><a href="histogram.html#further-reading-2"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="average.html"><a href="average.html"><i class="fa fa-check"></i><b>4</b> The Average and the Standard Deviation</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="average.html"><a href="average.html#chapter-notes-3"><i class="fa fa-check"></i><b>4.1</b> Chapter Notes</a></li>
+<li class="chapter" data-level="4.2" data-path="average.html"><a href="average.html#review-exercises-2"><i class="fa fa-check"></i><b>4.2</b> Review Exercises</a></li>
+<li class="chapter" data-level="" data-path="average.html"><a href="average.html#further-reading-3"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="normal_approx.html"><a href="normal_approx.html"><i class="fa fa-check"></i><b>5</b> The Normal Approximation for Data</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="normal_approx.html"><a href="normal_approx.html#chapter-notes-4"><i class="fa fa-check"></i><b>5.1</b> Chapter Notes</a></li>
+<li class="chapter" data-level="5.2" data-path="normal_approx.html"><a href="normal_approx.html#review-exercises-3"><i class="fa fa-check"></i><b>5.2</b> Review Exercises</a></li>
+<li class="chapter" data-level="" data-path="normal_approx.html"><a href="normal_approx.html#further-reading-4"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="measurement_error.html"><a href="measurement_error.html"><i class="fa fa-check"></i><b>6</b> Measurement Error</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="measurement_error.html"><a href="measurement_error.html#chapter-notes-5"><i class="fa fa-check"></i><b>6.1</b> Chapter Notes</a></li>
+<li class="chapter" data-level="6.2" data-path="measurement_error.html"><a href="measurement_error.html#review-exercises-4"><i class="fa fa-check"></i><b>6.2</b> Review Exercises</a></li>
+<li class="chapter" data-level="" data-path="measurement_error.html"><a href="measurement_error.html#further-reading-5"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="plotting.html"><a href="plotting.html"><i class="fa fa-check"></i><b>7</b> Plotting Points and Lines</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="plotting.html"><a href="plotting.html#chapter-notes-6"><i class="fa fa-check"></i><b>7.1</b> Chapter Notes</a></li>
+<li class="chapter" data-level="7.2" data-path="plotting.html"><a href="plotting.html#review-exercises-5"><i class="fa fa-check"></i><b>7.2</b> Review Exercises</a></li>
+<li class="chapter" data-level="" data-path="plotting.html"><a href="plotting.html#further-reading-6"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="correlation.html"><a href="correlation.html"><i class="fa fa-check"></i><b>8</b> Correlation</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="correlation.html"><a href="correlation.html#chapter-notes-7"><i class="fa fa-check"></i><b>8.1</b> Chapter Notes</a></li>
+<li class="chapter" data-level="8.2" data-path="correlation.html"><a href="correlation.html#review-exercises-6"><i class="fa fa-check"></i><b>8.2</b> Review Exercises</a></li>
+<li class="chapter" data-level="" data-path="correlation.html"><a href="correlation.html#further-reading-7"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="more_correlation.html"><a href="more_correlation.html"><i class="fa fa-check"></i><b>9</b> More About Correlation</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="more_correlation.html"><a href="more_correlation.html#chapter-notes-8"><i class="fa fa-check"></i><b>9.1</b> Chapter Notes</a></li>
+<li class="chapter" data-level="9.2" data-path="more_correlation.html"><a href="more_correlation.html#review-exercises-7"><i class="fa fa-check"></i><b>9.2</b> Review Exercises</a></li>
+<li class="chapter" data-level="" data-path="more_correlation.html"><a href="more_correlation.html#further-reading-8"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="regression.html"><a href="regression.html"><i class="fa fa-check"></i><b>10</b> Regression</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="regression.html"><a href="regression.html#chapter-notes-9"><i class="fa fa-check"></i><b>10.1</b> Chapter Notes</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="rms_error.html"><a href="rms_error.html"><i class="fa fa-check"></i><b>11</b> The R.M.S. Error for Regression</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="rms_error.html"><a href="rms_error.html#chapter-notes-10"><i class="fa fa-check"></i><b>11.1</b> Chapter Notes</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="regression_line.html"><a href="regression_line.html"><i class="fa fa-check"></i><b>12</b> The Regression Line</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="regression_line.html"><a href="regression_line.html#chapter-notes-11"><i class="fa fa-check"></i><b>12.1</b> Chapter Notes</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="chances.html"><a href="chances.html"><i class="fa fa-check"></i><b>13</b> What Are the Chances</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="chances.html"><a href="chances.html#chapter-notes-12"><i class="fa fa-check"></i><b>13.1</b> Chapter Notes</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="more_chance.html"><a href="more_chance.html"><i class="fa fa-check"></i><b>14</b> More About Chance</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="more_chance.html"><a href="more_chance.html#chapter-notes-13"><i class="fa fa-check"></i><b>14.1</b> Chapter Notes</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="binomial_formula.html"><a href="binomial_formula.html"><i class="fa fa-check"></i><b>15</b> The Binomial Formula</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="binomial_formula.html"><a href="binomial_formula.html#chapter-notes-14"><i class="fa fa-check"></i><b>15.1</b> Chapter Notes</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="law_averages.html"><a href="law_averages.html"><i class="fa fa-check"></i><b>16</b> The Law of Averages</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="law_averages.html"><a href="law_averages.html#chapter-notes-15"><i class="fa fa-check"></i><b>16.1</b> Chapter Notes</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="expected_value.html"><a href="expected_value.html"><i class="fa fa-check"></i><b>17</b> The Expected Value and Standard Error</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="expected_value.html"><a href="expected_value.html#chapter-notes-16"><i class="fa fa-check"></i><b>17.1</b> Chapter Notes</a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="normal_approx_prob.html"><a href="normal_approx_prob.html"><i class="fa fa-check"></i><b>18</b> The Normal Approximation for Probability Histograms</a>
+<ul>
+<li class="chapter" data-level="18.1" data-path="normal_approx_prob.html"><a href="normal_approx_prob.html#chapter-notes-17"><i class="fa fa-check"></i><b>18.1</b> Chapter Notes</a></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="sample_surveys.html"><a href="sample_surveys.html"><i class="fa fa-check"></i><b>19</b> Sample Surveys</a>
+<ul>
+<li class="chapter" data-level="19.1" data-path="sample_surveys.html"><a href="sample_surveys.html#chapter-notes-18"><i class="fa fa-check"></i><b>19.1</b> Chapter Notes</a></li>
+</ul></li>
+<li class="chapter" data-level="20" data-path="chance_errors.html"><a href="chance_errors.html"><i class="fa fa-check"></i><b>20</b> Chance Errors in Sampling</a>
+<ul>
+<li class="chapter" data-level="20.1" data-path="chance_errors.html"><a href="chance_errors.html#chapter-notes-19"><i class="fa fa-check"></i><b>20.1</b> Chapter Notes</a></li>
+</ul></li>
+<li class="chapter" data-level="21" data-path="accuracy_percentages.html"><a href="accuracy_percentages.html"><i class="fa fa-check"></i><b>21</b> The Accuracy of Percentages</a>
+<ul>
+<li class="chapter" data-level="21.1" data-path="accuracy_percentages.html"><a href="accuracy_percentages.html#chapter-notes-20"><i class="fa fa-check"></i><b>21.1</b> Chapter Notes</a></li>
+</ul></li>
+<li class="chapter" data-level="22" data-path="measuring_employment.html"><a href="measuring_employment.html"><i class="fa fa-check"></i><b>22</b> Measuring Employment and Unemployment</a>
+<ul>
+<li class="chapter" data-level="22.1" data-path="measuring_employment.html"><a href="measuring_employment.html#chapter-notes-21"><i class="fa fa-check"></i><b>22.1</b> Chapter Notes</a></li>
+</ul></li>
+<li class="chapter" data-level="23" data-path="accuracy_averages.html"><a href="accuracy_averages.html"><i class="fa fa-check"></i><b>23</b> The Accuracy of Averages</a>
+<ul>
+<li class="chapter" data-level="23.1" data-path="accuracy_averages.html"><a href="accuracy_averages.html#chapter-notes-22"><i class="fa fa-check"></i><b>23.1</b> Chapter Notes</a></li>
+</ul></li>
+<li class="chapter" data-level="24" data-path="model_measurement.html"><a href="model_measurement.html"><i class="fa fa-check"></i><b>24</b> A Model for Measurement Error</a>
+<ul>
+<li class="chapter" data-level="24.1" data-path="model_measurement.html"><a href="model_measurement.html#chapter-notes-23"><i class="fa fa-check"></i><b>24.1</b> Chapter Notes</a></li>
+</ul></li>
+<li class="chapter" data-level="25" data-path="chance_genetics.html"><a href="chance_genetics.html"><i class="fa fa-check"></i><b>25</b> Chance Models in Genetics</a>
+<ul>
+<li class="chapter" data-level="25.1" data-path="chance_genetics.html"><a href="chance_genetics.html#chapter-notes-24"><i class="fa fa-check"></i><b>25.1</b> Chapter Notes</a></li>
+</ul></li>
+<li class="chapter" data-level="26" data-path="tests_significance.html"><a href="tests_significance.html"><i class="fa fa-check"></i><b>26</b> Tests of Significance</a>
+<ul>
+<li class="chapter" data-level="26.1" data-path="tests_significance.html"><a href="tests_significance.html#chapter-notes-25"><i class="fa fa-check"></i><b>26.1</b> Chapter Notes</a></li>
+<li class="chapter" data-level="" data-path="tests_significance.html"><a href="tests_significance.html#further-reading-9"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="27" data-path="more_tests_averages.html"><a href="more_tests_averages.html"><i class="fa fa-check"></i><b>27</b> More Tests for Averages</a>
+<ul>
+<li class="chapter" data-level="27.1" data-path="more_tests_averages.html"><a href="more_tests_averages.html#chapter-notes-26"><i class="fa fa-check"></i><b>27.1</b> Chapter Notes</a></li>
+<li class="chapter" data-level="" data-path="more_tests_averages.html"><a href="more_tests_averages.html#further-reading-10"><i class="fa fa-check"></i>Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="28" data-path="chi_square.html"><a href="chi_square.html"><i class="fa fa-check"></i><b>28</b> The Chi-Square Test</a>
+<ul>
+<li class="chapter" data-level="28.1" data-path="chi_square.html"><a href="chi_square.html#chapter-notes-27"><i class="fa fa-check"></i><b>28.1</b> Chapter Notes</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="further-reading-11.html"><a href="further-reading-11.html"><i class="fa fa-check"></i>Further Reading</a></li>
+<li class="chapter" data-level="29" data-path="closer_look.html"><a href="closer_look.html"><i class="fa fa-check"></i><b>29</b> A Closer Look at Tests of Significance</a>
+<ul>
+<li class="chapter" data-level="29.1" data-path="closer_look.html"><a href="closer_look.html#chapter-notes-28"><i class="fa fa-check"></i><b>29.1</b> Chapter Notes</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="further-reading-12.html"><a href="further-reading-12.html"><i class="fa fa-check"></i>Further Reading</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Notes on ‘Statistics’ by Freeman, Pisani &amp; Purves</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="normal_approx_prob" class="section level1" number="18">
+<h1><span class="header-section-number">Chapter 18</span> The Normal Approximation for Probability Histograms</h1>
+<div id="chapter-notes-17" class="section level2" number="18.1">
+<h2><span class="header-section-number">18.1</span> Chapter Notes</h2>
+<blockquote>
+<p>According to the law of averages, when a coin is tossed a large number of times, the percentage of heads will be close to 50%. Around 1700, the Swiss mathematician James Bernoulli put this on a rigorous mathematical footing. Twenty years later, Abraham de Moivre made a substantial improvement on Bernoulli’s
+work . . . Bernoulli and de Moivre both made the same assumptions about the coin: the tosses are independent, and on each toss the coin is as likely to land heads as tails. From these assumptions, it follows that the coin is as likely to land in any specific pattern of heads and tails as in any other. What Bernoulli did was to show that for most patterns, about 50% of the entries are heads.</p>
+</blockquote>
+<blockquote>
+<p>Of course, de Moivre did not have anything like a modern calculator available. He needed a mathematical way of estimating the binomial coefficients, without having to work the arithmetic out. And he found a way to do it (though the approximation is usually credited to another mathematician, James Stirling). De Moivre’s procedure led him to the normal curve . . . In fact, he was able to prove that the whole <em>probability histogram</em> for the number of heads is close to the normal curve when the number of tosses is large.</p>
+</blockquote>
+<p>The chapter introduces the probability histogram:</p>
+<p><img src="images/Ch18Img01.png" /></p>
+<p>I think the y-axis must be wrong for those middle histograms. The area of the each rectangle in the probability histogram represents the probability of getting the associated value.</p>
+<p>Here’s the empirical histograms converging to the probability histogram when you roll two dice and take the product instead of the sum:</p>
+<p><img src="images/Ch18Img02.png" /></p>
+<p>The chapter relates the probability histogram for the number of heads in some large number of coin tosses to the normal curve:</p>
+<p><img src="images/Ch18Img03.png" /></p>
+<p>The standard error for 100 tosses is <span class="math inline">\(\sqrt{100} \times 1/2 = 5\)</span>, which you can see by comparing the two different axes in the chart above.</p>
+<p>Here’s the probability histogram converging to the normal curve:</p>
+<p><img src="images/Ch18Img04.png" /></p>
+<blockquote>
+<p>In the early eighteenth century, de Moivre proved this convergence had to take place, by pure mathematical reasoning . . . The normal approximation consists in replacing the actual probability histogram by the normal curve before computing areas. This is legitimate when the probability histogram follows the normal curve. Probability histograms are often hard to work out, while areas under the normal curve are easy to look up in the table.</p>
+</blockquote>
+<p>In what other situations can we apply the normal approximation? What about drawing from a box?</p>
+<blockquote>
+<p>Again, the normal approximation works perfectly well, so long as you remember one thing. The more the histogram of the numbers in the box differs from the normal curve, the more draws are needed before the approximation takes hold.</p>
+</blockquote>
+<p>Here, for example is the case where a box contains nine 0s and one 1:</p>
+<p><img src="images/Ch18Img05.png" /></p>
+<p>What about with figures other than one or zero in the box? Here’s we have draws from a box containing one, two and nine. We start with the histogram, which does not look normal at all:</p>
+<p><img src="images/Ch18Img06.png" /></p>
+<p>Now we draw the histogram for sums of a set number of draws from this box:</p>
+<p><img src="images/Ch18Img07.png" /></p>
+<p>Where does the normal approximation not apply? What if we roll a die a certain number of times and take the product instead of the sum? We can see that the normal approximation will not help us here:</p>
+<p><img src="images/Ch18Img08.png" /></p>
+<blockquote>
+<p>With enough draws, the probability histogram for the sum will be close to the normal curve. Mathematicians have a name for this fact. They call it “the central limit theorem,” because it plays a central role in statistical theory.</p>
+<p><em>The Central Limit Theorem.</em> When drawing at random with replacement from a box, the probability histogram for the sum will follow the normal curve, even if the contents of the box do not. The histogram must be put into standard units, and the number of draws must be reasonably large.</p>
+<p>The central limit theorem applies to sums but not to other operations like products. The theorem is the basis for many of the statistical procedures discussed in the rest of the book.</p>
+</blockquote>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="expected_value.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="sample_surveys.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/18-normal_approx_prob.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

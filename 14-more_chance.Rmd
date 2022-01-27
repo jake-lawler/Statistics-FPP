@@ -1,0 +1,53 @@
+# More About Chance {#more_chance}
+
+## Chapter Notes
+
+There's a nice example at the start of this chapter:
+
+> In the seventeenth century, Italian gamblers used to bet on the total number of spots rolled with three dice. They believed that the chance of rolling a total of 9 ought to equal the chance of rolling a total of 10 . . .  There are altogether six combinations for 9: 
+126 
+135 
+144 
+234 
+225 
+333
+Similarly, they found six combinations for 10: 
+145 
+136 
+226 
+235 
+244 
+334
+Thus, argued the gamblers, 9 and 10 should by rights have the same chance. However, experience showed that 10 came up a bit more often than 9.
+
+The gamblers wrote to Galileo, who had the key insight that you need to keep track of which die displays which number, and not just what numbers are displayed. He listed the 216 possible ways that three dice could land, and counted which ones sum to nine and which to ten. He found that there are 25 ways to get 9 and 27 ways to get 10.
+
+I remember reading somewhere that Leibniz got this wrong in the case of two dice; that he said that the probabilities of getting an 11 and a 12 must be the same because there is only one way to get each number. It looks like both of these problems appear in the book 'Classic Problems of Probability' by Prakash Gorroochurn, and it appears that Galileo got the harder problem correct (1620) more than century before Leibniz got the easier problem wrong (1768).
+
+The chapter introduces the addition rule:
+
+> To find the chance that at least one of two things will happen, check to see if they are mutually exclusive. If they are, add the chances.
+
+If the events are not mutually exclusive, summing the two probabilities will double count the case that both events occur. The case stufy of the paradox of the Chevalier de Méré is used to illustrate the dangers of adding chances that are not mutually exclusive.
+
+> In the seventeenth century, French gamblers used to bet on the event that with 4 rolls of a die, at least one ace would turn up: an ace is a one. In another game, they bet on the event that with 24 rolls of a pair of dice, at least one double-ace would turn up: a double-ace is a pair of dice which show one.
+The Chevalier de Méré, a French nobleman of the period, thought the two events were equally likely. He reasoned this way about the first game:
+>
+> * In one roll of a die, I have 1/6 of a chance to get an ace.
+> * So in 4 rolls, I have 4 × 1/6 = 2/3 of a chance to get at least one ace.
+>
+> His reasoning for the second game was similar:
+>
+> * In one roll of a pair of dice, I have 1/36 of a chance to get a double-ace.
+> * So in 24 rolls, I must have 24 × 1/36 = 2/3 of a chance to get at least one double-ace.
+>
+> By this argument, both chances were the same, namely 2/3. However, the gamblers found that the first event was a bit more likely than the second.
+
+Blaise Pascal and Pierre de Fermat solved the problem by reasoning not about the probability of winning the game, but the probability of *losing* it. To get the probability that none of the four dice show a one we multiple 5/6 by itself 4 times to get $(5/6)^4$, because the dice outcomes are independent. Then you subtract the result from 1 to get the probability of winning. Similar reasoning applies to the game of two dice.
+
+In this case it is easier to find $P(\text{not}E_1 \text{ and }  \text{not}E_2 \text{ and } \dots \text{ and } \text{not}E_n)$ as opposed to finding $P(E_1 \text{ or }  E_2 \text{ or } \dots \text{ or } E_n)$.
+
+
+
+
+
