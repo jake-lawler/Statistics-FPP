@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2021.12.8)  20 JAN 2022 09:25
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2021.12.8)  27 JAN 2022 12:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -915,7 +915,7 @@ Chapter 15.
 
 Package amsmath Warning: Foreign command \atopwithdelims;
 (amsmath)                \frac or \genfrac should be used instead
-(amsmath)                 on input line 1267.
+(amsmath)                 on input line 1269.
 
 [71
 
@@ -936,7 +936,7 @@ File: images/Ch16Img02.png Graphic file (type bmp)
 ]
 Chapter 17.
 [77] [78]
-Overfull \hbox (42.54965pt too wide) detected at line 1389
+Overfull \hbox (42.54965pt too wide) detected at line 1391
 [] [] []
  []
 
@@ -1026,7 +1026,7 @@ Chapter 20.
 [99
 
 ]
-Overfull \hbox (72.99603pt too wide) detected at line 1672
+Overfull \hbox (72.99603pt too wide) detected at line 1674
 [] [] [] [] []
  []
 
