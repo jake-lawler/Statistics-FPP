@@ -31,23 +31,3 @@ Instead of separating out the age groups graphically, we can show the distributi
 ![](images\\Ch03Img06.png)
 
 There's a bit at the end of the chapter about selective breeding of rats to look for evidence of Spearman's g. The experiment found that they could selectively breed for performance on a maze-running task - evidence that some mental abilities are at least partially genetic. However the "maze-bright" rats did not perform better than "maze-dull" rats on other tests of cognition e.g. ability to discriminate geometric shapes.
-
-## Exercise Sets
-
-### Set A{-}
-
-### Set B{-}
-
-### Set C{-}
-
-### Set D{-}
-
-### Set E{-}
-
-### Set F{-}
-
-## Review Exercises
-
-Do these first. Revisit.
-
-## Further Reading {-}

@@ -39,8 +39,3 @@ The chapter distinguishes systemic error (or bias) from chance error. Bias affec
 
 Fun chapter.
 
-## Review Exercises
-
-
-
-## Further Reading {-}

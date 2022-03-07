@@ -25,9 +25,3 @@ s.d. = \sqrt{\frac{\sum(x_i - \overline{x})^2}{n}}
 $$
 
 There is some mention of the sample standard deviation (where we use n-1 instead), denoted in the book as $SD^+$, with a promise to explain the difference in more in chapter 26. 
-
-## Review Exercises
-
-Do these first. Revisit.
-
-## Further Reading {-}

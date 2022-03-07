@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 6 Measurement Error | Notes on ‘Statistics’ by Freeman, Pisani &amp; Purves</title>
+  <title>Further Reading | Notes on ‘Statistics’ by Freeman, Pisani &amp; Purves</title>
   <meta name="description" content="My notes on ‘Statistics’ by David Freedman, Robert Pisani, and Roger Purves." />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 6 Measurement Error | Notes on ‘Statistics’ by Freeman, Pisani &amp; Purves" />
+  <meta property="og:title" content="Further Reading | Notes on ‘Statistics’ by Freeman, Pisani &amp; Purves" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="jake-lawler/Statistics-FPP" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 6 Measurement Error | Notes on ‘Statistics’ by Freeman, Pisani &amp; Purves" />
+  <meta name="twitter:title" content="Further Reading | Notes on ‘Statistics’ by Freeman, Pisani &amp; Purves" />
   
   <meta name="twitter:description" content="My notes on ‘Statistics’ by David Freedman, Robert Pisani, and Roger Purves." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="normal_approx.html"/>
-<link rel="next" href="plotting.html"/>
+<link rel="prev" href="chi_square.html"/>
+<link rel="next" href="closer_look.html"/>
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -282,51 +282,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="measurement_error" class="section level1" number="6">
-<h1><span class="header-section-number">Chapter 6</span> Measurement Error</h1>
-<div id="chapter-notes-5" class="section level2" number="6.1">
-<h2><span class="header-section-number">6.1</span> Chapter Notes</h2>
-<p>The introduction of this chapter talks about the International Prototype of the Kilogram, an object that was used to define the mass of the kilogram from 1889 until 2019. The US National Bureau of Standards calibrated their scales ultimately against their national prototype kilogram (Kilogram #20) that had been designed to weigh as close as possible to the International Prototype.</p>
-<p>The chapter talks about a 10 gram check weight called NB10 acquired by the Bureau around 1940. Here are some measurements of the weight, in each case care was taken to control all relevant factors that could affect the result:</p>
-<ul>
-<li>9.999591 grams</li>
-<li>9.999600 grams</li>
-<li>9.999594 grams</li>
-<li>9.999601 grams</li>
-<li>9.999598 grams</li>
-</ul>
-<p>The Bureau works in micrograms short of 10g. So the measurements above would be</p>
-<ul>
-<li>409</li>
-<li>400</li>
-<li>406</li>
-<li>399</li>
-<li>402</li>
-</ul>
-<p>400 micrograms is the weight of a grain or two of salt. There is a table in the chapter of 100 weighings of NB10. The mean measurement was 405 micrograms below 10 grams, with a standard deviation of 6 micrograms.</p>
-<p>The measurements in the table do not fit a normal curve very well. A few outlier measurements up to 5 standard deviations from the mean inflate the sample standard deviation. This means that 86% of the measured values are within one standard deviation of the mean instead of the 68% predicted by a normal distribution. The outliers are not mistakes: as far as the Bureau could tell nothing went wrong in these measurements. There is a comparison graph of the data against a normal curve with and without the outliers:</p>
-<p><img src="images/Ch06Img01.png" /></p>
-<p>There’s a nice bit about treatment of outliers first from the Bureau:</p>
-<blockquote>
-<p>A major difficulty in the application of statistical methods to the analysis of measurement data is that of obtaining suitable collections of data. The problem is more often associated with conscious, or perhaps unconscious, attempts to make a particular process perform as one would like it to perform rather than accepting the actual performance …. Rejection of data on the basis of arbitrary performance limits severely distorts the estimate of real process variability. Such procedures defeat the purpose of the … program. Realistic performance parameters require the acceptance of all data that cannot be rejected for cause.</p>
-</blockquote>
-<p>Then from the chapter:</p>
-<blockquote>
-<p>There is a hard choice to make when investigators see an outlier. Either they ignore it, or they have to concede that their measurements don’t follow the normal curve. The prestige of the curve is so high that the first choice is the usual one—a triumph
-of theory over experience.</p>
-</blockquote>
-<p>The chapter distinguishes systemic error (or bias) from chance error. Bias affects all measurements the same way, pushing them in the same direction. Examples given are a butcher weighing a steak with a thumb on the scale, or a fabric store measuring linen using a tape measure that has stretched from 36 inches to 37. If there is no bias, the long-run average of repeated measurements should give the exact value of the thing being measured.</p>
-<p>Fun chapter.</p>
+<div id="further-reading-4" class="section level1 unnumbered">
+<h1>Further Reading</h1>
 
-</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="normal_approx.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="plotting.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="chi_square.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="closer_look.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -357,7 +323,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/06-measurement_error.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/28-chi_square.Rmd",
 "text": "Edit"
 },
 "history": {

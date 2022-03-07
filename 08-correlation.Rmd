@@ -46,8 +46,3 @@ $$
 \text{cov}(x,y) = (\text{average of products }xy) - (\text{average of }x) \times (\text{average of }y).
 $$
 
-## Review Exercises
-
-
-
-## Further Reading {-}

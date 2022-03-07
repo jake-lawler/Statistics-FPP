@@ -22,9 +22,3 @@ Here are some rules for changing scales:
 * Multiplying every entry on a list by the same positive number multiplies the average and the SD by that constant.
 * These changes of scale do not change the standard units - since standardising units involves subtracting the mean and dividing by the standard deviation.
 
-
-## Review Exercises
-
-
-
-## Further Reading {-}

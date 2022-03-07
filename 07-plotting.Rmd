@@ -4,8 +4,3 @@
 
 Skipping this chapter - just the basics of reading a graph, and plotting a line.
 
-## Review Exercises
-
-
-
-## Further Reading {-}
