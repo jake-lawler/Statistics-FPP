@@ -1,0 +1,2383 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{book}
+\title{Notes on `Statistics' by Freeman, Pisani \& Purves}
+\author{Jake Lawler}
+\date{2022-03-07}
+
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Notes on `Statistics' by Freeman, Pisani \& Purves},
+  pdfauthor={Jake Lawler},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+\usepackage{booktabs}
+\usepackage{amsthm}
+\makeatletter
+\def\thm@space@setup{%
+  \thm@preskip=8pt plus 2pt minus 4pt
+  \thm@postskip=\thm@preskip
+}
+\makeatother
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage[]{natbib}
+\bibliographystyle{apalike}
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{1}
+\tableofcontents
+}
+\hypertarget{preface}{%
+\chapter*{Preface}\label{preface}}
+\addcontentsline{toc}{chapter}{Preface}
+
+These are my notes on `Statistics' by David Freedman, Robert Pisani, and Roger Purves. The notes are fairly brief, just short chapter summaries. The book has very low mathematical prerequisites, but is strong conceptually in a lot of places and I found that helpful as an addition to my previous more mathematical but mechanical exposure to these topics in the CS1 actuarial exam.
+
+\hypertarget{experiments}{%
+\chapter{Controlled Experiments}\label{experiments}}
+
+\hypertarget{chapter-notes}{%
+\section{Chapter Notes}\label{chapter-notes}}
+
+The chapter begins with the example of the polio vaccine developed by Jonas Salk. It uses this example to introduce the concepts of:
+
+\begin{itemize}
+\tightlist
+\item
+  method of comparison
+\item
+  treatment
+\item
+  response
+\item
+  control groups
+\item
+  double-blind studies
+\item
+  randomised controls
+\item
+  placebo
+\end{itemize}
+
+Two studies were performed. One with randomised controls performed double blind, and one where Grade 2 children were vaccinated with Grades 1 and 3 as controls. In the first study, the treatment and control groups were selected randomly from the population of children whose parents would consent to vaccination. In the second study, the treatment group contained only children whose parents consented, but the control group contains children whose parents would have consented, and children whose parents would not have.
+
+This last feature biased the second study against the vaccine. Wealthier parents are more likely to consent to the vaccine, and their children are more likely to be diagnosed with polio. This is because children of wealthier parents are less likely to have contracted a mild case of polio early in childhood, while still protected by their mothers' antibodies. Catching polio like this has a protective effect against more severe infection later on.
+
+There is then a similar case study about a particular surgical intervention to treat cirrhosis of the liver, and whether the benefits of the treatment outweigh the risks of the surgery. Not randomising the controls led to a bias in favour of the treatment, since on average sicker patients were excluded from receiving the surgery.
+
+There is then some discussion of the use of historical controls - comparing data on a new treatment against data on the current treatments collected in the past.
+
+\hypertarget{further-reading}{%
+\section*{Further Reading}\label{further-reading}}
+\addcontentsline{toc}{section}{Further Reading}
+
+\hypertarget{observational}{%
+\chapter{Observational Studies}\label{observational}}
+
+\hypertarget{chapter-notes-1}{%
+\section{Chapter Notes}\label{chapter-notes-1}}
+
+Observational studies can be powerful, and in many cases are the only kind of study we're going to get (the chapter uses the example of the health effects of smoking). However we need to be careful about confounding: is the treatment group really similar to the control group in all the ways that matter? For example, smokers are more likely to be men, and men experience heavier mortality than women of the same age. Age could be another confound, since older people have different smoking habits.
+
+A case study is introduced of the Coronary Drug Project which featured a randomised controlled double blind study of clofibrate which reduces blood cholesterol. The study shows that the drug did not save lives over 5 years. It was hypothesized that this might have been because people weren't taking their medicine. The high adherence group did have lower mortality than the control group. However, there may be a confound here - the scientists did not randomly assign people to be high or low adherence. The investigators therefore compared high adherence subjects in the treatment group to high adherence subjects in the control group, and similarly for low adherence. The conclusions were that
+
+\begin{itemize}
+\tightlist
+\item
+  clofibrate does not reduce mortality
+\item
+  adherers experience lower mortality than non-adherers, whether they were taking a treatment or a placebo
+\end{itemize}
+
+Some more examples:
+
+\begin{itemize}
+\item
+  Pellagra - disease first noticed in Europe in the eighteenth century, associated with poverty and unsanitary conditions. There were reports of flies in pellagra afflicted homes. One blood-sucking fly shared a similar geographic distribution to pellagra. Many assumed it to be spread by insect, like malaria, yellow fever, or typhus. In 1914, American epidemiologist Jospeh Goldberger showed that it was caused by a diet deficient in what we now call niacin. The disease was associated with poverty because there isn't much niacin in corn, which made up the bulk of the diet of poor people in the affected areas.
+\item
+  In the 1950s, some researchers came to the conclusion that male circumsion is preventative of cervical cancer. This is because of lower rates of cervical cancer among Jewish and Muslim women. Later it was discovered that certain strains of HPV can cause cervical cancer, and HPV is spread by sexual contact. The likely cause of the discrepancy in cervical cancers was the different sexual behaviours over the 1930s and 40s of the populations observed.
+\item
+  Animal studies suggest that ultrasound may produce adverse effects in the neurological, immunological, hematological, developmental and genetic status of the exposed fetus. For a while researchers were concerned that this could be extrapolated to humans, and an association with ultrasounds and low birth weight was observed. However a randomised controlled experiment found that if anything ultrasound was protective. Ultrasounds and low birth weight had a common cause - problem pregnancies.
+\item
+  A careful observational study found an association between the expansion of Samaritans and a decline in the suicide rate in England between 1964-1970. However after this paper the suicide rate remained constant over the 70s, while Samaritans continued to expand. The decline is better explained by a shift from coal gas to natural gas in heating and cooking. Natural gas is much less toxic. About one third of suicides in the early 60s were by gas and by the end of the decade there were practically no such cases.
+\item
+  The same Berkeley graduate admissions gender bias case study I first read in Statistical Rethinking. I belive it may also be in the Book of Why. In both these last cases as an example of Simpson's paradox.
+\item
+  Fisher thought that the association between smoking and lung cancer could be explained by confounding. It could not.
+\end{itemize}
+
+\hypertarget{exercise-sets}{%
+\section{Exercise Sets}\label{exercise-sets}}
+
+\hypertarget{set-a}{%
+\subsection*{Set A}\label{set-a}}
+\addcontentsline{toc}{subsection}{Set A}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+\end{enumerate}
+
+\begin{quote}
+In the U.S. in 2000, there were 2.4 million deaths from all causes, compared to 1.9 million in 1970 --- a 25\% increase. True or false, and explain: the data show that the public's health got worse over the period 1970--2000.
+\end{quote}
+
+We cannot draw the conclusion that the public's health got worse over the period from this data alone. The increase in deaths could be explained for example by an increase in population, or from the population ageing overall.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+\end{enumerate}
+
+\begin{quote}
+Data from the Salk vaccine field trial suggest that in 1954, the school districts in the NFIP trial and in the randomized controlled experiment had similar exposures to the polio virus.
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\item
+  The data also show that children in the two vaccine groups (for the randomized controlled experiment and the NFIP design) came from families with similar incomes and educational backgrounds. Which two numbers in table 1 (p.~6) confirm this finding?
+\item
+  The data show that children in the two no-consent groups had similar family backgrounds. Which pair of numbers in the table confirm this finding?
+\item
+  The data show that children in the two control groups had different family backgrounds. Which pair of numbers in the table confirm this finding?
+\item
+  In the NFIP study, neither the control group nor the no-consent group got the vaccine. Yet the no-consent group had a lower rate of polio. Why?
+\item
+  To show that the vaccine works, someone wants to compare the 44/100,000 in the NFIP study with the 25/100,000 in the vaccine group. What's wrong with this idea?
+\end{enumerate}
+\end{quote}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\item
+  We saw in the chapter how much difference family background can have on incidence of polio. The fact that the rate of polio cases per 100,000 is very similar in the treatment group for both trials (28 vs 25) suggests that family backgrounds were also similar.
+\item
+  Similarly, the rate among the two non-consent groups are also similar (46 vs 44).
+\item
+  However the rates of the two control groups are very different (71 vs 54). Since these two groups did not differ in treatment, the differing rates of polio must have some other cause, like family background.
+\item
+  In the NFIP study, the control group contains both children whose parents would have consented for them to get the vaccine, and children whose parents would not have consented. The no consent group only contains the latter. Consent for vaccination is associated with higher socio-economic group and which is in turn associated with higher incidence of polio, for reasons explained in the chapter.
+\item
+  The two groups are not similar in all aspects aside from treatment status. The no consent group is likely to be on average from a more disadvantaged socio-economic group, which is associated with lower incience of polio. Comparing these two figures will likely understate the impact of the vaccine.
+\end{enumerate}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+\end{enumerate}
+
+\begin{quote}
+Polio is an infectious disease; for example, it seemed to spread when children went swimming together. The NFIP study was not done blind: could that bias the results? Discuss briefly.
+\end{quote}
+
+That the study was not done blind means that the children (or their parents) knew whether they had been given the treatment or been placed into the control group. Parents whose children were placed into the control group may have been more cautious about interaction with other children, knowing that they were not protected against polio. This would have lowered the incidence of polio among the control group, making the vaccine seem less effective.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\tightlist
+\item
+\end{enumerate}
+
+\begin{quote}
+The Salk vaccine field trials were conducted only in certain experimental areas (school districts), selected by the Public Health Service in consultation with local officials. In these areas, there were about 3 million children in grades 1, 2, or 3; and there were about 11 million children in those grades in the United States. In the experimental areas, the incidence of polio was about 25\% higher than in the rest of the country. Did the Salk vaccine field trials cause children to get polio instead of preventing it? Answer yes or no, and explain briefly.
+\end{quote}
+
+It seems more likely that school districts with a higher incidence of polio (or which were thought to be at higher risk of polio) were chosen for participation in the trials. With what the chapter tells us about the association between class and incidence of polio, it's possible we would see this pattern if local officials put forward wealthier areas for the trials more often.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{4}
+\tightlist
+\item
+\end{enumerate}
+
+\begin{quote}
+Linus Pauling thought that vitamin C prevents colds, and cures them too. Thomas Chalmers and associates did a randomized controlled double-blind experiment to find out. The subjects were 311 volunteers at the National Institutes of Health.
+These subjects were assigned at random to 1 of 4 groups:
+\end{quote}
+
+\includegraphics{images/Ch02Img01.png}
+
+\begin{quote}
+All subjects were given six capsules a day for prevention, and an additional six capsules a day for therapy if they came down with a cold. However, in group 1 both sets of capsules just contained the placebo (lactose). In group 2, the prevention capsules had vitamin C while the therapy capsules were filled with the placebo. Group 3 was the reverse. In group 4, all the capsules were filled with vitamin C.
+
+There was quite a high dropout rate during the trial. And this rate was significantly higher in the first 3 groups than in the 4th. The investigators noticed this, and found the reason. As it turned out, many of the subjects broke the blind. (That is quite easy to do; you just open a capsule and taste the contents; vitamin C --- ascorbic acid --- is sour, lactose is not.) Subjects who were getting the placebo were more likely to drop out.
+
+The investigators analyzed the data for the subjects who remained blinded, and vitamin C had no effect. Among those who broke the blind, groups 2 and 4 had the fewest colds; groups 3 and 4 had the shortest colds. How do you interpret these results?
+\end{quote}
+
+One possible interpretation is that Vitamin C treatment has a pronounced placebo effect. Among those who remained blinded, no effect was found. However for those who broke the blind i.e.~knew whether they were getting the treatment or the control, vitamin C has effective at both treating and preventing colds. For non-adherers, the study effectively became non-blinded and so could not rule out a placebo effect.
+
+Another possible interpretation, that seems quite a bit less likely, is that adherers and non-adherers differ in some way that is relevant to the effect of vitamin C. E.g. some other factor influences both adherence rate and effectiveness of vitamin C treatment in such a way as to produce the pattern observed.
+This is implausible but we can come up with hypotheticals e.g.~if being wealthy is associated with adherence for some reason, and wealthy people already have sufficient vitamin C intake from their diets so that supplementation has little effect, we might see the pattern observed.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{5}
+\tightlist
+\item
+\end{enumerate}
+
+\begin{quote}
+(Hypothetical.) One of the other drugs in the Coronary Drug Project (section 2) was nicotinic acid. Suppose the results on nicotinic acid were as reported below. Something looks wrong. What, and why?
+\end{quote}
+
+\includegraphics{images/Ch02Img02.png}
+
+A much higher proportion of treatment group are non-adherers than the control group. This suggests that whether a subject was assigned treatment or control influenced their decision to adher or not, which must mean that the blind was broken for many of these subjects. To tease out a possible placebo effect, it may be necessary to ask follow up questions to determine which subjects remained blinded.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{6}
+\tightlist
+\item
+\end{enumerate}
+
+\begin{quote}
+(Hypothetical.) In a clinical trial, data collection usually starts at ``baseline,'' when the subjects are recruited into the trial but before they are assigned to treatment or control. Data collection continues until the end of followup. Two clinical trials on prevention of heart attacks report baseline data on smoking, shown below. In one of these trials, the randomization did not work. Which one, and why?
+\end{quote}
+
+\includegraphics{images/Ch02Img03.png}
+
+In i) the treatment group has significantly fewer smokers. Since smokers are likely to be on average less healthy than non-smokers, this randomisation failure may overestimate the benefit of the treatment being studied.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{7}
+\tightlist
+\item
+\end{enumerate}
+
+\begin{quote}
+Some studies find an association between liver cancer and smoking. However, alcohol consumption is a confounding variable. This means ---
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Alcohol causes liver cancer.
+\item
+  Drinking is associated with smoking, and alcohol causes liver cancer.
+\end{enumerate}
+
+Choose one option, and explain briefly.
+\end{quote}
+
+If drinking is associated with smoking, and alcohol causes liver cancer, then there would be an observed association between smoking and liver cancer, even if smoking has no causal influence on liver cancer rates. Alcohol consumption is a confound.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{8}
+\tightlist
+\item
+\end{enumerate}
+
+\begin{quote}
+Breast cancer is one of the most common malignancies among women in the U.S. If it is detected early enough---before the cancer spreads---chances of successful treatment are much better. Do screening programs speed up detection by enough
+to matter?
+
+The first large-scale trial was run by the Health Insurance Plan of Greater New York, starting in 1963. The subjects (all members of the plan) were 62,000 women age 40 to 64. These women were divided at random into two equal groups. In the treatment group, women were encouraged to come in for annual screening, including examination by a doctor and X-rays. About 20,200 women in the treatment group did come in for the screening; but 10,800 refused. The control group was offered usual health care. All the women were followed for many years. Results for the first 5 years are shown in the table below. (``HIP'' is the usual abbreviation for the Health Insurance Plan.)
+\end{quote}
+
+\includegraphics{images/Ch02Img04.png}
+
+\begin{quote}
+Epidemiologists who worked on the study found that (i) screening had little impact on diseases other than breast cancer; (ii) poorer women were less likely to accept screening than richer ones; and (iii) most diseases fall more heavily on the
+poor than the rich.
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\item
+  Does screening save lives? Which numbers in the table prove your point?
+\item
+  Why is the death rate from all other causes in the whole treatment group (``examined'' and ``refused'' combined) about the same as the rate in the control group?
+\item
+  Breast cancer (like polio, but unlike most other diseases) affects the rich more than the poor. Which numbers in the table confirm this association between breast cancer and income?
+\item
+  The death rate (from all causes) among women who accepted screening is about half the death rate among women who refused. Did screening cut the death rate in half? If not, what explains the difference in death rates?
+\end{enumerate}
+\end{quote}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\item
+  The strongest indication to me in this data that screening does save lives is comparing the breast cancer death rate in the control group to the same rate in the treatment group overall - i.e.~not just among those examined. Since the treatment and control were assigned randomly, we would expect the two groups to have similar traits in all important respects except that roughly two thirds of the treatment group were screened and none of the control group were.
+  If we were just comparing the breast cancer death rate of the examined group to the control group we might posit that there is some other factor that influences both likeliness of accepting treatment and chance of dying of breast cancer (we could hypothesise various lifestyle factors here). We are told later that if anything the selection effect works the other way, but comparing the overall treatment group to the control group avoids this possible confound.
+\item
+  The death rate from all other causes is the same in the overall treatment group as in the overall control group because the groups were assigned randomly and the only treatment difference between the two groups was breast cancer screening. We could imagine that breast cancer screening could increase the all other causes death rate (e.g.~if breast cancer were associated with other severe disease and so catching breast cancer early and treating it simply ``unmasked'' this other cause of death) but this appears to not be the case.
+\item
+  We are told that ``poorer women were less likely to accept screening than richer ones''. We would therefore expect that the refused treatment group is on average poorer than the control group. The refused treatment group has a lower breast cancer death rate than the control group, even though neither were screened for breast cancer. This suggests a negative correlation between wealth and risk of dying of breast cancer.
+\item
+  We should not infer a causal relationship between screening and lower all cause mortality. It is possible that some other factor influences accepting screening and all cause mortality. In this case wealth seems like a good candidate since we are told that wealthier women are both more likely to accept screening and have a lower all cause mortality rate.
+\end{enumerate}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{9}
+\tightlist
+\item
+\end{enumerate}
+
+\begin{quote}
+(This continues exercise 9.)
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\item
+  To show that screening reduces the risk from breast cancer, someone wants to compare 1.1 and 1.5. Is this a good comparison? Is it biased against screening? For screening?
+\item
+  Someone claims that encouraging women to come in for breast cancer screening increases their health consciousness, so these women take better care of themselves and live longer for that reason. Is the table consistent or inconsistent with the claim?
+\item
+  In the first year of the HIP trial, 67 breast cancers were detected in the ``examined'' group, 12 in the ``refused'' group, and 58 in the control group. True or false, and explain briefly: screening causes breast cancer.
+\end{enumerate}
+\end{quote}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\item
+  This is not a good comparison, as the accepted treatment group and refused treatment group differ in important aspects other than whether they were screened for breast cancer. For example, the accepted treatment group is on average wealthier. Since wealth is positively associated with risk of breast cancer, this comparison is biased against screening.
+\item
+  This table is inconsistent with that claim. If simply encouraging people to come in for screening positively impacted mortality rate then we would expect to see the (combined) treatment group have lower all cause mortality. In fact rates are about the same.
+\item
+  In this data we see that there is a positive association between screening and risk of breast cancer diagnosis. About 0.33\% of those screened were found to have breast cancer, compared to 0.11\% of those who refused treatment and 0.19\% of those in the control group. However we cannot infer that screening causes breast cancer. We would expect to see this pattern if screening makes it more likely that breast cancer is detected when present. Since this is the point of screening, this is the most parsimonious explanation.
+\end{enumerate}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{10}
+\tightlist
+\item
+\end{enumerate}
+
+\begin{quote}
+Cervical cancer is more common among women who have been exposed to the herpes virus, according to many observational studies.15 Is it fair to conclude that the virus causes cervical cancer?
+\end{quote}
+
+We cannot infer from this data alone that the herpes virus causes cervical cancer. There could be some other factor that influences both rates of herpes and cervical cancer. In this case we know that HPV causes cervical cancer, and that both HPV and herpes virus are sexually transmitted, so it seems likely that the positive association is caused by rate of sexual activity.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{11}
+\tightlist
+\item
+\end{enumerate}
+
+\begin{quote}
+Physical exercise is considered to increase the risk of spontaneous abortion. Furthermore, women who have had a spontaneous abortion are more likely to have another. One observational study finds that women who exercise regularly have fewer spontaneous abortions than other women. Can you explain the findings of this study?
+\end{quote}
+
+For this one I'm not sure I understand what the question is driving at. In particular it feels like my answer should use the information that ``women who have had a spontaneous abortion are more likely to have another''. However the only explanation I can think of right now is that there are other factors that are positively associated with spontaneous abortion but negatively associated with regular exercise, and that this factor is sufficient to outweigh the causative impact of exercise on spontaneous abortion. We could posit a wide variety of lifestyle factors here.
+
+Let me look up the answer for this one:
+
+\begin{quote}
+If a woman has already aborted in a previous pregnancy---and is therefore more at risk in her current pregnancy---a physician is likely to tell her to cut down on exercise. In this instance, exercise is a marker of good health, not a cause.
+\end{quote}
+
+Makes sense.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{12}
+\tightlist
+\item
+\end{enumerate}
+
+\begin{quote}
+A hypothetical university has two departments, A and B. There are 2,000 male applicants, of whom half apply to each department. There are 1,100 female applicants: 100 apply to department A and 1,000 to department B. Department A admits 60\% of the men who apply and 60\% of the women. Department B admits 30\% of the men who apply and 30\% of the women. ``For each department, the percentage of men admitted equals the percentage of women admitted; this must be so for both departments together.'' True or false, and explain briefly.
+\end{quote}
+
+This is Simpson's paradox, and it's the example from the chapter about Berkeley's graduate admissions. In this case the overall acceptance rate for women is 33\% and for men it is 45\%.
+
+I'm going to skip 14 and 15 since they are pretty straightforward maths questions.
+
+\hypertarget{review-exercises}{%
+\section{Review Exercises}\label{review-exercises}}
+
+I'm going to skip these for now and circle back later. Revisit.
+
+\hypertarget{further-reading-1}{%
+\section*{Further Reading}\label{further-reading-1}}
+\addcontentsline{toc}{section}{Further Reading}
+
+\hypertarget{histogram}{%
+\chapter{The Histogram}\label{histogram}}
+
+\hypertarget{chapter-notes-2}{%
+\section{Chapter Notes}\label{chapter-notes-2}}
+
+Going to race through this chapter since I'm already reasonably familiar with histograms.
+
+Here's one from the chapter:
+
+\includegraphics{images/Ch03Img01.png}
+
+The data given is not split into even intervals in this case. The \emph{area} of each block is proportional to the number of families with incomes in the corresponding class interval. Here's the data it's based on:
+
+\includegraphics{images/Ch03Img02.png}
+
+Since the class intervals are of different lengths, we can't use the percentages given directly as the vertical axis. This would overstate the number of families in the higher income groups, since these are less finely separated. Here is what that would look like:
+
+\includegraphics{images/Ch03Img03.png}
+
+To get the height we should use, we divide the percentage by the length of the interval. The vertical scale is now ``percent of families per thousand dollars'' (this is called the \emph{density scale} - how crowded that part of the distribution is) and the area represents the percentage of families in the class interval:
+
+\includegraphics{images/Ch03Img04.png}
+
+The chapter then goes on to discuss variables - qualitative or quantitative, discrete or continuous, and then discusses controlling for variables. Here the chapter uses the case study of an observational study on the health effects of oral contraceptives. Variables like age may be a confound. We can see the association of oral contraceptives and blood pressure in the following histogram, for ages 25-35:
+
+\includegraphics{images/Ch03Img05.png}
+
+Oral contraceptive users tend to have a blood pressure on average 5mm higher.
+
+Instead of separating out the age groups graphically, we can show the distribution in a table. This is called cross-tabulation, and looks like this:
+
+\includegraphics{images/Ch03Img06.png}
+
+There's a bit at the end of the chapter about selective breeding of rats to look for evidence of Spearman's g. The experiment found that they could selectively breed for performance on a maze-running task - evidence that some mental abilities are at least partially genetic. However the ``maze-bright'' rats did not perform better than ``maze-dull'' rats on other tests of cognition e.g.~ability to discriminate geometric shapes.
+
+\hypertarget{exercise-sets-1}{%
+\section{Exercise Sets}\label{exercise-sets-1}}
+
+\hypertarget{set-a-1}{%
+\subsection*{Set A}\label{set-a-1}}
+\addcontentsline{toc}{subsection}{Set A}
+
+\hypertarget{set-b}{%
+\subsection*{Set B}\label{set-b}}
+\addcontentsline{toc}{subsection}{Set B}
+
+\hypertarget{set-c}{%
+\subsection*{Set C}\label{set-c}}
+\addcontentsline{toc}{subsection}{Set C}
+
+\hypertarget{set-d}{%
+\subsection*{Set D}\label{set-d}}
+\addcontentsline{toc}{subsection}{Set D}
+
+\hypertarget{set-e}{%
+\subsection*{Set E}\label{set-e}}
+\addcontentsline{toc}{subsection}{Set E}
+
+\hypertarget{set-f}{%
+\subsection*{Set F}\label{set-f}}
+\addcontentsline{toc}{subsection}{Set F}
+
+\hypertarget{review-exercises-1}{%
+\section{Review Exercises}\label{review-exercises-1}}
+
+Do these first. Revisit.
+
+\hypertarget{further-reading-2}{%
+\section*{Further Reading}\label{further-reading-2}}
+\addcontentsline{toc}{section}{Further Reading}
+
+\hypertarget{average}{%
+\chapter{The Average and the Standard Deviation}\label{average}}
+
+\hypertarget{chapter-notes-3}{%
+\section{Chapter Notes}\label{chapter-notes-3}}
+
+Nice quote from Galton heads the chapter. I first read this quote in ``The Empire of Chance'', and there it seemed to be a pointed criticism of Adolphe Quetelet and his obsession with ``l'homme moyen''.
+
+\includegraphics{images/Ch04Img01.png}
+
+The chapter introduces the mean, the median, and the impact on these of long-right tailed distributions (like income).
+
+The chapter then introduces the root mean square:
+
+The R.M.S of a list of \(n\) \(x_i\)'s is
+
+\[
+\sqrt{\frac{\sum(x_i^2)}{n}}
+\]
+
+We then get the standard deviation, a measure of the size of deviations from the mean.
+
+The (population) standard deviation is the root mean square of the deviations from the mean.
+
+\[
+s.d. = \sqrt{\frac{\sum(x_i - \overline{x})^2}{n}}
+\]
+
+There is some mention of the sample standard deviation (where we use n-1 instead), denoted in the book as \(SD^+\), with a promise to explain the difference in more in chapter 26.
+
+\hypertarget{review-exercises-2}{%
+\section{Review Exercises}\label{review-exercises-2}}
+
+Do these first. Revisit.
+
+\hypertarget{further-reading-3}{%
+\section*{Further Reading}\label{further-reading-3}}
+\addcontentsline{toc}{section}{Further Reading}
+
+\hypertarget{normal_approx}{%
+\chapter{The Normal Approximation for Data}\label{normal_approx}}
+
+\hypertarget{chapter-notes-4}{%
+\section{Chapter Notes}\label{chapter-notes-4}}
+
+The normal curve with mean 0, standard deviation 1:
+
+\[
+y = \frac{100\%}{\sqrt{2\pi}}e^{-x^2/2}
+\]
+
+Roughly 68\% of the area under the curve is between -1 and 1 - i.e.~within 1 standard deviation of the mean. About 95\% of the area is between -2 and 2. About 99.7\% is between -3 and 3. There's a bit in the chapter about finding the area under the particular sections of the curve - I've done quite a bit of this in actuarial exams.
+
+There's a section in the chapter about normal approximation. You have some data with a mean and standard deviation, and you assume the data is normally distributed with the same mean and standard deviation, and then answer questions like ``what percentage of men have heights between 63 and 72 inches''.
+
+If the histogram of your data follows the normal distribution then the mean and standard deviation may well be good summary statistics. They are poor summary statistics if your data is not normally distributed. There is more information in the distribution than is captured by those two figures.
+
+In this latter case (e.g.~income data) we can use percentiles to summarise the histograms.
+
+Here are some rules for changing scales:
+
+\begin{itemize}
+\tightlist
+\item
+  Adding the same number to every entry on a list adds that constant to the average; the SD does not change.
+\item
+  Multiplying every entry on a list by the same positive number multiplies the average and the SD by that constant.
+\item
+  These changes of scale do not change the standard units - since standardising units involves subtracting the mean and dividing by the standard deviation.
+\end{itemize}
+
+\hypertarget{review-exercises-3}{%
+\section{Review Exercises}\label{review-exercises-3}}
+
+\hypertarget{further-reading-4}{%
+\section*{Further Reading}\label{further-reading-4}}
+\addcontentsline{toc}{section}{Further Reading}
+
+\hypertarget{measurement_error}{%
+\chapter{Measurement Error}\label{measurement_error}}
+
+\hypertarget{chapter-notes-5}{%
+\section{Chapter Notes}\label{chapter-notes-5}}
+
+The introduction of this chapter talks about the International Prototype of the Kilogram, an object that was used to define the mass of the kilogram from 1889 until 2019. The US National Bureau of Standards calibrated their scales ultimately against their national prototype kilogram (Kilogram \#20) that had been designed to weigh as close as possible to the International Prototype.
+
+The chapter talks about a 10 gram check weight called NB10 acquired by the Bureau around 1940. Here are some measurements of the weight, in each case care was taken to control all relevant factors that could affect the result:
+
+\begin{itemize}
+\tightlist
+\item
+  9.999591 grams
+\item
+  9.999600 grams
+\item
+  9.999594 grams
+\item
+  9.999601 grams
+\item
+  9.999598 grams
+\end{itemize}
+
+The Bureau works in micrograms short of 10g. So the measurements above would be
+
+\begin{itemize}
+\tightlist
+\item
+  409
+\item
+  400
+\item
+  406
+\item
+  399
+\item
+  402
+\end{itemize}
+
+400 micrograms is the weight of a grain or two of salt. There is a table in the chapter of 100 weighings of NB10. The mean measurement was 405 micrograms below 10 grams, with a standard deviation of 6 micrograms.
+
+The measurements in the table do not fit a normal curve very well. A few outlier measurements up to 5 standard deviations from the mean inflate the sample standard deviation. This means that 86\% of the measured values are within one standard deviation of the mean instead of the 68\% predicted by a normal distribution. The outliers are not mistakes: as far as the Bureau could tell nothing went wrong in these measurements. There is a comparison graph of the data against a normal curve with and without the outliers:
+
+\includegraphics{images/Ch06Img01.png}
+
+There's a nice bit about treatment of outliers first from the Bureau:
+
+\begin{quote}
+A major difficulty in the application of statistical methods to the analysis of measurement data is that of obtaining suitable collections of data. The problem is more often associated with conscious, or perhaps unconscious, attempts to make a particular process perform as one would like it to perform rather than accepting the actual performance \ldots. Rejection of data on the basis of arbitrary performance limits severely distorts the estimate of real process variability. Such procedures defeat the purpose of the \ldots{} program. Realistic performance parameters require the acceptance of all data that cannot be rejected for cause.
+\end{quote}
+
+Then from the chapter:
+
+\begin{quote}
+There is a hard choice to make when investigators see an outlier. Either they ignore it, or they have to concede that their measurements don't follow the normal curve. The prestige of the curve is so high that the first choice is the usual one---a triumph
+of theory over experience.
+\end{quote}
+
+The chapter distinguishes systemic error (or bias) from chance error. Bias affects all measurements the same way, pushing them in the same direction. Examples given are a butcher weighing a steak with a thumb on the scale, or a fabric store measuring linen using a tape measure that has stretched from 36 inches to 37. If there is no bias, the long-run average of repeated measurements should give the exact value of the thing being measured.
+
+Fun chapter.
+
+\hypertarget{review-exercises-4}{%
+\section{Review Exercises}\label{review-exercises-4}}
+
+\hypertarget{further-reading-5}{%
+\section*{Further Reading}\label{further-reading-5}}
+\addcontentsline{toc}{section}{Further Reading}
+
+\hypertarget{plotting}{%
+\chapter{Plotting Points and Lines}\label{plotting}}
+
+\hypertarget{chapter-notes-6}{%
+\section{Chapter Notes}\label{chapter-notes-6}}
+
+Skipping this chapter - just the basics of reading a graph, and plotting a line.
+
+\hypertarget{review-exercises-5}{%
+\section{Review Exercises}\label{review-exercises-5}}
+
+\hypertarget{further-reading-6}{%
+\section*{Further Reading}\label{further-reading-6}}
+\addcontentsline{toc}{section}{Further Reading}
+
+\hypertarget{correlation}{%
+\chapter{Correlation}\label{correlation}}
+
+\hypertarget{chapter-notes-7}{%
+\section{Chapter Notes}\label{chapter-notes-7}}
+
+Now instead of looking at the distribution of a single variable, we begin studying the relationship between two variables.
+
+Scatter diagram for heights of fathers and their sons at maturity, collected by Karl Pearson.
+
+\includegraphics{images/Ch08Img01.png}
+
+We can summarise this scatter plot using the average of the x and y values, and also their standard deviations. But that doesn't tell us about the strength of the associtation between the two variables.
+
+\includegraphics{images/Ch08Img02.png}
+
+Both of the above clouds have the same centre (x,y average) and the same spread both horizontally and vertically. To measure the association, we need the correlation coefficient.
+
+\includegraphics{images/Ch08Img03.png}
+
+The SD line - the SD line goes through the point of averages, and through all the points that are an equal number of standard deviations away from the average for both variables. Interesting, I don't think I've come across the concept of an SD line before, I wonder how it's related to e.g.~the OLS regression lines. Some discussion in \href{https://stats.stackexchange.com/questions/446497/whats-the-added-value-of-sd-line-over-regression-line-when-examining-associatio}{this Stats Stack Exchange question}.
+
+Here is how to compute the (Pearson) correlation coefficient:
+
+\begin{quote}
+Convert each variable to standard units. The average of the products gives the correlation coefficient.
+\end{quote}
+
+I.e. the process is like this:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Begin with a set of paired data, x and y variables.
+\item
+  Convert the x variable to standard units - subtract the average and divide by the standard deviation.
+\item
+  Repeat with the y variable.
+\item
+  For each pair, compute the product.
+\item
+  Take the average of the products.
+\end{enumerate}
+
+Why does this work as a measure of linear association? The description in the chapter gives a little intuition - we can imagine plotting a scatter plot of the variables, converted into standard units. If we carve the plot into four quadrants, points in the upper right quadrant will have both variables above the average, multiplying them will give a positive number. Similarly points in the bottom left quadrant will be both negative and their product a positive number. The products for points in the other two products will be negative. It's also easy to show that a perfect correlation implies \(r=1\) by just plugging in the definitions.
+
+This gives a sense of how this figure can work as a measure of association, but it's not wholly satisfactory.
+
+Here's another way to compute Pearson's r:
+
+\[
+ r = \frac{\text{cov}(x,y)}{(\text{SD of }x) \times (\text{SD of }y)}
+\]
+
+where
+
+\[
+\text{cov}(x,y) = (\text{average of products }xy) - (\text{average of }x) \times (\text{average of }y).
+\]
+
+\hypertarget{review-exercises-6}{%
+\section{Review Exercises}\label{review-exercises-6}}
+
+\hypertarget{further-reading-7}{%
+\section*{Further Reading}\label{further-reading-7}}
+\addcontentsline{toc}{section}{Further Reading}
+
+\hypertarget{more_correlation}{%
+\chapter{More About Correlation}\label{more_correlation}}
+
+\hypertarget{chapter-notes-8}{%
+\section{Chapter Notes}\label{chapter-notes-8}}
+
+Some facts about correlation:
+
+\begin{itemize}
+\tightlist
+\item
+  Because of the way Pearson's r is calculated (by first standardising both variables), it is not affected by changes of scale.
+\item
+  It is symmetric; the correlation between x and y is the same as the correlation between y and x.
+\item
+  Because correlation is calculated by conversion to standard units (including dividing by SDs). Two sets of paired variables can have the same correlation, but very different standard deviations and therefore very different-looking plots. This image is great, I think:
+\end{itemize}
+
+\includegraphics{images/Ch09Img01.png}
+
+To compare corellations like-for-like graphically, the horizontal standard deviations should take up the same space on the page for both graphs, and likewise for the vertical SDs.
+
+Here's some detail about rough distance points will appear above or below the SD line.
+
+\begin{quote}
+If r is close to 1, then a typical point is only a small fraction of a vertical SD above or below the SD line. If r is close to 0, then a typical point is above or below the line by an amount roughly comparable in size to the vertical SD.
+The connection between the correlation coefficient and the typical distance above or below the SD line can be expressed mathematically, as follows.
+The r.m.s. vertical distance to the SD line equals
+\end{quote}
+
+\[
+\sqrt{2(1-|r|)} \times\text{the vertical SD}
+\]
+
+\begin{quote}
+Take, for example, a correlation of 0.95. Then
+\end{quote}
+
+\[
+\sqrt{2(1-|r|)} = \sqrt{0.1} \approx 0.3
+\]
+
+\begin{quote}
+So the spread around the SD line is about 30\% of a vertical SD. That is why a scatter diagram with r = 0.95 shows a fair amount of spread around the line.
+\end{quote}
+
+\textbf{Outliers and Non-Linearity}
+
+Outliers and non-linearity are problem cases. In both the graphs below, the variables show a strong association, but r is near 0.In the first case because of the single outlier point, in the second because of the non-linearity. This means that Pearson's r is not an appropriate tool to summarise these variables. It does not mean, for example, that the outlier should be thrown away, unless there is a principled reason why it is inappropriate to include it.
+
+\includegraphics{images/Ch09Img02.png}
+
+Pearson's r measures linear association, not association in general.
+
+Ecological Correlations.
+
+\begin{quote}
+Ecological correlations are based on rates or averages. They are often used in political science and sociology. And they tend to over-state the strength of an association. So watch out.
+\end{quote}
+
+\begin{quote}
+Here is another example. From Current Population Survey data for 2005, you can compute the correlation between income and education for men age 25--64 in the United States: r ≈ 0.42. For each state (and D.C.), you can compute average educational level and average income. Finally, you can compute the correlation between the 51 pairs of averages: r ≈ 0.70. If you used the correlation for the states to estimate the correlation for the individuals, you would be way off. The reason is that within each state, there is a lot of spread around the averages.
+\end{quote}
+
+\hypertarget{review-exercises-7}{%
+\section{Review Exercises}\label{review-exercises-7}}
+
+\hypertarget{further-reading-8}{%
+\section*{Further Reading}\label{further-reading-8}}
+\addcontentsline{toc}{section}{Further Reading}
+
+\hypertarget{regression}{%
+\chapter{Regression}\label{regression}}
+
+\hypertarget{chapter-notes-9}{%
+\section{Chapter Notes}\label{chapter-notes-9}}
+
+Regression gives us a measure of how much one variable changes when we change another. In the plot below we have a collection of heights and weights of 471 men aged 18-24. A dashed line is plotted for the SD line. By looking at the points inside the vertical strip at 73 inches tall, we can see that most men who are one SD about average height are less than one SD above average weight - they lie below the SD line:
+
+\includegraphics{images/Ch10Img01.png}
+
+The solid line is the regression line - it estimates the average weight corresponding to each height. For every increase of \(SD_x\) in height, the regression line here predicts an average increase of \(r\times SD_y\) in weight, where \(r\) is the correlation coefficient. Here is a plot of the averages at each height, along with the regression line:
+
+\includegraphics{images/Ch10Img02.png}
+
+The regression line is a smoothed version of this graph of averages. It can perform better or worse at this. If there is a non-linear relationship between the variables, the regression line will not reflect it.
+
+There are some examples in the chapter of predicting a y variable for a subject, given a value for their x variable and information about the regression line.
+
+I've been exposed to linear regression from a few different sources now (actuarial exams, Statistical Rethinking etc.) but for some reason I really got stuck this time on the relationship between the correlation coefficient and the regression line. In particular, it was not at all intuitive for me that the slope of the regression line should be \(r \times SD_y / SD_x\) when regressing \(y\) onto \(x\), \emph{but also} \(r \times SD_x / SD_y\) when regressing \(x\) on to \(y\). It really seemed that when you flip the axes, the slope should be \(1/r \times SD_x / SD_y\).
+In the height and weight example, it's easy to believe that when you increase height by one \(SD_{ht}\) you would predict an average weight increase of \(r \times SD_{wt}\). However it is \emph{also true} that when you increase weight by one \(SD_{wt}\), you predict an average height increase of \(r \times SD_{ht}\). You predict an increase of less than one \(SD\) in your dependant variable for an increase of one \(SD\) in your independent variable, no matter which one you assign to which. And this is not a quirk of the height and weight data in the chapter, but is true of any pair of variables where we would want to calculate Pearson's correlation coefficient. Confusing!
+
+I think this paragraph from section 12.3 of Gelman, Hill \& Vehtari's ``Regression and Other Stories'', helps with the intuition here. They relate it to the phenomenon of `regression to the mean':
+
+\begin{quote}
+This all connects to our earlier discussion of ``regression to the mean'' in Section 6.5. When x and y are standardized (that is, placed on a common scale, as in Figure 12.2), the regression line always has slope less than 1. Thus, when x is 1 standard deviation above the mean, the predicted value of y is somewhere between 0 and 1 standard deviations above the mean. This phenomenon in linear models --- that y is predicted to be closer to the mean (in standard-deviation units) than x --- is called regression to the mean and occurs in many vivid contexts.
+For example, if a woman is 10 inches taller than the average for her sex, and the correlation of mothers' and adult daughters' heights is 0.5, then her daughter's predicted height is 5 inches taller than the average. She is expected to be taller than average, but not so much taller --- thus a ``regression'' (in the nonstatistical sense) to the average.
+\end{quote}
+
+Also \href{https://statmodeling.stat.columbia.edu/2020/12/03/how-to-think-about-correlation-its-the-slope-of-the-regression-when-x-and-y-have-been-standardized/}{this blog post} on Gelman's site was helpful.
+
+Here are some plots of the \emph{mtcars} data I made when trying to convince myself this made sense. They show the horsepower and weight of various cars.The black line is the \(SD\) line, the blue line is my hand calculated regression line, and the red line is the regression line from the in-built lm() function in R.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(tidyverse)}
+
+\FunctionTok{data}\NormalTok{(mtcars)}
+
+
+\CommentTok{\# we calculate the averages and standard deviations of our two variables}
+\NormalTok{mean\_hp }\OtherTok{\textless{}{-}} \FunctionTok{mean}\NormalTok{(mtcars}\SpecialCharTok{$}\NormalTok{hp)}
+\NormalTok{sd\_hp }\OtherTok{\textless{}{-}} \FunctionTok{sd}\NormalTok{(mtcars}\SpecialCharTok{$}\NormalTok{hp)}
+\NormalTok{mean\_wt }\OtherTok{\textless{}{-}} \FunctionTok{mean}\NormalTok{(mtcars}\SpecialCharTok{$}\NormalTok{wt)}
+\NormalTok{sd\_wt }\OtherTok{\textless{}{-}} \FunctionTok{sd}\NormalTok{(mtcars}\SpecialCharTok{$}\NormalTok{wt)}
+
+
+\CommentTok{\# we standardise the two variables and multiply them together to get...}
+\NormalTok{data }\OtherTok{\textless{}{-}} \FunctionTok{tibble}\NormalTok{(}\AttributeTok{hp =}\NormalTok{ mtcars}\SpecialCharTok{$}\NormalTok{hp, }\AttributeTok{wt=}\NormalTok{mtcars}\SpecialCharTok{$}\NormalTok{wt) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{hp\_cent =}\NormalTok{ hp}\SpecialCharTok{{-}}\NormalTok{mean\_hp,}
+         \AttributeTok{hp\_stand =}\NormalTok{ hp\_cent}\SpecialCharTok{/}\NormalTok{sd\_hp,}
+         \AttributeTok{wt\_cent =}\NormalTok{ wt}\SpecialCharTok{{-}}\NormalTok{mean\_wt,}
+         \AttributeTok{wt\_stand =}\NormalTok{ wt\_cent}\SpecialCharTok{/}\NormalTok{sd\_wt,}
+         \AttributeTok{prod =}\NormalTok{ hp\_stand }\SpecialCharTok{*}\NormalTok{ wt\_stand)}
+
+\CommentTok{\# the correlation coefficient}
+\NormalTok{corr }\OtherTok{\textless{}{-}} \FunctionTok{mean}\NormalTok{(data}\SpecialCharTok{$}\NormalTok{prod)}
+
+\CommentTok{\# we plot the SD line in black and the regression line in blue}
+\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data=}\NormalTok{data)}\SpecialCharTok{+}
+  \FunctionTok{geom\_point}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\NormalTok{hp,}\AttributeTok{y=}\NormalTok{wt))}\SpecialCharTok{+}
+  \FunctionTok{geom\_abline}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{intercept =}\NormalTok{ mean\_wt }\SpecialCharTok{{-}}\NormalTok{ sd\_wt }\SpecialCharTok{*}\NormalTok{ mean\_hp}\SpecialCharTok{/}\NormalTok{sd\_hp, }\AttributeTok{slope =}\NormalTok{ sd\_wt}\SpecialCharTok{/}\NormalTok{sd\_hp))}\SpecialCharTok{+}
+  \FunctionTok{geom\_smooth}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\NormalTok{hp, }\AttributeTok{y=}\NormalTok{wt), }\AttributeTok{method =}\NormalTok{ lm, }\AttributeTok{se=}\ConstantTok{FALSE}\NormalTok{, }\AttributeTok{colour =} \StringTok{"red"}\NormalTok{)}\SpecialCharTok{+}
+  \FunctionTok{geom\_abline}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{intercept =}\NormalTok{ mean\_wt }\SpecialCharTok{{-}}\NormalTok{ corr}\SpecialCharTok{*}\NormalTok{sd\_wt }\SpecialCharTok{*}\NormalTok{ mean\_hp}\SpecialCharTok{/}\NormalTok{sd\_hp, }\AttributeTok{slope =}\NormalTok{ corr}\SpecialCharTok{*}\NormalTok{sd\_wt}\SpecialCharTok{/}\NormalTok{sd\_hp),}\AttributeTok{colour =}\StringTok{"blue"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{10-regression_files/figure-latex/unnamed-chunk-1-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# now we flip the axes}
+\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data=}\NormalTok{data)}\SpecialCharTok{+}
+  \FunctionTok{geom\_point}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\NormalTok{wt,}\AttributeTok{y=}\NormalTok{hp))}\SpecialCharTok{+}
+  \FunctionTok{geom\_abline}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{intercept =}\NormalTok{ mean\_hp }\SpecialCharTok{{-}}\NormalTok{ sd\_hp }\SpecialCharTok{*}\NormalTok{ mean\_wt}\SpecialCharTok{/}\NormalTok{sd\_wt, }\AttributeTok{slope =}\NormalTok{ sd\_hp}\SpecialCharTok{/}\NormalTok{sd\_wt))}\SpecialCharTok{+}
+  \FunctionTok{geom\_smooth}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\NormalTok{wt, }\AttributeTok{y=}\NormalTok{hp), }\AttributeTok{method =}\NormalTok{ lm, }\AttributeTok{se=}\ConstantTok{FALSE}\NormalTok{, }\AttributeTok{colour =} \StringTok{"red"}\NormalTok{)}\SpecialCharTok{+}
+  \FunctionTok{geom\_abline}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{intercept =}\NormalTok{ mean\_hp }\SpecialCharTok{{-}}\NormalTok{ corr}\SpecialCharTok{*}\NormalTok{sd\_hp }\SpecialCharTok{*}\NormalTok{ mean\_wt}\SpecialCharTok{/}\NormalTok{sd\_wt, }\AttributeTok{slope =}\NormalTok{ corr }\SpecialCharTok{*}\NormalTok{ sd\_hp}\SpecialCharTok{/}\NormalTok{sd\_wt),}\AttributeTok{colour =} \StringTok{"blue"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{10-regression_files/figure-latex/unnamed-chunk-1-2.pdf}
+
+In both plots, the regression line is shallower than the SD line. Useful to imagine slicing the chart into vertical strips and drawing a line through the average of each strip.
+
+Back to the FPP chapter, it also introduces the concept of regression to the mean here, describing test-retest situations and the phenomenon where those who scored low on the initial test will likely see their scores improve and vice versa for those who scored highly.
+
+\begin{quote}
+Thinking that the regression effect must be due to something important, not just the spread around the line, is the \emph{regression fallacy}.
+\end{quote}
+
+The FPP chapter also addresses flipping the regression (although it keeps weight and height on the same axes) in a section called `There are Two Regression Lines':
+
+\includegraphics{images/Ch10Img03.png}
+
+Here's an example from the chapter that helps clear up some of my confusion from earlier:
+
+\begin{quote}
+\emph{Example 3.} IQ scores are scaled to have an average of about 100, and an SD of about 15, both for men and for women. The correlation between the IQs of husbands and wives is about 0.50. A large study of families found that the men whose IQ was 140 had wives whose IQ averaged 120. Look at the wives in the study whose IQ was 120. Should the average IQ of their husbands be greater than 120? Answer yes or no, and explain briefly.
+\end{quote}
+
+\begin{quote}
+\emph{Solution.} No, the average IQ of their husbands will be around 110. See figure 9. The families where the husband has an IQ of 140 are shown in the vertical strip. The average y-coordinate in this strip is 120. The families where the wife has an IQ of 120 are shown in the horizontal strip. This is a completely different set of families. The average x-coordinate for points in the horizontal strip is about 110. Remember, there are two regression lines. One line is for predicting the wife's IQ from her husband's IQ. The other line is for predicting the husband's IQ from his wife's.
+\end{quote}
+
+\includegraphics{images/Ch10Img04.png}
+
+\hypertarget{rms_error}{%
+\chapter{The R.M.S. Error for Regression}\label{rms_error}}
+
+\hypertarget{chapter-notes-10}{%
+\section{Chapter Notes}\label{chapter-notes-10}}
+
+This chapter introduces the root mean square error as a measure of how much the true values of the \(y\) variable differ from what would be predicted by the regression line. For each point, we measure the distance above or below the regression line and call this the error or residual. It's positive if the point is above the regression line and negative if it's below. To get the root mean square error of the regression you square all of the residuals, take the average, and take the square root of the resulting figure.
+
+\[
+\sqrt{\frac{(\text{error}_1)^2 + (\text{error}_2)^2 + \dots + (\text{error}_n)^2}{n}}
+\]
+
+In the case of the height and weight data presented in the chapter the root mean square error is about 41 pounds. This means that a typical point in the data is above or below the regression line by around 41 pounds.
+
+\begin{quote}
+The r.m.s. error for regression says how far typical points are above or below the regression line.
+\end{quote}
+
+\begin{quote}
+The r.m.s. error is to the regression line as the SD is to the average. For instance, about 68\% of the points on a scatter diagram will be within one r.m.s. error of the regression line; about 95\% of them will be within two r.m.s. errors. This rule of thumb holds for many data sets, but not all.
+\end{quote}
+
+In fact we can think about standard deviation as being the root mean square error of a prediction line drawn horizontally through the average of \(y\) values:
+
+\includegraphics{images/Ch11Img01.png}
+
+The chapter then goes on to introduce a simpler way of computing the r.m.s error of the regression line, by comparing these two measures. It's clear that the r.m.s error for the regression line will be smaller than the \(SD\) of the \(y\) variable. The chapter states that the r.m.s error for the regression will be smaller by a factor of \(\sqrt{1-r^2}\).
+
+And so the r.m.s error for the regression line of \(y\) on \(x\) can be computed by:
+
+\[
+\sqrt{1-r^2} \times SD_y.
+\]
+
+It is the \(SD\) of the variable being predicted that goes in this formula. When we are trying to predict weight from height, we want the r.m.s error of the regression to come out in pounds, not inches.
+
+\begin{quote}
+A \emph{cautionary note.} If you extrapolate beyond the data, or use the line to make estimates for people who are different from the subjects in the study, the r.m.s. error cannot tell you how far off you are likely to be. That is beyond the power of mathematics.
+\end{quote}
+
+Here's how residuals are plotted:
+
+\includegraphics{images/Ch11Img02.png}
+
+The residuals must average out to zero, and we should expect to see no trend or pattern in the plot. If we do we a pattern, it may indicate non-linearities that make linear regression inappropriate.
+
+\includegraphics{images/Ch11Img03.png}
+
+The chapter introduces the concept of homoscedasticity.
+
+\begin{quote}
+When all the vertical strips in a scatter diagram show similar amounts of spread, the diagram is said to be \emph{homoscedastic}.The scatter diagram in figure 8 is homoscedastic. The range of sons' heights for given father's height is greater in the middle of the picture, but that is only because there are more families in the middle of things than at the extremes. The SD of sons' height for given father's
+height is pretty much the same from one end of the picture to the other.
+\end{quote}
+
+When a plot of your data is homoscedastic, the prediction errors are similar all along the regression line.
+
+\includegraphics{images/Ch11Img04.png}
+
+When your data shows heteroscedasticity, the regression line is off by different amounts for different values of the \(x\) variable. In the plot below, as education level increases so does income, but so does spread in income.
+
+\includegraphics{images/Ch11Img05.png}
+
+When data is homoscedastic and does not show signs of non-linearity, we can use normality assumptions to answer questions like:
+
+\begin{quote}
+Of the students who scored 165 on the LSAT, about what percentage had first-year law school scores over 75?
+\end{quote}
+
+We find what the regression line predicts for first-year scores given an LSAT score of 165. We then assume a normal distribution about this point with the \(SD\) of this normal curve set to equal the r.m.s. error of the regression (\emph{not} the \(SD\) of the first-year scores - the students who scored 165 on the LSAT are a smaller and more homogenous group than the overall student population).
+
+Here's a tip about heteroscedastic or non-linear data:
+
+\begin{quote}
+\emph{Technical note.} What can you do with non-linear or heteroscedastic data? Often a transformation will help --- for example, taking logarithms. The left hand panel in figure 11 shows a scatter diagram for Secchi depth (a measure of water clarity) versus total chlorophyll concentration (a measure of algae in the water). The data are non-linear and heteroscedastic. The right hand panel shows the same data, after taking logs: the diagram is more like a football.
+\end{quote}
+
+\includegraphics{images/Ch11Img06.png}
+
+\hypertarget{regression_line}{%
+\chapter{The Regression Line}\label{regression_line}}
+
+\hypertarget{chapter-notes-11}{%
+\section{Chapter Notes}\label{chapter-notes-11}}
+
+The chapter starts of with some examples of using the slope and intercept that describe the regression line to answer questions about two related variables. Then there is a short section about being careful when deciding whether to use causal language about regression lines.
+
+The chapter then introduces the method of least squares. Another definition of the regression line is the line that makes the smallest r.m.s. error in predicting \(y\) from \(x\) in your data. Choosing the line that minimises r.m.s. error is called the method of least squares.
+
+In the third chapter section, we get some advice about when a regression line may not be appropriate. As mentioned in previous chapters there may be a non-linear association between the variables, but then the chapter introduces an interesting example.
+
+\begin{quote}
+To make up an example, suppose an investigator does not know the formula for the area of a rectangle. He thinks area ought to depend on perimeter. Taking an empirical approach, he draws 20 typical rectangles, measuring the area and the perimeter for each one. The correlation coefficient turns out to be 0.98 --- almost as good as Hooke's law. The investigator concludes that he is really on to something.
+His regression equation is
+\end{quote}
+
+\[
+\text{area} = (1.60 \text{ inches}) \times (\text{perimeter}) - 10.51 \text{ square inches}
+\]
+
+The chapter says that although the mathematics works out fine, doing a regression here is silly since if the investigator looked at the variables length and width, they would find that they perfectly explain both perimeter and area in a mechanical way. No statistics necessary. The chapter contrasts this example with Hooke's law - where a linear relationship is theorised and regression is used to find out the details of this linear relationship for some particular spring, given a set of observations.
+
+\begin{quote}
+When looking at a regression study, ask yourself whether it is more like Hooke's law, or more like area and perimeter. Of course, the area-perimeter example is hypothetical. But many investigators do fit lines to data without facing the issues. That can make a lot of trouble.
+\end{quote}
+
+Obviously the rectangle example is contrived, but it seems like statistical analysis is quite often used as a substitute for theory-driven analysis in contemporary science. For any particular investigation, what are the signs that we're acting more like the rectangle investigator than the Hooke's law example? I.e. how do we know that a statistical approach is the most salient one?
+
+There is an endnote here with a number of references, the first is to the Summer 1987 issue of the Journal of Educational Statistics, where David Freedman has an article about path analysis. The gist is that sometimes path analysis is used in social science to draw causal conclusions when the assumptions that would permit these conclusions are not met. Is this what the example of the rectangle meant to demonstrate? The rectangle investigator might use the strong relationship between perimeter and area (demonstrated through regression) to claim that perimeter causes area, when we know that actually two unmeasured variables, length and width, cause both perimeter and area. But is that really where the rectangle investigator went wrong? It seems like the more fundamental error is using a statistical approach at all, and that error seems harder to guard against (at least in any real-life example that will be more complicated than making inferences about the areas of rectangles). In any case I really like the rectangle example, I think it's useful for thinking about the limits of statistics.
+
+The chapter extends the example - maybe the rectangle investigator can fix up the issues with their model by adding more variables to their regression:
+
+\begin{quote}
+Take the hypothetical investigator who was working on the area of rectangles. He could decide to control for the shape of the rectangles by multiple regression, using the length of the diagonal to measure shape. (Of course, this isn't a good measure of shape, but nobody knows how to measure status very well either.) The investigator would fit a multiple regression equation of the form
+\end{quote}
+
+\[
+\text{predicted area} = a + b \times \text{perimeter} + c \times \text{diagonal}.
+\]
+
+\begin{quote}
+He might tell himself that b measures the effect of perimeter, controlling for the effect of shape. As a result, he would be even more confused than before. The perimeter and the diagonal do determine the area, but only by a non-linear formula. Multiple regression is a powerful technique, but it is not a substitute for understanding.
+\end{quote}
+
+The comparison being made is to social scientists aiming to draw causal conclusions from data on income and education by also controlling for parental socio-economic status.
+
+\hypertarget{chances}{%
+\chapter{What Are the Chances}\label{chances}}
+
+\hypertarget{chapter-notes-12}{%
+\section{Chapter Notes}\label{chapter-notes-12}}
+
+This chapter is a basic introduction to probability theory, with a frequentist philosophical approach. We have:
+
+\begin{itemize}
+\tightlist
+\item
+  A definition of probablity:
+\end{itemize}
+
+\begin{quote}
+The chance of something gives the percentage of time it is expected to happen, when the basic process is done over and over again, independently and under the same conditions.
+\end{quote}
+
+\begin{itemize}
+\tightlist
+\item
+  An introduction to conditional probability
+\item
+  The multiplication rule:
+\end{itemize}
+
+\begin{quote}
+The chance that two things will both happen equals the chance that the first will happen, multiplied by the chance that the second will happen given the first has happened.
+\end{quote}
+
+\begin{itemize}
+\tightlist
+\item
+  Independence
+\end{itemize}
+
+\begin{quote}
+Two things are \emph{independent} if the chances for the second given the first are the same, no matter how the first one turns out. Otherwise, the two things are \emph{dependent}.
+\end{quote}
+
+\begin{quote}
+If two things are independent, the chance that both will happen equals the product of their unconditional probabilities. This is a special case of the multiplication rule.
+\end{quote}
+
+Then the chapter introduces a case study. In People v. Collins a couple were convicted for robbery on the basis of a fairly absurd application of basic probability theory. Probabilities assigned to traits that the couple possessed (race, hair style, car colour) were multiplied together to get some very low probability that the couple were arrested due to mistaken identity. Among other issues, probabilities were multiplied in a way that assumed independence, when there were clear dependencies (e.g.~between the probability of the man being a black man with a beard, and of there being an interracial couple in a car). The chapter also criticises the assigning of probabilities to characteristics during a unique event, where a frequentist definition of chance cannot apply. The convictions were later overturned.
+
+\hypertarget{more_chance}{%
+\chapter{More About Chance}\label{more_chance}}
+
+\hypertarget{chapter-notes-13}{%
+\section{Chapter Notes}\label{chapter-notes-13}}
+
+There's a nice example at the start of this chapter:
+
+\begin{quote}
+In the seventeenth century, Italian gamblers used to bet on the total number of spots rolled with three dice. They believed that the chance of rolling a total of 9 ought to equal the chance of rolling a total of 10 . . . There are altogether six combinations for 9:
+126
+135
+144
+234
+225
+333
+Similarly, they found six combinations for 10:
+145
+136
+226
+235
+244
+334
+Thus, argued the gamblers, 9 and 10 should by rights have the same chance. However, experience showed that 10 came up a bit more often than 9.
+\end{quote}
+
+The gamblers wrote to Galileo, who had the key insight that you need to keep track of which die displays which number, and not just what numbers are displayed. He listed the 216 possible ways that three dice could land, and counted which ones sum to nine and which to ten. He found that there are 25 ways to get 9 and 27 ways to get 10.
+
+I remember reading somewhere that Leibniz got this wrong in the case of two dice; that he said that the probabilities of getting an 11 and a 12 must be the same because there is only one way to get each number. It looks like both of these problems appear in the book `Classic Problems of Probability' by Prakash Gorroochurn, and it appears that Galileo got the harder problem correct (1620) more than century before Leibniz got the easier problem wrong (1768).
+
+The chapter introduces the addition rule:
+
+\begin{quote}
+To find the chance that at least one of two things will happen, check to see if they are mutually exclusive. If they are, add the chances.
+\end{quote}
+
+If the events are not mutually exclusive, summing the two probabilities will double count the case that both events occur. The case stufy of the paradox of the Chevalier de Méré is used to illustrate the dangers of adding chances that are not mutually exclusive.
+
+\begin{quote}
+In the seventeenth century, French gamblers used to bet on the event that with 4 rolls of a die, at least one ace would turn up: an ace is a one. In another game, they bet on the event that with 24 rolls of a pair of dice, at least one double-ace would turn up: a double-ace is a pair of dice which show one.
+The Chevalier de Méré, a French nobleman of the period, thought the two events were equally likely. He reasoned this way about the first game:
+
+\begin{itemize}
+\tightlist
+\item
+  In one roll of a die, I have 1/6 of a chance to get an ace.
+\item
+  So in 4 rolls, I have 4 × 1/6 = 2/3 of a chance to get at least one ace.
+\end{itemize}
+
+His reasoning for the second game was similar:
+
+\begin{itemize}
+\tightlist
+\item
+  In one roll of a pair of dice, I have 1/36 of a chance to get a double-ace.
+\item
+  So in 24 rolls, I must have 24 × 1/36 = 2/3 of a chance to get at least one double-ace.
+\end{itemize}
+
+By this argument, both chances were the same, namely 2/3. However, the gamblers found that the first event was a bit more likely than the second.
+\end{quote}
+
+Blaise Pascal and Pierre de Fermat solved the problem by reasoning not about the probability of winning the game, but the probability of \emph{losing} it. To get the probability that none of the four dice show a one we multiple 5/6 by itself 4 times to get \((5/6)^4\), because the dice outcomes are independent. Then you subtract the result from 1 to get the probability of winning. Similar reasoning applies to the game of two dice.
+
+In this case it is easier to find \(P(\text{not}E_1 \text{ and } \text{not}E_2 \text{ and } \dots \text{ and } \text{not}E_n)\) as opposed to finding \(P(E_1 \text{ or } E_2 \text{ or } \dots \text{ or } E_n)\).
+
+\hypertarget{binomial_formula}{%
+\chapter{The Binomial Formula}\label{binomial_formula}}
+
+\hypertarget{chapter-notes-14}{%
+\section{Chapter Notes}\label{chapter-notes-14}}
+
+The chapter introduces the binomial formula:
+
+\begin{quote}
+The chance that an event will occur exactly k times out of n is given by the binomial formula
+\end{quote}
+
+\[
+\frac{n!}{k!(n-k)!} p^k (1-p)^{n-k}
+\]
+
+\begin{quote}
+In this formula, n is the number of trials, k is the number of times the event is to occur, and p is the probability that the event will occur on any particular trial. The assumptions:
+
+\begin{itemize}
+\tightlist
+\item
+  The value of n must be fixed in advance.
+\item
+  p must be the same from trial to trial.
+\item
+  The trials must be independent.
+\end{itemize}
+\end{quote}
+
+The binomial coefficient \(\frac{n!}{k!(n-k)!}\) is the number of ways to choose \(k\) objects from a set of \(n\) if you don't care about order.
+
+The formula \(p^k(1-p)^{1-k}\) is the probability of any particular choice of \(k\) objects.
+
+To get the total probability that \(k\) objects are chosen, you use the addition rule to add up the probabilities of all of the possible choices. I.e. you add \(p^k(1-p)^{1-k}\) to itself \(\frac{n!}{k!(n-k)!}\) times, which is where the formula comes from.
+
+Alternative notation for the binomial coefficient includes \(n \choose k\) and \(^nC_k\). Read ``n choose k''.
+
+\hypertarget{law_averages}{%
+\chapter{The Law of Averages}\label{law_averages}}
+
+\hypertarget{chapter-notes-15}{%
+\section{Chapter Notes}\label{chapter-notes-15}}
+
+The chapter opens with a description of the experiments in probability conducted by mathematician John Kerrich while he has interned in a camp in Nazi-occupied Denmark during World War Two. In one of his experiments, Kerrich and another internee tossed a coin 10,000 times. Here's a graph of the results, where the y-axis is the number of heads less the expected number of heads (i.e.~half the number of tosses):
+
+\includegraphics{images/Ch16Img01.png}
+
+We can see that as the number of coin tosses increases, the absolute size of the error also increases. Here's a second graph, this time showing the percentage of tosses that came up heads less the expected percentage of heads (i.e.~50\%):
+
+\includegraphics{images/Ch16Img02.png}
+
+The Law of Averages is described informally in the chapter as follows:
+
+\begin{quote}
+The number of heads will be around half the number of tosses, but it will be off by some amount --- chance error. As the number of tosses goes up, the chance error gets bigger in absolute terms. Compared to the number of tosses, it gets smaller.
+\end{quote}
+
+The chapter then introduces the box model: simple probability thought experiments where numbers (say, 1 to 6) are written on tickets in a box. Then a certain number of draws are made from the box with replacement and the numbers on the ticket are summed. The idea behind the use of a box model is that chance processes we might care about in real life, like roulette or survey sampling can be reasoned about by analogy to the box model.
+
+We need to ask three questions when constructing a box model:
+
+\begin{quote}
+\begin{itemize}
+\tightlist
+\item
+  What numbers go into the box?
+\item
+  How many of each kind?
+\item
+  How many draws?
+\end{itemize}
+\end{quote}
+
+For example, a spin on a roulette wheel where you bet \$1 on either red or black can be thought of as a draw from a box where some of the tickets show +\$1 and some of the tickets show -\$1. For an American roulette wheel that has both 0 and 00, there are 18 +\$1 tickets and 20 -\$1 tickets. Using the box model strips away all extraneous detail.
+
+If you bet on a single number and win you get your dollar back plus 35 dollars in winnings. Betting a dollar on a single number is like drawing a ticket from a box where one ticket has +\$35 written on it and 37 tickets have -\$1 written on them.
+
+\hypertarget{expected_value}{%
+\chapter{The Expected Value and Standard Error}\label{expected_value}}
+
+\hypertarget{chapter-notes-16}{%
+\section{Chapter Notes}\label{chapter-notes-16}}
+
+Starting of with the box model introduced in the previous chapter, this chapter introduces the concept of \emph{expected value} as follows:
+
+\begin{quote}
+The expected value for the sum of draws made at random with replacement from a box equals
+
+(number of draws) × (average of box).
+\end{quote}
+
+However the sum drawn from the box will differ from the expected value:
+
+\begin{quote}
+sum = expected value + chance error.
+\end{quote}
+
+How big is the chance error likely to be? Here the chapter introduces the \emph{standard error}.
+
+\begin{quote}
+A sum is likely to be around its expected value, but to be off by a chance error similar in size to the standard error.
+\end{quote}
+
+And the \emph{square root law}:
+
+\begin{quote}
+The square root law.Whendrawing at random with replacement from a box of numbered tickets, the standard error for the sum of the draws is
+\end{quote}
+
+\[
+\sqrt{\text{number of draws}} \times \text{(SD of box)}
+\]
+
+\begin{quote}
+The formula has two ingredients: the square root of the number of draws, and the SD of the list of numbers in the box (abbreviated to ``SD of the box'') . . . As the number of draws goes up, the sum gets harder to predict, the chance errors get bigger, and so does the standard error. However, the standard error goes up slowly, by a factor equal to the square root of the number of draws.
+\end{quote}
+
+If \(X_i\) ar independent and identically distributed with mean \(\mu\) and variance \(\sigma^2\) then
+
+\[
+E\left(X_1 + \dots + X_n\right) = n\mu
+\]
+
+and
+
+\[
+\text{var}\left(X_1 + \dots + X_n\right) = \text{var}X_1 + \dots + \text{var}X_n = n\sigma^2
+\]
+
+and the standard error is the square root of the variance or \(\sqrt{n}\sigma\).
+
+\begin{quote}
+A large number of draws will be made at random with replacement from a box. What is the chance that the sum of the draws will be in a given range?
+\end{quote}
+
+Here the chapter reintroduces the normal curve.
+
+\begin{quote}
+Now for an example. Suppose the computer is programmed to take the sum of 25 draws made at random with replacement from the magic box {[}that contains{]}
+
+0 2 3 4 6
+
+It prints out the result, repeating the process over and over again. About what percentage of the observed values should be between between 50 and 100? Each sum will be somewhere on the horizontal axis between 0 and 25 × 6 = 150.
+\end{quote}
+
+The expected value is \(25 \times \frac{0+2+3+4+6}{5} = 75\) and the standard deviation of thelist of numbers in the box is \(\sqrt{\frac{(0-3)^2 + (2-3)^2 + (3-3)^2 + (4-3)^2 + (6-3)^2}{5}} = \sqrt{\frac{20}{5}} = 2\). So the standard error of 25 draws is \(\sqrt{25} \times 2 = 10\).
+
+The observed values of a sum of 25 draws should fit a normal distribution with mean 75 and standard deviation 10. E.g. 68\% of observed values should be within within one standard error, 95\% should be within two, and 99\% should be within two and a half.
+
+The chapter includes a short-cut for calculating the standard deviation for lists with only two different numbers.
+
+\begin{quote}
+When a list has only two different numbers (``big'' and ``small''), the SD equals
+\end{quote}
+
+\[
+\left( \text{big number} - \text{small number} \right) \times \sqrt{\text{fraction with big number} \times \text{fraction with small number}}
+\]
+
+\begin{quote}
+For example, take the list 5, 1, 1, 1. The short-cut can be used because there are only two different numbers, 5 and 1. The SD is
+\end{quote}
+
+\[
+\left( 5 - 1 \right) \times \sqrt{\frac{1}{4} \times \frac{3}{4}} \approx 1.73
+\]
+
+The chapter ends by relating the root square law to the law of averages:
+
+\begin{quote}
+Suppose a coin is tossed a large number of times. Then heads will come up on about half the
+tosses:
+
+number of heads = half the number of tosses + chance error.
+
+How big is the chance error likely to be? At first, Kerrich's assistant thought it would be very small. The record showed him to be wrong. As Kerrich kept tossing the coin, the chance error grew in absolute terms but shrank relative to the number of tosses, just as the mathematics predicts.
+
+According to the square root law, the likely size of the chance error is \(\sqrt{\text{number of tosses}} \times 1/2\). For instance, with 10,000 tosses the standard error is \(\sqrt{10,000} \times 1/2 = 50\). When the number of tosses goes up to 1,000,000, the standard error goes up too, but only to 500 --- because of the square root. As the number of tosses goes up, the SE for the number of heads gets bigger and bigger in absolute terms, but smaller and smaller relative to the number of tosses. That is why the percentage of heads gets closer and closer to 50\%. The square root law is the mathematical explanation for the law of averages.
+\end{quote}
+
+\hypertarget{normal_approx_prob}{%
+\chapter{The Normal Approximation for Probability Histograms}\label{normal_approx_prob}}
+
+\hypertarget{chapter-notes-17}{%
+\section{Chapter Notes}\label{chapter-notes-17}}
+
+\begin{quote}
+According to the law of averages, when a coin is tossed a large number of times, the percentage of heads will be close to 50\%. Around 1700, the Swiss mathematician James Bernoulli put this on a rigorous mathematical footing. Twenty years later, Abraham de Moivre made a substantial improvement on Bernoulli's
+work . . . Bernoulli and de Moivre both made the same assumptions about the coin: the tosses are independent, and on each toss the coin is as likely to land heads as tails. From these assumptions, it follows that the coin is as likely to land in any specific pattern of heads and tails as in any other. What Bernoulli did was to show that for most patterns, about 50\% of the entries are heads.
+\end{quote}
+
+\begin{quote}
+Of course, de Moivre did not have anything like a modern calculator available. He needed a mathematical way of estimating the binomial coefficients, without having to work the arithmetic out. And he found a way to do it (though the approximation is usually credited to another mathematician, James Stirling). De Moivre's procedure led him to the normal curve . . . In fact, he was able to prove that the whole \emph{probability histogram} for the number of heads is close to the normal curve when the number of tosses is large.
+\end{quote}
+
+The chapter introduces the probability histogram:
+
+\includegraphics{images/Ch18Img01.png}
+
+I think the y-axis must be wrong for those middle histograms. The area of the each rectangle in the probability histogram represents the probability of getting the associated value.
+
+Here's the empirical histograms converging to the probability histogram when you roll two dice and take the product instead of the sum:
+
+\includegraphics{images/Ch18Img02.png}
+
+The chapter relates the probability histogram for the number of heads in some large number of coin tosses to the normal curve:
+
+\includegraphics{images/Ch18Img03.png}
+
+The standard error for 100 tosses is \(\sqrt{100} \times 1/2 = 5\), which you can see by comparing the two different axes in the chart above.
+
+Here's the probability histogram converging to the normal curve:
+
+\includegraphics{images/Ch18Img04.png}
+
+\begin{quote}
+In the early eighteenth century, de Moivre proved this convergence had to take place, by pure mathematical reasoning . . . The normal approximation consists in replacing the actual probability histogram by the normal curve before computing areas. This is legitimate when the probability histogram follows the normal curve. Probability histograms are often hard to work out, while areas under the normal curve are easy to look up in the table.
+\end{quote}
+
+In what other situations can we apply the normal approximation? What about drawing from a box?
+
+\begin{quote}
+Again, the normal approximation works perfectly well, so long as you remember one thing. The more the histogram of the numbers in the box differs from the normal curve, the more draws are needed before the approximation takes hold.
+\end{quote}
+
+Here, for example is the case where a box contains nine 0s and one 1:
+
+\includegraphics{images/Ch18Img05.png}
+
+What about with figures other than one or zero in the box? Here's we have draws from a box containing one, two and nine. We start with the histogram, which does not look normal at all:
+
+\includegraphics{images/Ch18Img06.png}
+
+Now we draw the histogram for sums of a set number of draws from this box:
+
+\includegraphics{images/Ch18Img07.png}
+
+Where does the normal approximation not apply? What if we roll a die a certain number of times and take the product instead of the sum? We can see that the normal approximation will not help us here:
+
+\includegraphics{images/Ch18Img08.png}
+
+\begin{quote}
+With enough draws, the probability histogram for the sum will be close to the normal curve. Mathematicians have a name for this fact. They call it ``the central limit theorem,'' because it plays a central role in statistical theory.
+
+\emph{The Central Limit Theorem.} When drawing at random with replacement from a box, the probability histogram for the sum will follow the normal curve, even if the contents of the box do not. The histogram must be put into standard units, and the number of draws must be reasonably large.
+
+The central limit theorem applies to sums but not to other operations like products. The theorem is the basis for many of the statistical procedures discussed in the rest of the book.
+\end{quote}
+
+\hypertarget{sample_surveys}{%
+\chapter{Sample Surveys}\label{sample_surveys}}
+
+\hypertarget{chapter-notes-18}{%
+\section{Chapter Notes}\label{chapter-notes-18}}
+
+The chapter opens by introducing some terminology:
+
+\begin{quote}
+\begin{itemize}
+\tightlist
+\item
+  An investigator usually wants to generalize about a class of individuals. This class is called the \emph{population.}
+\item
+  Studying the whole population is usually impractical. Only part of it can be examined, and this part is called the \emph{sample.}
+\item
+  Usually, there are some numerical facts about the population which the investigators want to know. Such numerical facts are called \emph{parameters.}
+\item
+  Parameters are estimated by \emph{statistics},or numbers which can be computed from a sample.
+\end{itemize}
+\end{quote}
+
+Say we wanted to know the average age of the population of eligible voters. This is a parameter that we could estimate from a sample of eligible voters by calculating the statistic `average age of elegible voters in the sample'.
+
+\begin{quote}
+Statistics are what investigators know; parameters are what they want to know.
+\end{quote}
+
+We can draw conclusions about the population from a sample if it is a representative sample. But how can we know whether a sample is representative without knowing facts about the population that we're trying to estimate? Instead we can look at how the sample was chosen.
+
+The chapter introduces an example. In 1936 the Literary Digest predicted an overwhelming win for Alfred Landon over sitting president Franklin Delano Roosevelt in that year's election. The Digest has called the winner in every presidential election since 1916, and the poll that formed the basis of the prediction was the largest one ever - with 2.4 million people replying. They predicted that Roosevelt would get only 43\% of the vote. His real vote share was 62\% - a huge landslide win. The chapter calls this ``the largest {[}error{]} ever made by a major poll''.
+
+What went wrong? At the time, George Gallup was just setting up his survey organisation. He took a sample of 3,000 individuals and predicted to the percentage point what the Digest poll results were going to be, before they were published. He also took a sample of about 50,000 people, and used this to correctly forecast Roosevelt's win - though he predicted Roosevelt would get only 56\% of the vote.
+
+How did the Digest get their sample?
+
+\begin{quote}
+The Digest's procedure was to mail questionnaires to 10 million people. The names and addresses of these 10 million people came from sources like telephone books and club membership lists. That tended to screen out the poor, who were unlikely to belong to clubs or have telephones. (At the time, for example, only one household in four had a telephone.) So there was a very strong bias against the poor in the Digest's sampling procedure. Prior to 1936, this bias may not have affected the predictions very much, because rich and poor voted along similar lines. But in 1936, the political split followed economic lines more closely. The poor voted overwhelmingly for Roosevelt, the rich were for Landon. One reason for the magnitude of the Digest's error was selection bias.
+\end{quote}
+
+When your selection procedure is biased, taking a larger sample does not help.
+
+In addition to the bias described above, the Digest also experienced \emph{non-response bias}. This happens when the people who don't respond to a survey differ in important, systemic ways from the people who do respond.
+
+\begin{quote}
+Special surveys have been carried out to measure the difference between respondents and non-respondents. It turns out that lower-income and upper-income people tend not to respond to questionnaires, so the middle class is over-represented among respondents. For these reasons, modern survey organizations prefer to use personal interviews rather than mailed questionnaires. A typical response rate for personal interviews is 65\%, compared to 25\% for mailed questionnaires.
+\end{quote}
+
+How did Gallup predict the results of the Digest poll?
+
+\begin{quote}
+He just chose 3,000 people at random from the same lists the Digest was going to use, and mailed them all a postcard asking how they planned to vote. He knew that a random sample was likely to be quite representative, as will be explained in the next two chapters.
+\end{quote}
+
+It's interesting that here Gallup didn't have to worry about selection or non-response bias, because his target of inference was a poll that suffered these biases. As long as his own survey experienced the same bias in the sample, he could be confident of predicting the Digest's results.
+
+The chapter introduces another example, this time the election of Truman over Dewey in 1948.
+
+\begin{quote}
+Three major polls covered the election campaign: Crossley, for the Hearst newspapers; Gallup, syndicated in about 100 independent newspapers across the country; and Roper, for Fortune magazine. By fall, all three had declared Dewey the winner, with a lead of around 5 percentage points. Gallup's prediction was based on 50,000 interviews; and Roper's on 15,000.
+\end{quote}
+
+The Scranton Tribune had a headline ``Dewey As Good As Elected''.
+
+\begin{quote}
+On Election Day, Truman scored an upset victory with just under 50\% of the popular vote. Dewey got just over 45\%.
+\end{quote}
+
+How did these polls choose their sample? They all used \emph{quote sampling}.
+
+\begin{quote}
+With this procedure, each interviewer was assigned a fixed quota of subjects to interview. The numbers falling into certain categories (like residence, sex, age, race, and economic status) were also fixed. In other respects, the interviewers were free to select anybody they liked . . . From a common-sense point of view, quota sampling looks good. It seems to guarantee that the sample will be like the voting population with respect to all the important characteristics that affect voting behavior. (Distributions of residence, sex, age, race, and rent can be estimated quite closely from Census data.) But the 1948 experience shows this procedure worked very badly.
+\end{quote}
+
+There area couple problems with quoate sampling. One is that there are a lot of factors that influence voting besides the ones the polling were controlling for. It's perfectly possible to choose a sample that reflects the nation in terms of age, gender, race, and income, but does not reflect the nation when it comes to voting preferences. The second problem is that the interviewer is restricted by the quota system, but within those restrictions there is a lot of room for human choice, and this is often biased. On average Republicans were likely to be marginally easier to interview in 1948.
+
+An endnote in the quote takes care to draw a distinction between quota sampling and stratified sampling.
+\textgreater{} A quota sampler could in principle hire two interviewers, one to interview 100 men, the other to interview 100 women. In other respects, the two interviewers would pick whomever they wanted. This is not such a good design. By contrast, a stratified sample would be drawn as follows:
+\textgreater{}
+\textgreater{} * Take a simple random sample of 100 men.
+\textgreater{} * Independently, take a simple random sample of 100 women.
+\textgreater{}
+\textgreater{} This is a better design, because human bias is ruled out.
+
+Interesting. I wonder how well stratified sampling gets around the first problem with quote sampling mentioned in the chapter - that it is not feasible to control for \emph{all} variables that affect voting preference. Is there a benefit to stratified sampling over simple probability samples? I need to read Sharon Lohr's book on this I think.
+
+So what is the alternative to quote sampling? How should we choose a sample? The chapter introduces \emph{probability methods} for sampling:
+
+\begin{quote}
+What is a probability method for drawing a sample? To get started, imagine carrying out a survey of 100 voters in asmall town with apopulation of 1,000 eligible voters. Then, it is feasibleto list all the eligible voters, write the name of each one on a ticket, put all 1,000 tickets in a box, and draw 100 tickets at random. Since there is no point interviewing the same person twice, the draws are made without replacement. In other words, the box is shaken to mix up the tickets. One is drawn out at random and set aside. That leaves 999 in the box. The box is shaken again, a second ticket is drawn out and set aside. The process is repeated until 100 tickets have been drawn. The people whose tickets have been drawn form the sample.
+
+This process is called simple random sampling: tickets have simplybeen drawn at random without replacement. At each draw, every ticket in the box has an equal chance to be chosen. The interviewers have no discretion at all in whom they interview, and the procedure is impartial---everybody has the same chance to get into the sample. Consequently, the law of averages guarantees that the percentage of Democrats in the sample is likely to be close to the percentage in the population.
+
+What happens in a more realistic setting, when the Gallup Poll tries to predict apresidential election?A natural ideais to takeanationwidesimplerandom sample of a few thousand eligible voters. However, this isn't as easy to do as it sounds. Drawing names at random, in the statistical sense, is hard work. It is not at all the same as choosing people haphazardly.
+\end{quote}
+
+What are the problems with simple random sampling in political polling?
+
+\begin{itemize}
+\tightlist
+\item
+  There is no list of eligible voters
+\item
+  Not easy to draw a few thousand names at random from such a list if it existed (Surely this is not still true in 2021. Seems like it would be reasonably straightforward.)
+\item
+  The people chosen would be scattered geographically in such a way that it is cost-prohibitive to send interviewers to them.
+\end{itemize}
+
+Instead most polling organisations use something called \emph{multi-stage cluster sampling}. The chapter uses the example of Gallup polls between 1952 and 1984:
+
+\begin{quote}
+The Gallup Poll makes a separate study in each of the four geographical regions of the United States --- Northeast, South, Midwest, and West. Within each region, they group together all the population centers of similar sizes. One such grouping might be all towns in the Northeast with a population between 50 and 250 thousand. Then, a random sample of these towns is selected. Interviewers are stationed in the selected towns, and no interviews are conducted in the other towns of that group. Other groupings are handled the same way. This completes the first stage of sampling.
+
+For election purposes, each town is divided up into wards,and the wards are subdivided into precincts. At the second stage of sampling, some wards are selected --- at random --- from each town chosen in the stage before. At the third stage, some precincts are drawn at random from each of the previously selected wards. At the fourth stage, households are drawn at random from each selected precinct. Finally, some members of the selected households are interviewed. Even here, no discretion is allowed. For instance, Gallup Poll interviewers are instructed to ``speak to the youngest man 18 or older at home, or if no man is at home, the oldest woman 18 or older.''
+\end{quote}
+
+Here are the important features of probability methods of sampling:
+
+\begin{quote}
+\begin{itemize}
+\tightlist
+\item
+  the interviewers have no discretion at all as to whom they interview
+\item
+  there is a definite procedure for selecting the sample, and it involves the planned use of chance.
+\end{itemize}
+\end{quote}
+
+These features mean that it is possible to compute the chance that any particular individuals in the population will get into the sample.
+
+However there are still many practical difficulties for polling via probability methods.
+
+\begin{itemize}
+\tightlist
+\item
+  How can non-voters be screened out of the sample? There is a stigma attached to non-voting and so people may say that they will vote even if they won't.
+\item
+  Some people will be undecided - how can the percentage undecided be minimised?
+\item
+  Response bias - answers may be influences by phrasing of question, or even the tone or attitude of the interviewer.
+\item
+  Non-response bias
+\item
+  Check data - Gallup polls often include proportionately too many people with higher education. There may be weighting done after collecting the sample.
+\item
+  Interviewer control - interviewers not following instructions. Redundancy is often built into the questions as a way of checking for this.
+\item
+  Talk is cheap - perhaps what someone says they will do on election day does not line up with what they do.
+\item
+  Chance error - the next two chapters will dig into this more.
+\end{itemize}
+
+\hypertarget{chance_errors}{%
+\chapter{Chance Errors in Sampling}\label{chance_errors}}
+
+\hypertarget{chapter-notes-19}{%
+\section{Chapter Notes}\label{chapter-notes-19}}
+
+The chapter introduces the standard error for a percentage:
+
+\[
+\text{SE for percentage} = \frac{\text{SE for number}}{\text{size of sample}} \times 100\%
+\]
+
+This allows for sentences like: ``The percentage of men in the sample is likely to be around 46\%, give or take 5\% or so.'' Where the 5\% is the SE for the percentage of men in the sample. In contrast to the absolute SE, the SE for a percentage decreases with increasing sample size. This is because when the sample size is increased by some factor, the SE increases by the square root of that factor.
+
+Again, the normal curve can be used to estimate probabilities given an expected value and standard error, if the assumption of normality is justified.
+
+Here's a fun example:
+
+\begin{quote}
+It is just after Labor Day, 2004. The presidential campaign (Bush versus Kerry) is in full swing, and the focus is on the Southwest. Pollsters are trying to predict the results. There are about 1.5 million eligible voters in NewMexico, and about 15 million in the state of Texas. Suppose one polling organization takes a simple random sample of 2,500 voters in New Mexico, in order to estimate the percentage of voters in that state who are Democratic. Another polling organization takes a simple random sample of 2,500 voters from Texas. Both polls use exactly the same techniques. Both estimates are likely to be a bit off, by chance error. For which poll is the chance error likely to be smaller?
+
+The New Mexico poll is sampling one voter out of 600, while the Texas poll is sampling one voter out of 6,000. It does seem that the NewMexico poll should be more accurate than the Texas poll. However, this is one of the places where intuition comes into head-on conflict with statistical theory, and it is intuition which has to give way. In fact, the accuracy expected from the New Mexico poll is just about the same as the accuracy to be expected from the Texas poll.
+
+When estimating percentages, it is the absolute size of the sample which determines accuracy, not the size relative to the population. This is true if the sample is only a small part of the population,
+which is the usual case.
+\end{quote}
+
+Endnote 5 contains a caveat:
+
+\begin{quote}
+The issues may be different in other contexts. For instance, suppose you are sampling from two different strata, and want to allocate a fixed number of sampling units between the two. If the object is to equalize accuracy of the two estimated percentages, a reasonable first cut is to use equal sample sizes. If the object is to equalize accuracy of estimated numbers, or to estimate a percentage that is pooled across the strata, a larger sample should generally be drawn from the larger stratum. Gains in accuracy from stratification---as opposed to simple random sampling - should not be overestimated (note 12 to chapter 19).
+\end{quote}
+
+Why should we expect the chance error to be about the same for both polls? First, the chapter sets up a box model to represent the situation (assuming for simplicity that 50\% of voters in each state vote Democratic, and 50\% Republican), and asks us to first imagine that the sample is taken with replacement. Then it is clear that which box is chosen makes no difference: for each draw out of each box there is a 50\% chance of drawing a Democratic voter.
+
+In reality the draws are made without replacement. However because the number of draws is so low compared to the total population, the draws barely change the composition of the box. This is why we expect the standard errors to be similar. However drawing without replacement does make some difference:
+
+\[
+\text{SE when drawing without replacement} = \text{correction factor} \times \text{SE when drawing with replacement}
+\]
+
+where the correction factor is:
+
+\[
+\sqrt{\frac{\text{number of tickets in the box} - \text{number of draws}}{\text{number of tickets in the box} - 1}}
+\]
+
+The correction factor is nearly when when the number of tickets in the box is large relative to the number of draws.
+
+The box model assumed the percentage of Democrats in each state was equal. If they are not then the SDs and therefore the SE will be different. But even reasonably large differences may not make much difference. In the 2004 election, 50\% of New Mexico voters went for Bush, compared to 61\% of Texans. But the SDs for very close (using the short-cut for SD introduced in chapter 17):
+
+\[
+\begin{aligned}
+SD_\text{NM} &= \sqrt{0.5 \times 0.5} = 0.50 \\
+SD_\text{TX} &= \sqrt{0.61 \times 0.39} \approx 0.49.
+\end{aligned}
+\]
+
+\hypertarget{accuracy_percentages}{%
+\chapter{The Accuracy of Percentages}\label{accuracy_percentages}}
+
+\hypertarget{chapter-notes-20}{%
+\section{Chapter Notes}\label{chapter-notes-20}}
+
+In the last chapter, we used a box model with known composition to reason about the expected values and standard errors of the sample. This chapter concerns the reverse: making inferences about a population using information from a sample.
+
+Here's the example introduced:
+
+\begin{quote}
+A political candidate wants to enter a primary in a district with 100,000 eligible voters, but only if he has a good chance of winning. He hires a survey organization, which takes a simple random sample of 2,500 voters.
+\end{quote}
+
+We're told that 1,328 or 53\% of the sample favour the candidate, and we want to get an estimate of the chance error. Weset up a box model, imagining 100,000 tickets in a box with some marked with 1s (a vote for the candidate), and some marked with 0s (a vote for the opponent). To get the standard error we first need the standard deviation:
+
+\[
+\sqrt{\text{fraction of 1s} \times \text{fraction of 0s}}.
+\]
+
+But we don't know these fractions, they are the target of our inference. So what can we do?
+
+\begin{quote}
+Survey organizations lift themselves over this sort of obstacle by their own bootstraps. They substitute the fractions observed in the sample for the unknown fractions in the box.
+\end{quote}
+
+Endnote 2 explains that the technique introduced in this chapter is a special case of what statisticians call `the bootstrap'. Our estimate of the SD is now:
+
+\[
+\sqrt{0.53 \times 0.47} \approx 0.50
+\]
+and so the standard error is \(\sqrt{2500} \times 0.5 = 25\) or 1\%. A true population percentage of \textless50\% would be more than three standard errors below the estimate of 53\%, and so the candidate can be confident entering the primary.
+
+The chapter introduces confidence intervals, using standard errors esimated from the data plus the normal approximation. The chapter gives a frequentist interpretation:
+
+\begin{quote}
+In example 1 on p.~378, a simple random sample was taken to estimate the percentage of students registered at a university in fall 2005 who were living at home. An approximate 95\% - confidence interval for this percentage ran from 75\% to 83\% . . . It seems more natural to say ``There is a 95\% chance that the population percentage is between 75\% and 83\%.'' But there is a problem here. In the frequency theory, a chance represents the percentage of the time that something will happen. No matter how many times you take stock of all the students registered at that university in the fall of 2005, the percentage who were living at home back then will not change. Either this percentage was between 75\% and 83\%, or not. There really is no way to define the chance that the parameter will be in the interval from 75\% to 83\%. That is why statisticians have to turn the problem around slightly. They realize that the chances are in the sampling procedure, not in the parameter. And they use the new word ``confidence'' to remind you of this.
+\end{quote}
+
+Here's a nice figure that illustrates this interpretation:
+
+\includegraphics{images/Ch21Img01.png}
+
+The chapter includes a caveat:
+
+\begin{quote}
+The methods of this chapter were developed for simple random samples. They may not apply to other kinds of samples. Many survey organizations use fairly complicated probability methods to draw their samples (section 4 of chapter 19). As a result, they have to use more complicated methods for estimating
+their standard errors . . . Here is the reason. Logically, the procedures in this chapter all come out of the square root law (section 2 of chapter 17). When the size of the sample is small relative to the size of the population, taking a simple random sample is just about the same as drawing at random with replacement from a box --- the basic situation to which the square root law applies. The phrase ``at random'' is used here in its technical sense: at each stage, every ticket in the box has to have an equal chance to be chosen. If the sample is not taken at random, the square root law does not apply, and may give silly answers.
+\end{quote}
+
+The Gallup poll, for instance, does not use simple random sampling, and in 11 of the 14 elections between 1952 and 2004 the error was considerably larger than the SE for a simple random sample. Chapter 19 described some of the issues pollsters face.
+
+\hypertarget{measuring_employment}{%
+\chapter{Measuring Employment and Unemployment}\label{measuring_employment}}
+
+\hypertarget{chapter-notes-21}{%
+\section{Chapter Notes}\label{chapter-notes-21}}
+
+This chapter uses the Current Population Survey as a case study to illustrate the ideas introduced over the previous few chapters. The conclusions are described as follows:
+
+\begin{quote}
+\begin{itemize}
+\tightlist
+\item
+  In practice, fairly complicated probability methods must be used to draw samples. Simple random sampling is only a building-block in these designs.
+\item
+  The standard-error formulas for simple random samples do not apply to these complicated designs, and other methods must be used for estimating the standard errors.
+\end{itemize}
+\end{quote}
+
+Here's the description of the survey following the 2000 redesign:
+
+\begin{quote}
+There were 3,142 counties and independent cities in the U.S. As the first step in the redesign process, the Bureau put these together into groups to form 2,025 Primary Sampling Units (or PSUs, for short). Each PSU consisted either of a city, or acounty, or a group of contiguous counties. These PSUs were sorted into 824 strata,chosen so the PSUs in each stratum would resemble each other on certain demographic and economic characteristics . . . The sample was chosen in two stages. To begin with, one PSU was chosen from each stratum, using a probability method which ensured that within the stratum, the chance of a PSU getting into the sample was proportional to its population . . . Each PSU was divided up into Ultimate Sampling Units (or USUs), consisting of about 4 housing units each. At the second stage, some USUs were picked at random for the sample . . . For the U.S. as a whole, the sampling rate is about 1 in 2,000. But the rate varies from about 1 in 300 for D.C. or Wyoming to 1 in 3,000 for large states like California, New York, and Texas.
+\end{quote}
+
+The aim is to estimate unemployment rates for all 50 states plus D.C. with about the same precision, which requires (roughly) equalising the absolute sample sizes for all 51 regions, which explains the differing sample rates.
+
+\begin{quote}
+The Survey design for 2005 produces 72,000 housing units to be canvassed each month. Of these, about 12,000 are ineligible for the sample (being vacant, or even demolished since the sample was designed). Another 4,500 or so are unavailable, because no one is at home, or because those at home will not cooperate. That leaves about 55,500 housing units in the Survey. All persons age 16 or over in these housing units are asked about their work experience in the previous week.
+\end{quote}
+
+People are then classed as employed, unemployed, or outside of the labour force according to their answers to survey questions. To estimate the number of people in the population who are unemployed, the Census Bureau divides the sample by age, sex, race, and area of residence and assigns each group a weighting separately.
+
+\begin{quote}
+There is a good reason for all the complexity. The sampling rate is different from one stratum to another, and the weights have to compensate; otherwise, the estimates could be quite biased. Moreover, the weights are used to control the impact of chance variation. For example, suppose there are too many white males age 16--19 in the sample, relative to their share in the total population. Unemployment is high in this group, which would make the overall unemployment rate in the sample too high. The Bureau has a fix: any group which is over-represented in the sample gets proportionately smaller weights, bringing the sample back into line with the population. On the other hand, if a group is under-represented, the weights are increased. Adjusting the weights this way helps to correct imbalances caused by chance variation. That reduces sampling error.
+\end{quote}
+
+How does the Bureau assign standard errors?
+
+\begin{quote}
+Procedures we have discussed in previous chapters do not apply, because the Bureau is not using a
+simple random sample. In particular, at the second stage of its sampling procedure the Bureau chooses some ultimate sampling units (USUs). A USU is a cluster of about four adjacent housing units. Every person age 16 and over living in one of these USUs gets into the sample . . . As it turns out, with a cluster sample the standard errors can themselves be estimated very closely from the data, using the half-sample method.Althoughthe details are complicated and take a lot of computer power, the idea is simple. If the Bureau wanted to see how accurate the Current Population Survey was, one thing to do would be make another independent survey following exactly the same procedures. The difference between the two surveys would give some idea of how reliable each set of results was.
+
+Nobody would seriously propose to replicate the Current Population Survey, at a cost of another \$60 million a year, just to see how reliable it is. But the Bureau can get almost the same effect by splitting the Survey into two independent pieces which have the same chance behavior (hence the name, ``half-sample method'') . . . Of course, an estimated standard error based on only one split may not be too reliable. But there are many different ways to split the sample. The Bureau looks at a number of them and combines the standard errors by taking the root-mean-square. This completes the outline of the half-sample method.
+\end{quote}
+
+\hypertarget{accuracy_averages}{%
+\chapter{The Accuracy of Averages}\label{accuracy_averages}}
+
+\hypertarget{chapter-notes-22}{%
+\section{Chapter Notes}\label{chapter-notes-22}}
+
+\begin{quote}
+The object of this chapter is to estimate the accuracy of an average computed from a simple random sample. This section deals with a preliminary question: How much chance variability is there in the average of numbers drawn from a box?
+\end{quote}
+
+E.g. a box with tickets in labeled 1 through 7, draws are performed with replacement.
+
+Pretty straightforward. The expected value for the sum is:
+
+\[
+\text{number of draws} \times \text{average of box}
+\]
+and the standard error is:
+
+\[
+\sqrt{\text{number of draws}} \times \text{SD of box}
+\]
+
+The expected value for the average is the expected value of the sum divided by the number of draws. Likewise the SD of the average is the SD of the sum divided by the number of draws.
+
+Questions like ``Estimate the chance that the average of the draws will be more than 4.2'' can be answered if the normal approximation applies.
+
+The next section in the chapter concerns the inverse problem: reasoning from a sample to the (unknown) average of the box.
+
+\begin{quote}
+Suppose that a city manager wants to know the average income of the 25,000 families living in his town. He hires a survey organization to take a simple random sample of 1,000 families. The total income of the 1,000 sample families turns out to be \$62,396,714. Their average income is \$62,396,714/1,000 ≈ \$62,400. The average income for all 25,000 families is estimated as \$62,400. Of course, this estimate is off by a chance error. The problem is to put a give-or-take number on the estimate.
+\end{quote}
+
+A box model is constructed. One ticket in the box for each family in town. We take 1,000 draws from the box - there shouldn't be much difference between drawing with replacement and drawing without replacement at this ratio of draws to tickets. The standard error is
+
+\[
+\sqrt{1,000} \times \text{SD of box}.
+\]
+
+However we do not know the SD of the box. As in chapter 21, we estimate it by calculating the SD of the sample.In this case the SD of the sample is \$53,000, and so we estimate the SD of the sum as follows:
+
+\[
+\sqrt{1,000} \times \$53,000 \approx \$1,700,000.
+\]
+
+To get the SD of the average, we divide by the number of families in the sample \(\$1,77,00 / 1,000\) = \$1,700\$. The average of the incomes of 25,000 families can be estimated as:
+
+\[
+\$62,000 \pm \$1,700.
+\]
+
+A note on interpretation:
+
+\begin{quote}
+People who confuse the SD with the SE might think that somehow, 95\% of the families in the town had incomes in the range \$62,400 ± \$3,400. That would be ridiculous. The range \$62,400 ± \$3,400 covers only a tiny part of the income distribution: the SD is about \$53,000. The confidence interval is for something else. In about 95\% of all samples, if you go 2 SEs either way from the sample average, your confidence interval will cover the average for the whole town; in the other 5\%, your interval will miss. The word ``confidence'' is to remind you that the chances are in the sampling procedure; the average of the box is not moving around.
+\end{quote}
+
+\hypertarget{model_measurement}{%
+\chapter{A Model for Measurement Error}\label{model_measurement}}
+
+\hypertarget{chapter-notes-23}{%
+\section{Chapter Notes}\label{chapter-notes-23}}
+
+This chapter applies our box models (or \emph{chance models} or \emph{stochastic models}) to the study of measurement error.
+
+In chapter six we used the SD as a measure of the likely size of the chance error in a single measurement. In this chapter we compute the likely chance error of the average of the estimates. We use:
+
+\[
+\begin{aligned}
+\text{SE for the average} &= \frac{\text{SE of the sum}}{\text{number of measurements}} \\ &=\frac{\sqrt{\text{number of measurements}}\times \text{SD of the sample}}{\text{number of measurements}}\\
+&=\frac{ \text{SD of the sample}}{\sqrt{\text{number of measurements}}}=\frac{\sigma}{\sqrt{n}}
+\end{aligned}
+\]
+Here we have again used the SD of the sample as a stand-in for the SD of the population.
+
+\includegraphics{images/Ch24Img01.png}
+
+When the normal approximation applies, we can use that to construct confidence intervals.
+
+A nice historical example:
+
+\begin{quote}
+There is a connection between the theory of measurement error and neon signs. In 1890, the atmosphere was believed to consist of nitrogen (about 80\%), oxygen (a little under 20\%), carbon dioxide, water vapor---and nothing else. Chemists were able to remove the oxygen, carbon dioxide, and water vapor. The residual gas should have been pure nitrogen.
+
+Lord Rayleigh undertook to compare the weight of the residual gas with the weight of an equal volume of chemically pure nitrogen. One measurement on the weight of the residual gas gave 2.31001 grams. And one measurement of the pure nitrogen gave a bit less, 2.29849 grams. However, the difference of 0.01152 grams was rather small, and in fact was comparable to the chance errors made by the weighing procedure.
+
+Could the difference have resulted from chance error? If not, the residual gas had to contain something heavier than nitrogen. What Rayleigh did was to replicate the experiment, until he had enough measurements to prove that the residual gas from the atmosphere was heavier than pure nitrogen.
+
+He went on to isolate the rare gas called argon,which is heavier than pure nitrogen and present in the atmosphere in small quantities. Other researchers later discovered the similar gases neon, krypton, and xenon, all occurring naturally (in trace amounts) in the atmosphere. These gases are what make ``neon'' signs glow in different colors.
+\end{quote}
+
+An endnote points to Youden's `Experimentation and Measurement' for this example.
+
+The chapter describes a box model for measurement error it calls `the Gauss model':
+
+\begin{quote}
+In the Gauss model, each time a measurement is made, a ticket is drawn at random with replacement from the error box. The number on the ticket is the chance error. It is added to the exact value to give the actual measurement. The average of the error box is equal to 0.
+\end{quote}
+
+The SD of the box is usually unknown and must be estimated from the data.
+
+\begin{quote}
+When the Gauss model applies, the SD of a series of repeated measurements can be used to estimate the SD of the error box. The estimate is good when there are enough measurements.
+\end{quote}
+
+And again the chapter warns about making assumptions that underpin the box model when those assumptions are not justified:
+
+\begin{quote}
+Statistical inference can be justified by putting up an explicit chance model for the data. No box, no inference.
+\end{quote}
+
+\hypertarget{chance_genetics}{%
+\chapter{Chance Models in Genetics}\label{chance_genetics}}
+
+\hypertarget{chapter-notes-24}{%
+\section{Chapter Notes}\label{chapter-notes-24}}
+
+This chapter applies our box models (or \emph{chance models} or \emph{stochastic models}) to the study of genetics.
+
+The chapter opens with a description of Mendel's experiments on pea seed colour. Then it outlines Fisher's discussion of Mendel's data. Here's a quote from Fisher:
+
+\begin{quote}
+\ldots the general level of agreement between Mendel's expectations and his reported results shows that it is closer than would be expected in the best of several thousand repetitions. The data have evidently been sophisticated systematically, and after examining various possibilities, I have no doubt that Mendel was deceived by a gardening assistant, who knew only too well what his principal expected from each trial made.
+\end{quote}
+
+The chapter outlines the mathematics underlying Fisher's quote: in one experiment, Mendel obtained 2,001 green seeds from a sample of 8,023 second-generation hybrid seeds. The expected value is \(8,023/4 \approx 2,006\). We can construct a box model to esimate the probability of an error of 5 or less.
+
+We draw 8,023 times from a box containing four tickets, three marked with zero and one marked with one. What is the probability that the sum will be within 2,001 - 2,011? The mean is 2,006 and the standard error is \(\sqrt{8,023} \times \sqrt{\frac{1}{4} \times \frac{3}{4}} \approx 38.8\). Our observed error of 5.5 (the .5 is a continuity correction) is 0.15 standard errors. How much of the area under a normal curve is within 0.15 standard deviations of the mean? By consulting a normal table we can see that the answer is 12\%. We should expect to see experimental results that agree this closely (or more closely) with theoretical expectations 12\% of the time. That is not so unlikely, however almost every one of Mendel's experiments shows this pattern. Fisher used the \(\chi^2\)-test to pool the results and showed that the chance of agreement as close as Mendel reported is about four in a hundred thousand.
+
+There is also a fun example from Fisher in the chapter where Mendel's experimental results agree very closely with the theoretical expectation of somebody who got the mathematics a little wrong, but not particularly closely with the expectation of somebody who did not overlook one subtlety of Mendel's classification system.
+
+\begin{quote}
+There is one difference between seed color and pod shape. Pod shape is a characteristic of the parent plant, and is utterly unaffected by the fertilizing pollen. Thus, if a plant of a pure strain showing the recessive constricted form of seed pods is fertilized with pollen from a plant of pure strain showing the dominant inflated form, all the resulting seed pods will have the recessive constricted form . . . You can't tell the i/i 's from the i/c's or c/i 's just by looking, the appearances are identical. So how did Mendel classify them?Well, if undisturbed by naturalists, a pea plant will pollinate itself. So Mendel took his second-generation hybrid plants showing the dominant inflated form, and selected 600 at random. He then raised 10 offsprings from each of his selected plants. If the plant bred true and all 10 offsprings showed the dominant inflated form, he classified it as i/i.If the plant produced any offspring showing the recessive constricted form, he classified it as i/c or c/i.
+
+There is one difficulty with this scheme, which Mendel seems to have overlooked. As Figure 1 shows, the chance that the offspring of a self-fertilized i/c will contain at least one dominant gene i,andhence show the dominant inflated form, is 3/4. So the chance that 10 offsprings of an i/c crossed with itself will all show the dominant form is \((3/4)^{10} \approx 6\%\). Similarly for c/i 's. The expected frequency of plants classified as i/i is therefore a bit higher than 200, because about 6\% of the 400 i/c's and c/i 's will be incorrectly classified as i/i . . . Mendel's observed frequency (201 classified as i/i) is rather too far from expectation: the chance of such a large discrepancy is only about 5\%. As Fisher concludes, ``There is no easy way out of the difficulty.''
+\end{quote}
+
+I read a longer discussion of Mendel's experimental data in chapter 11 of Jan Sapp's `Genesis - The Evolution of Biology'.
+
+The next section of the chapter deals with Fisher's model of height heredity - to explain Galton's observations of `regression to mediocrity'. We start with a simplified version with the following assumptions:
+
+\begin{quote}
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  height is controlled by one gene-pair.
+\item
+  the genes controlling height act in a purely additive way.
+\end{enumerate}
+\end{quote}
+
+Here's the model:
+
+\begin{quote}
+The symbols h*, h**, h′,h′′ will be used to denote four typical variants of the height-gene. (Variants of a gene are called ``alleles.'') Assumption (2) means, for instance, that h* always contributes a fixed amount to an individual's height, whether it is combined with another h*,or with an h′,or with any other variant of the height gene . . . This contribution (say in inches) will be denoted by the same letter as used to denote the gene, but in capitals. Thus, an individual with the gene-pair h*/h′ will have height equal to the sum H* + H′ . . .
+
+Fisher assumed with Mendel that a child gets one gene of the pair controlling height at random from each parent (figure 3). To be more precise, the father has agene-pair controlling height, and so does themother. Then onegeneis drawn at random from the father's pair and one from the mother's pair to make up the child's pair.
+
+For the sake of argument, suppose the father has the gene-pair h*/h**, and the mother has the gene-pair h′/h′′.The child has chance 1/2 to get h* and chance 1/2 to get h** from the father. Therefore, the father's expected contribution to the child's height is 1/2H*+ 1/2 H** = 1/2(H*+H**),namely one-half the father's height. Similarly, the mother's expected contribution equals one-half her height. If you take a large number of children of parents whose father's height is fixed at one level, and mother's height is fixed at another level, the average height of these children must be about equal to
+
+1/2(father's height + mother's height).
+
+Th{[}is{]} expression is called the mid-parent height.For instance, with many families where the father is 72 inches tall and the mother is 68 inches tall, the mid-parent height is 1/2(72 + 68) = 70, and on the average the children will be about 70 inches tall at maturity, give or take a small chance error. This is the biological explanation for Galton's law of regression to mediocrity (pp.~169--173).
+\end{quote}
+
+Here's the regression from the Person-Lee Study:
+
+\[
+\text{estimated son's height} - 15'' + 0.8 \times \frac{\text{father's height} + 1.08 \times \text{mother's height} }{2}
+\]
+
+\begin{quote}
+The regression coefficient of 0.8 is noticeably lower than the 1.0 predicted by a purely additive genetic model. Some of the discrepancy may be due to environmental effects, and some to nonadditive genetic effects. Furthermore, the sons averaged 1 inch taller than the fathers. This too cannot be explained by a purely additive genetic model.
+\end{quote}
+
+The chapter ends on a general point about building chance models to model physical processes:
+
+\begin{quote}
+When thinking about any other chance model, it is good to ask two questions:
+* What are the physical entities which are supposed to act like the tickets and the box?
+* Do they really act like that?
+\end{quote}
+
+\hypertarget{tests_significance}{%
+\chapter{Tests of Significance}\label{tests_significance}}
+
+\hypertarget{chapter-notes-25}{%
+\section{Chapter Notes}\label{chapter-notes-25}}
+
+The chapter introduces an example to illustrate the ideas behind significance testing:
+
+\begin{quote}
+Suppose two investigators are arguing about a large box of numbered tickets. Dr.~Nullsheimer says the average is 50. Dr.~Altshuler says the average is different from 50. Eventually, they get tired of arguing, and decide to look at some data. There are many, many tickets in the box, so they agree to take a sample--- they'll draw 500 tickets at random. (The box is so large that it makes no difference whether the draws are made with or without replacement.) The average of the draws turns out to be 48, and the SD is 15.3.
+\end{quote}
+
+The investigators discuss whether the observed average of 48 is likely to be due to chance. They work out the standard error for the average
+
+\[
+\frac{\sqrt{500} \times 15.3}{500}\approx 0.7 
+\]
+
+The sample average is three standard errors below 50, which the investigators conclude is hard to explain by chance.
+
+This is a test statistic, usually called z:
+
+\[
+z = \frac{\text{observed} - \text{expected}}{\text{SE}}
+\]
+
+Where the expected value is the one expected under the assumption that the null hypothesis is true.
+
+The SD of the box is estimated from the data to compute the standard error.
+
+Using the normal approximation, the probability of getting the value 48 or a lower value is about 0.001. This is the p-value.
+
+\begin{quote}
+The z-test is used for reasonably large samples, when the normal approximation can be used on the probability histogram for the average of the draws. (The average has already been converted to standard units, by z.) With small samples, other techniques must be used, as discussed in section 6 below.
+\end{quote}
+
+The test statistic outlined above is called the ``one-sample z-test''.
+
+A second example of the one-sample z-test is introduced:
+
+\begin{quote}
+Charles Tart ran an experiment at the University of California, Davis, to demonstrate ESP.5 Tart used a machine called the ``Aquarius.'' The Aquarius has an electronic random number generator and 4 ``targets.'' Using its random number generator, the machine picks one of the 4 targets at random. It does not indicate which. Then, the subject guesses which target was chosen, by pushing a button. Finally, the machine lights up the target it picked, ringing a bell if the subject guessed right. The machine keeps track of the number of trials and the number of correct guesses.
+\end{quote}
+
+The box model looks like this:
+
+\includegraphics{images/Ch26Img01.png}
+
+There were 7,500 guesses in total from 15 subjects who were thought to be clairvoyant. They guessed correctly 2,006, when 1,875 would be expected by chance alone. We have the numerator for the test statistic: 2,006 - 1,875 = 131. The denominator is the standard error. We know the SD of the box this time (assuming the null hypothesis is true), we don't have to estimate it from the sample: it is \(\sqrt{0.25 \times 0.75}\approx 0.43\), and so the standard error is about \(0.43 \times 7,500 = 37\).
+
+The value of the one-sample z-statistics is about 3.5 and the p-value is about 2 in 10,000.
+
+Next, the t-test is introduced.
+
+Here's an example:
+
+\begin{quote}
+In Los Angeles, many studies have been conducted to determine the concentration of CO (carbon monoxide) near freeways with various conditions of traffic flow. The basic technique involves capturing air samples in special bags, and then determining the CO concentrations in the bag samples by using a machine called a spectrophotometer. These machines can measure concentrations up to about 100 ppm (parts per million by volume) with errors on the order of 10 ppm. Spectrophotometers are quite delicate and have to be calibrated every day. This involves measuring CO concentration in a manufactured gas sample, called span gas,where the concentration is precisely controlled at 70 ppm. If the machine reads close to 70 ppm on the span gas, it's ready for use; if not, it has to be adjusted. A complicating factor is that the size of the measurement errors varies from day to day. On any particular day, however, we assume that the errors are independent and follow the normal curve; the SD is unknown and changes from day to day.
+\end{quote}
+
+One day we get the following readings:
+
+78, 83, 68, 72, 88.
+
+Four higher than 70, some a lot higher. Is this chance?
+
+The chapter emphasises that each time we want to use a test of significance, we should try to translate the problem into a box model. In this case the appropriate box model is the Gausss model introduced in chapter 24. The idea here is that each measurement is the true value plus a bias plus a chance error. The chance error is assumed to have been drawn from a box where the tickets average out to 0 and the SD is \emph{unknown}.
+
+The null hypothesis is that the bias is 0.
+
+Here's the test statistic:
+
+\[
+\frac{\text{observed} - \text{expected}}{\text{SE}}
+\]
+
+The average of the five measurements is 77.8, the expected value under the null hypothesis is 70. The SD of the five measurements is 7.22. Let's provisionally use this as the SD of the box. Te SE for the average is
+
+\[
+\frac{\sqrt{5} \times 7.22}{5} \approx 3.23
+\]
+
+This gives a test statistic of \(\frac{77.8 - 70}{3.23} \approx 2.4\).
+
+Is our use of the SD of the sample as the SD of the population reasonable? Our sample is only five measurements. There is extra uncertainty that has to be taken into account. The SD of the error box should not be estimated by the SD of the measurements. Instead \(SD^+\) is used:
+
+\[
+SD^+ = \sqrt{\frac{\text{number of measurements}}{\text{number of measurements} - \text{one}}} \times SD
+\]
+
+Using \(SD^+\), the new value of the test statistic is 2.2, a little lower. So the results are a little less surprising, assuming the null hypothesis.
+
+To find the p-value, we no longer use the normal approximation. With a small number of observations, we use Student's curve. Student's curve has a parameter degrees of freedom. If
+
+\begin{itemize}
+\tightlist
+\item
+  \(\bar{X}\) is the sample mean
+\item
+  \(\mu\) is the expected mean
+\item
+  \(\sigma\) is the population standard deviation
+\item
+  \(SD^+\) is the sample standard deviation
+\item
+  \(n\) is the sample size
+\end{itemize}
+
+then the random variable
+
+\[
+\frac{\bar{X}-\mu}{\sigma / \sqrt{n}}
+\]
+has a standard normal distribution. But we don't know the population standard deviation in this case. The random variable
+
+\[
+\frac{\bar{X}-\mu}{SD^+ / \sqrt{n}}
+\]
+
+has a Student's t-distribution with n-1 degrees of freedom.
+
+\begin{quote}
+Student's curve should be used under the following circumstances:
+* The data are like draws from a box.
+* The SD of the box is unknown.
+* The number of observations is small, so the SD of the box cannot be estimated very accurately.
+* The histogram for the contents of the box does not look too different from the normal curve.
+\end{quote}
+
+\hypertarget{further-reading-9}{%
+\section*{Further Reading}\label{further-reading-9}}
+\addcontentsline{toc}{section}{Further Reading}
+
+Endnote 2 contains the following:
+
+Additional reading, in order of difficulty ---
+
+\begin{itemize}
+\tightlist
+\item
+  J. L. Hodges, Jr.~and E. Lehmann, Basic Concepts of Probability and Statistics,2nd ed.~(SIAM, 2004).
+\item
+  L. Breiman, Statistics with a View towards Applications (Houghton Mifflin, 1973).
+\item
+  J. Rice, Mathematical Statistics and Data Analysis,3d ed.(Duxbury Press, 2005).
+\item
+  P. Bickel and K. Doksum, Mathematical Statistics,2nd ed.(Prentice Hall, 2001).
+\item
+  E. Lehmann, Theory of Point Estimation,2nd ed.~with G. Casella (Springer, 1998).
+\item
+  E. Lehmann, Testing Statistical Hypotheses,3rd ed.~with J. Romano (Springer, 2005).
+\end{itemize}
+
+\hypertarget{more_tests_averages}{%
+\chapter{More Tests for Averages}\label{more_tests_averages}}
+
+\hypertarget{chapter-notes-26}{%
+\section{Chapter Notes}\label{chapter-notes-26}}
+
+We want to find the expected value and standard error for the difference between two sample averages.
+
+Say we take 400 draws from a box A and 100 from a box B, both with replacement. The box averages and standard deviations are below
+
+\begin{itemize}
+\tightlist
+\item
+  Box A: Average 110, SD 60
+\item
+  Box B: Average 90, SD 40
+\end{itemize}
+
+The expected value for the difference is 110 - 90 = 20.
+
+The standard errors for our sample averages are \(60 / \sqrt400 = 3\) and \(40 / \sqrt{100} = 4\). The standard error for the difference is \(\sqrt{3^2 +4^2}=5\).
+
+For two independent samples, the standard error for the difference is
+
+\[
+\sqrt{a^2 + b^2}
+\]
+where \(a\) is the SE for the first sample, and \(b\) the standard error for the second.
+
+So if we have two samples, and want to decide whether the differences between the sample averages should be put down to chance, we can use the two-sample z-statistic:
+
+\[
+z = \frac{\text{observed difference} - \text{expected difference}}{SE \text{ for the difference}}
+\]
+Often we will be assuming that the expected difference is zero, if for example we're running a null hypothesis test where the null hypothesis that both samples were drawn from the same population.
+
+It's important to note that the two-sample z-statistic assumes that we are dealing with two independent simple random samples.
+
+This kind of test can be used to analyse certain kinds of experiments. I.e. where the experimenters randomly assign subjects to one of two groups: control or treatment.
+
+Here's an interesting section on how the assumptions of the test are violated in this scenario:
+
+\begin{quote}
+Now, a look behind the scenes. In working the example, you were asked to pretend that the treatment and control samples were drawn independently, at random with replacement, from two boxes. However, the experiment wasn't done that way. There were 200 subjects; 100 were chosen at random---without replacement---to get the vitamin C; the other 100 got the placebo. So the draws are made without replacement. Furthermore, the samples are dependent. For instance, one subject might be quite susceptible to colds. If this subject is in the vitamin C group, he cannot be in the placebo group. The assignment therefore influences both averages.
+\end{quote}
+
+So what are reasons for believing that the standard error will come out correctly, given the violated assumptions?
+
+The two box model described in the example at the start of this chapter does not reflect what is happening with RCTs (unless the subjects are really chosen as a random sample from a large population - usually not the case).
+
+The box model for most RCTs is really more like the following:
+
+We have a number of tickets in a box, one for each subject. Each ticket now has two numbers on it: one for the subject's response if receiveing treatment A, and one for their response if receiving treatment B. Only one of these will be observed for each subject. The experimenters randomly draw about half of the tickets without replacement and observe the A value. They then draw the rest of the tickets and observe the B value.
+
+\includegraphics{images/Ch27Img01.png}
+
+Problems for using the two-sample z-statistic:
+
+\begin{quote}
+\begin{itemize}
+\tightlist
+\item
+  The draws are made without replacement, but the SEs are computed as if drawing with replacement.
+\item
+  The two averages are dependent, but the SEs are combined as if the averages were independent.
+\end{itemize}
+\end{quote}
+
+The averages are dependent because if one person is assigned to treatment A they are not assigned to treatment B.
+
+So why do we trust the computed SE?
+
+\begin{quote}
+It is a lucky break that when applied to randomized experiments, the procedure of section 2 is conservative, tending to overestimate the SE by a small amount. That is because the two mistakes offset each other.
+* The first mistake inflates the SE.
+* The second mistake cuts the SE back down.
+\end{quote}
+
+\begin{quote}
+To make the mathematics work, the SEs for the two sample averages must be computed on the basis of drawing WITH replacement---even though the draws are made WITHOUT replacement. That is what compensates for the dependence between the two samples.
+\end{quote}
+
+There is a long endnote here with more detail.
+
+We should not use the z-statistic when we record two correlated responses for each subject.
+
+\hypertarget{further-reading-10}{%
+\section*{Further Reading}\label{further-reading-10}}
+\addcontentsline{toc}{section}{Further Reading}
+
+Chapter 27 endnote 11 and the references there.
+
+\hypertarget{chi_square}{%
+\chapter{The Chi-Square Test}\label{chi_square}}
+
+\hypertarget{chapter-notes-27}{%
+\section{Chapter Notes}\label{chapter-notes-27}}
+
+The \(\chi^2\)-test is used when we have more than two categories. The chapter uses the example of a test to check whether a die is fair.
+
+Here's a table of what we observe on 60 rolls of the die, against what we expect:
+
+\includegraphics{images/Ch28Img01.png}
+
+Here we can see that there are too many 3's. The standard error for the number of 3's is \(\sqrt{60} \times \sqrt{1/6 \times 5/6} \approx 2.9\). So the observed number 17 is about 2.4 SEs above the expected value.
+
+But we shouldn't conclude yet that the die is not fair. The more lines in the table, the higher the probability that one of them will look suspicious even with a fair die. We need to take the data all together, and this what the \(\chi^2\)-test allows.
+
+\[
+\chi^2 = \sum\frac{(\text{observed frequency} - \text{expected frequency})^2}{\text{expected frequency}}
+\]
+Large values indicate that the observed frequencies are far from the expected ones. Small values indicate that the observed frequencies are close to the expected ones (the Fisher example below gives an example of a case where the \(\chi^2\)-test is used to show that observed frequencies are \emph{too} close to the expected ones). Here's the calculation for the table above:
+
+\includegraphics{images/Ch28Img02.png}
+
+Now we need the probability of observing a \(\chi^2\)-statistic of 14.2 or more, given a fair die is rolled 60 times.
+
+The \(\chi^2\) distribution, has one parameter - degrees of freedom. With a fully specified model (no parameters to estimate) as in this case, the degrees of freedom are given by
+
+\[
+\text{degrees of freedom} = \text{number of terms in } \chi^2 - \text{one}
+\]
+In this case \(6 - 1 = 5\).
+
+Here's how we calculate the amount of probability mass at and above 14.2 for a \(\chi^2\) curve with 5 degrees of freedom:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{pchisq}\NormalTok{(}\FloatTok{14.2}\NormalTok{, }\DecValTok{5}\NormalTok{,}\AttributeTok{lower.tail =} \ConstantTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.01438768
+\end{verbatim}
+
+I.e. 1.4\%. This is our p-value.
+
+We use a \(\chi^2\)-test when it matters how many tickets of each kind are in the box. If we only care about averages, we can use the z-test.
+
+A summary:
+
+\begin{quote}
+\begin{itemize}
+\tightlist
+\item
+  The \(\chi^2\)-test says whether the data are like the result of drawing at random from a box whose contents are given.
+\item
+  The z-test says whether the data are like the result of drawing at random from a box whose average is given.
+\end{itemize}
+\end{quote}
+
+\begin{quote}
+Whatever is in the box, the same \(\chi^2\)-curves and tables can be used to approximate P,provided N is large enough. That is what motivated the formula. With other test statistics, a new curve would be needed for every box.
+\end{quote}
+
+There is then a section in the chapter about how Fisher used the \(\chi^2\)-test to evaluate Mendel's data, concluding that the data was manipulated.
+
+The important point here is that Fisher could combine the results of more than one experiment and calculate a single \(\chi^2\)-statistic for the overall probability of the data, given the hypothesis that the experiments were conducted as described.
+
+\begin{quote}
+With independent experiments, the results can be pooled by adding up the separate \(\chi^2\)-statistics; the degrees of freedom add up too.
+\end{quote}
+
+The other difference here is that the left tail area of the appropriate \(\chi^2\) curve must be used. This is because small values of \(\chi^2\) say that the observed frequencies are closer to the expected ones than chance would allow which is the alternative hypothesis in this case.
+
+The \(\chi^2\)-statistic can also be used when testing for independence. An example in the chapter concerns handedness and sex. Are they independent? Here's a table:
+
+\includegraphics{images/Ch28Img03.png}
+
+We can analyse this example using a box with six types of tickets:
+
+\includegraphics{images/Ch28Img04.png}
+
+The composition of the box is unknown, and so we have 6 parameters to estimate.
+
+To calculate our statistic, we need to compare the observed figures in the table above to the expected frequencies:
+
+\includegraphics{images/Ch28Img05.png}
+
+\[
+\begin{aligned}
+\chi^2 &= \sum\frac{(\text{observed frequency} - \text{expected frequency})^2}{\text{expected frequency}}\\
+&= \frac{(934-956)^2}{956} + \frac{(1070-1048)^2}{1048} \\
+&+ \frac{(113-98)^2}{98} +\frac{(92-107)^2}{107} \\
+&+ \frac{(20-13)^2}{13} +\frac{(8-15)^2}{15} \\
+&\approx 12
+\end{aligned}
+\]
+When testing independence in an \(m \times n\) table, there are \((m-1) \times (n-1)\) degrees of freedom. To see notice that there are 22 fewer right-handed men than expected in the table above, and there are 22 \emph{more} right-handed women. Once you know one figure, you know the other because the differences must add up to zero horizontally. So we only need to know \((n-1)\) of the columns. We only need to know \((m-1)\) of the rows, because the differences must also add up to zero vertically. We have 22 fewer right-handed men than expected, which means we must have 22 more left-handed and ambidextrous men.
+
+So where did the expected frequencies in the above table come from?
+
+To start with, we compute the row and column totals:
+
+\includegraphics{images/Ch28Img06.png}
+
+We can see that
+
+\[
+\frac{2004}{2237} = 89.6\%
+\]
+of our sample are right-handed. If handedness and sex were independent we would expect 89.6\% of men to be right-handed. We expect \(89.4\% \times 1067 \approx 956\) right-handed men.
+
+We should be computing the expected frequencies directly from the box model, but we don't know the box composition. We instead estimate expected frequencies from the sample and the assumption of independence. The chapter says that ``estimated expected frequencies'' would be the more appropriate term.
+
+\hypertarget{further-reading-11}{%
+\chapter*{Further Reading}\label{further-reading-11}}
+\addcontentsline{toc}{chapter}{Further Reading}
+
+\hypertarget{closer_look}{%
+\chapter{A Closer Look at Tests of Significance}\label{closer_look}}
+
+\hypertarget{chapter-notes-28}{%
+\section{Chapter Notes}\label{chapter-notes-28}}
+
+This chapter discusses some caveats and problems with significance testing.
+
+\begin{itemize}
+\tightlist
+\item
+  It is not true that a statistically significant result cannot be caused by chance variation.
+\item
+  Deciding which hypothesis to test after looking at the data makes p-values hard to interpret.
+\item
+  One form of this data snooping is to look at whether your sample average is too big or two small, and then deciding to use a one-tailed test in the direction observed.
+\item
+  As long as they say what they have done, this can be corrected. If you think a two-tailed test should have been performed instead, just double the p-value.
+\item
+  Statistical significance and practical significance are two distinct ideas. With a large enough sample, even a difference too small to ever matter practically can lead to a very small p-value.
+\item
+  A box model is always needed to make sense out of a test of significance.
+\item
+  Take care to distinguish between samples drawn by probability methods and a sample of convenience.
+\item
+  Rejection of \(H_0\) should not be confused with strong evidence for your substantive theory \(T\) by itself. If too many sixes come up in a die-rolling test of telekinesis, we may have simply found evidence that the die used is biased. Multiple competing theories can predict the same statistical model.
+\item
+  Tests of significance only ever answer one question:
+\end{itemize}
+
+\begin{quote}
+How easy is it to explain the difference between the data and what is expected on the null hypothesis, on the basis of chance variation alone?
+\end{quote}
+
+\begin{itemize}
+\tightlist
+\item
+  Sometimes this is not the right question to ask, and techniques of estimation are needed instead of hypothesis testing.
+\end{itemize}
+
+\hypertarget{further-reading-12}{%
+\chapter*{Further Reading}\label{further-reading-12}}
+\addcontentsline{toc}{chapter}{Further Reading}
+
+  \bibliography{book.bib,packages.bib}
+
+\end{document}

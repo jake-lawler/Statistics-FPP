@@ -24,4 +24,4 @@ serve_book(dir = ".", output_dir = "_book", preview = TRUE, in_session = TRUE, q
 
 ```
 
-These are my notes on 'Statistics' by David Freedman, Robert Pisani, and Roger Purves. The notes are fairly brief, just short chapter summaries. The book has very low mathematical prerequisites, but is strong conceptually in a lot of places and I found that helpful as an addition to my previous more mathematical but mechanical exposure to these topics in the CS1 actuarial exam.
+These are my notes on 'Statistics' by David Freedman, Robert Pisani, and Roger Purves. The notes are fairly brief, just short chapter summaries. The book has very low mathematical prerequisites, but is strong conceptually in a lot of places which was fun and helpful as an addition to my previous more mathematical but mechanical exposure to these topics in the CS1 actuarial exam.
